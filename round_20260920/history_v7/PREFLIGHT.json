@@ -1,0 +1,76 @@
+{
+  "created_unix": 1789927877.422406,
+  "paths": {
+    "/Users/mohitpatil/JevResearch": {
+      "directory": true
+    },
+    "/Users/mohitpatil/jev-mac-native": {
+      "directory": true
+    }
+  },
+  "budget": {
+    "limit": 10000,
+    "attempts_used": 67,
+    "remaining": 9933,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true
+  },
+  "git_head": {
+    "returncode": 0,
+    "stdout": "0044c65560b21f4d782ab9c9b637a05cbe009db2"
+  },
+  "branch": {
+    "returncode": 0,
+    "stdout": "main"
+  },
+  "staged_changes": {
+    "returncode": 0,
+    "stdout": ""
+  },
+  "disk_free_bytes": 55969087488,
+  "versions": {
+    "pyspark": "4.0.1",
+    "httpx": "0.28.1"
+  },
+  "load_average": [
+    1.6689453125,
+    1.6357421875,
+    1.64208984375
+  ],
+  "spark_queries": 0,
+  "model_api_calls": 0,
+  "secret_reads": 0,
+  "public_documents": [
+    {
+      "url": "https://docs.typesafe.ai/primitives/choice",
+      "name": "choice",
+      "http_status": 200,
+      "bytes": 559038,
+      "sha256": "a5e853094ba15b083a4dac6f1e460b0ce1bc819520671d50b33c1786436d0cb0",
+      "contains_choice": true,
+      "contains_pinned_model": true,
+      "contains_endpoint": true
+    },
+    {
+      "url": "https://docs.typesafe.ai/api",
+      "name": "api",
+      "http_status": 200,
+      "bytes": 538061,
+      "sha256": "63074b265e1f55acfa435d8798b2a7b7d75de0964ee9e83f450b90f93f1a8200",
+      "contains_choice": true,
+      "contains_pinned_model": true,
+      "contains_endpoint": true
+    },
+    {
+      "url": "https://docs.typesafe.ai/models",
+      "name": "models",
+      "http_status": 200,
+      "bytes": 350241,
+      "sha256": "bf94d789e4d7af58166b6a973741d01421ce9b2c0f22b156ec6a976332672f91",
+      "contains_choice": true,
+      "contains_pinned_model": true,
+      "contains_endpoint": true
+    }
+  ]
+}

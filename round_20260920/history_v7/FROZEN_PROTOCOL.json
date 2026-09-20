@@ -1,0 +1,64 @@
+{
+  "created_unix": 1789928100.115009,
+  "deadline_s": 1.25,
+  "evaluation_cases": {
+    "lookup_narrow": {
+      "family": "LEFT_LOOKUP",
+      "keep": 1000,
+      "m": 120000,
+      "n": 1600000,
+      "seed": 947,
+      "width": 128
+    },
+    "lookup_selective": {
+      "family": "LEFT_LOOKUP",
+      "keep": 20,
+      "m": 320000,
+      "n": 2800000,
+      "seed": 967,
+      "width": 384
+    },
+    "lookup_wide": {
+      "family": "LEFT_LOOKUP",
+      "keep": 1000,
+      "m": 320000,
+      "n": 160000,
+      "seed": 953,
+      "width": 384
+    },
+    "residual_transfer": {
+      "family": "LEFT_RESIDUAL",
+      "keep": 30,
+      "m": 280000,
+      "n": 2200000,
+      "seed": 971,
+      "width": 384
+    }
+  },
+  "feedback_isolation": "Other arms and warmups can precede a live prediction, but their outputs/times are excluded and prompts/history remain frozen.",
+  "history_policy": "Four prior development snapshots only; never append evaluation feedback.",
+  "history_sha256": "8ab1f0a5f4e9a02c1edcf4c501ff92bb093d99fce1c57eb98a74f08326bbb2b8",
+  "kind": "prospective pre-execution history study; not AQE runtime intervention",
+  "local_policy": "1-nearest log-distance over measured/estimated input size features; family match required; choose alternative only for historical >10% and >50ms advantage; distance <=4.",
+  "native_control": "10 MiB initial/adaptive default and separate fixed 64 MiB native comparator; no optimizer rules disabled.",
+  "per_case_model_attempts": 10,
+  "policies": [
+    "NATIVE",
+    "TUNED64",
+    "LOCAL_HISTORY",
+    "JEV_ZERO",
+    "JEV_HISTORY"
+  ],
+  "repetitions": 5,
+  "scope": "Three independent new parameter/data snapshots of LEFT_LOOKUP and one previously unused LEFT_RESIDUAL SQL family. Not a statistically broad unseen-family benchmark.",
+  "selection_quality_limit": "Full-query workflow results primary; no accuracy inferred from agreement with Spark or unexecuted counterfactual.",
+  "source_hashes": {
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06",
+    "round_20260920/history_v7/experiment.py": "1e1a318576803d132e337ff67260e43374a815cb0bde047021e768d93e13560d",
+    "round_20260920/history_v7/history_core.py": "b0d52ff87c1b98874bc998bd9653b4f4ad06aee57362ea07f5f01054c5802096",
+    "round_20260920/history_v7/test_history.py": "68c395d81677353a2cbdd8d492ee96c8e8bc05d9f0ae2f0adfa0a2c792e9d0b4",
+    "round_20260920/production_v3/parquet_corpus.py": "1f44702bd87a95b4223c60769412c9ee6117525cdeb4f56dd12fb27e069ae8dd",
+    "round_20260920/production_v4/authorized_budget.py": "c875084310d5dad9e476a895b0a584295a340538da8c4c3174e2fbc9b699966e",
+    "round_20260920/safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049"
+  }
+}

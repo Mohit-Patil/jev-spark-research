@@ -1,0 +1,23 @@
+{
+  "all_correct": true,
+  "budget_after": 67,
+  "budget_before": 67,
+  "historical_cases": 4,
+  "new_api_calls": 0,
+  "offline_tests": {
+    "budget_after": 67,
+    "budget_before": 67,
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "real_api_calls": 0,
+    "tests": 16
+  },
+  "protocol_sha256": "61e7f1ca30e8df1efef87edcc9a4a6e94ea82b5c0ebd48bf92bba4ee4d549751",
+  "request_sizes_smoke": {
+    "HISTORY": 12604,
+    "ZERO": 8535
+  },
+  "smoke_queries": 10,
+  "status": "succeeded"
+}
