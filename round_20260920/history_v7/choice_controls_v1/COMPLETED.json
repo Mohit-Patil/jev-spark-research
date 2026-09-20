@@ -1,0 +1,140 @@
+{
+  "budget": {
+    "attempts_used": 122,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true,
+    "limit": 10000,
+    "remaining": 9878
+  },
+  "budget_before": 107,
+  "calls": 15,
+  "groups": {
+    "generic_minimum": {
+      "correct": 6,
+      "total": 6,
+      "valid": 6
+    },
+    "literal_route": {
+      "correct": 3,
+      "total": 3,
+      "valid": 3
+    },
+    "strategy_minimum": {
+      "correct": 6,
+      "total": 6,
+      "valid": 6
+    }
+  },
+  "new_api_attempts": 15,
+  "records": [
+    {
+      "choice": "C",
+      "correct": true,
+      "expected": "C",
+      "kind": "literal_route",
+      "status": "succeeded"
+    },
+    {
+      "choice": "B",
+      "correct": true,
+      "expected": "B",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "MERGE",
+      "correct": true,
+      "expected": "MERGE",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "B",
+      "correct": true,
+      "expected": "B",
+      "kind": "literal_route",
+      "status": "succeeded"
+    },
+    {
+      "choice": "NATIVE",
+      "correct": true,
+      "expected": "NATIVE",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "C",
+      "correct": true,
+      "expected": "C",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "B",
+      "correct": true,
+      "expected": "B",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "A",
+      "correct": true,
+      "expected": "A",
+      "kind": "literal_route",
+      "status": "succeeded"
+    },
+    {
+      "choice": "C",
+      "correct": true,
+      "expected": "C",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "NATIVE",
+      "correct": true,
+      "expected": "NATIVE",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "A",
+      "correct": true,
+      "expected": "A",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "BROADCAST",
+      "correct": true,
+      "expected": "BROADCAST",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "BROADCAST",
+      "correct": true,
+      "expected": "BROADCAST",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "A",
+      "correct": true,
+      "expected": "A",
+      "kind": "generic_minimum",
+      "status": "succeeded"
+    },
+    {
+      "choice": "MERGE",
+      "correct": true,
+      "expected": "MERGE",
+      "kind": "strategy_minimum",
+      "status": "succeeded"
+    }
+  ],
+  "scope": "Controls do not prove future plan-selection quality or general model ability.",
+  "spark_queries": 0,
+  "status": "succeeded"
+}

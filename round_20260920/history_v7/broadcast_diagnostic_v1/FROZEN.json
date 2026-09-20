@@ -1,0 +1,16 @@
+{
+  "case": {
+    "family": "LEFT_LOOKUP",
+    "keep": 1000,
+    "m": 350000,
+    "n": 200000,
+    "seed": 991,
+    "width": 448
+  },
+  "created_unix": 1789929006.783183,
+  "maximum_queries": 24,
+  "maximum_rounds": 12,
+  "new_api_calls": 0,
+  "reason": "Diagnose one previously saved Py4JJavaError; no performance-selection tuning.",
+  "source_sha256": "dbab51b1c347f03f138e592fb9e51cfc2209a307be3e98a64ec5f73ce2b27ef0"
+}

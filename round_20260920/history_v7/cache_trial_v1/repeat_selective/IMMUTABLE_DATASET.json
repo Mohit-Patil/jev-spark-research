@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "bytes": 81752382,
+      "file": "dim/part-00000-413d19d2-f0aa-4f86-9a93-ceae08032858-c000.snappy.parquet",
+      "sha256": "1b9904852675b58b05da46ba93e8c504b14ab324d46191b6054cb416bcbdecdd"
+    },
+    {
+      "bytes": 81703283,
+      "file": "dim/part-00001-413d19d2-f0aa-4f86-9a93-ceae08032858-c000.snappy.parquet",
+      "sha256": "92417af823e86042d821c6d66f4e745092382c47f975ddba4be832d3e8d3d687"
+    },
+    {
+      "bytes": 11301133,
+      "file": "fact/part-00000-ff222673-2fd3-4870-a6d9-410759c8b49b-c000.snappy.parquet",
+      "sha256": "b4bea4654ae7b880ec5cb6092530b0d6217d01dcb7551ec2ce44efc5ddf0dd65"
+    },
+    {
+      "bytes": 11301163,
+      "file": "fact/part-00001-ff222673-2fd3-4870-a6d9-410759c8b49b-c000.snappy.parquet",
+      "sha256": "4da5aed9fa739ea9c6cb992d8aa9a11aec92cbdc3d9da5c3cbecf8280ca0785b"
+    }
+  ],
+  "identity": "f532e3f06e657b5ec0ddacb7f2ba8fe4a914755e0fa4ce3e68bf0b2879d3600e",
+  "registration_s": 0.06479999993462116
+}

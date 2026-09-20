@@ -1,0 +1,28 @@
+{
+  "budget_before": 67,
+  "cache": "One per-strategy warmup; shared warmed JVM and OS cache. No cached DataFrames.",
+  "case": {
+    "family": "LEFT_LOOKUP",
+    "keep": 1000,
+    "m": 120000,
+    "n": 1600000,
+    "seed": 947,
+    "width": 128
+  },
+  "case_name": "lookup_narrow",
+  "created_unix": 1789928194.241025,
+  "feature_costs": "All footer reads are charged on every LOCAL_HISTORY/JEV workflow; native arms do not pay this custom metadata cost.",
+  "history_sha256": "8ab1f0a5f4e9a02c1edcf4c501ff92bb093d99fce1c57eb98a74f08326bbb2b8",
+  "policies": [
+    "NATIVE",
+    "TUNED64",
+    "LOCAL_HISTORY",
+    "JEV_ZERO",
+    "JEV_HISTORY"
+  ],
+  "protocol_sha256": "61e7f1ca30e8df1efef87edcc9a4a6e94ea82b5c0ebd48bf92bba4ee4d549751",
+  "random_seed": 7219,
+  "reps": 5,
+  "state": "pre-execution policy, not AQE intervention",
+  "timing": "Policy config, footer feature reads, candidate enumeration if needed, live request and decision recording, selected SQL build and collect. Final logging excluded."
+}

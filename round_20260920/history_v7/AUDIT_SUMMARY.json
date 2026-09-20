@@ -1,0 +1,238 @@
+{
+  "attempt_range": [
+    68,
+    136
+  ],
+  "budget": {
+    "attempts_used": 136,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true,
+    "limit": 10000,
+    "remaining": 9864
+  },
+  "cache_cases": [
+    {
+      "attempted_queries": 35,
+      "cached_episode_including_registration_s": 2.7380502918967977,
+      "cached_episode_ratio_vs_local": 1.2887125539008795,
+      "cached_episode_ratio_vs_native": 0.6091505540257073,
+      "case": "repeat_selective",
+      "complete_paired_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failed_queries": 0,
+      "paired_prefix_medians_s": {
+        "CACHED_HISTORY": 0.3850732914870605,
+        "JEV_HISTORY": 0.8224422709899954,
+        "LOCAL_HISTORY": 0.34324910398572683,
+        "NATIVE": 0.7457178544718772,
+        "TUNED64": 0.7375629789894447
+      },
+      "paired_prefix_totals_s": {
+        "CACHED_HISTORY": 2.6732502919621766,
+        "JEV_HISTORY": 5.620048457873054,
+        "LOCAL_HISTORY": 2.12464003986679,
+        "NATIVE": 4.494866291759536,
+        "TUNED64": 4.5158097092062235
+      },
+      "raw_sha256": "561c944a196f15b53e76586696fcd967084d442d40f731c871ee796cddfe6cdb",
+      "registration_s": 0.06479999993462116,
+      "status": "completed_case_inside_failed_batch",
+      "successful_queries": 35
+    },
+    {
+      "attempted_queries": 31,
+      "case": "repeat_wide",
+      "complete_paired_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "failed_queries": 1,
+      "paired_prefix_medians_s": {
+        "CACHED_HISTORY": 1.4186371660325676,
+        "JEV_HISTORY": 1.7518207499524578,
+        "LOCAL_HISTORY": 0.729601625003852,
+        "NATIVE": 0.74133091699332,
+        "TUNED64": 0.6619493330363184
+      },
+      "paired_prefix_totals_s": {
+        "CACHED_HISTORY": 7.212547415983863,
+        "JEV_HISTORY": 8.230788500979543,
+        "LOCAL_HISTORY": 3.6018260829150677,
+        "NATIVE": 3.630603958037682,
+        "TUNED64": 3.5540523739764467
+      },
+      "performance_scope": "Five-round completed prefix only; no completed six-query cached episode or successful full-batch claim.",
+      "raw_sha256": "09a85a2f86bc7c8a7a569a10b80c1bd11d85757ca9b64f84a36e04610d7b65f9",
+      "registration_s": 0.056237875018268824,
+      "status": "incomplete_due_to_query_failure",
+      "successful_queries": 30
+    }
+  ],
+  "checks": 795,
+  "correct_completed_queries": 200,
+  "diagnostic_failures": [
+    {
+      "arm": "BROADCAST",
+      "elapsed_s": 0.49456545908469707,
+      "error_type": "Py4JJavaError",
+      "heap_max": 2147483648,
+      "heap_used_after": 1307710072,
+      "heap_used_before": 1325322256,
+      "java_causes": [
+        {
+          "class": "org.apache.spark.SparkException",
+          "message": "Not enough memory to build and broadcast the table to all worker nodes. As a workaround, you can either disable broadcast by setting spark.sql.autoBroadcastJoinThreshold to -1 or increase the spark driver memory by setting spark.driver.memory to a higher value."
+        }
+      ],
+      "rep": 2
+    }
+  ],
+  "failed_queries": 2,
+  "known_answer_controls": {
+    "generic_minimum": {
+      "correct": 6,
+      "total": 6,
+      "valid": 6
+    },
+    "literal_route": {
+      "correct": 3,
+      "total": 3,
+      "valid": 3
+    },
+    "strategy_minimum": {
+      "correct": 6,
+      "total": 6,
+      "valid": 6
+    }
+  },
+  "main_medians": [
+    {
+      "JEV_HISTORY": 1.8940602079965174,
+      "JEV_ZERO": 1.7856699590338394,
+      "LOCAL_HISTORY": 0.8419582500355318,
+      "NATIVE": 0.8193482499336824,
+      "TUNED64": 0.6758893340593204,
+      "case": "lookup_narrow"
+    },
+    {
+      "JEV_HISTORY": 1.684108457993716,
+      "JEV_ZERO": 1.4850424589822069,
+      "LOCAL_HISTORY": 0.5062663330463693,
+      "NATIVE": 0.5774314999580383,
+      "TUNED64": 0.4983522080583498,
+      "case": "lookup_wide"
+    },
+    {
+      "JEV_HISTORY": 1.277768375002779,
+      "JEV_ZERO": 0.8010658749844879,
+      "LOCAL_HISTORY": 0.24167683301493526,
+      "NATIVE": 0.46846904198173434,
+      "TUNED64": 0.46759395906701684,
+      "case": "lookup_selective"
+    },
+    {
+      "JEV_HISTORY": 0.6788017499493435,
+      "JEV_ZERO": 0.9516141669591889,
+      "LOCAL_HISTORY": 0.40120266599114984,
+      "NATIVE": 0.37915337504819036,
+      "TUNED64": 0.3772314579691738,
+      "case": "residual_transfer"
+    }
+  ],
+  "measured_query_attempts": 156,
+  "model_statistics": {
+    "JEV_HISTORY": {
+      "error_types": {
+        "ReadTimeout": 3,
+        "TimeoutError": 3
+      },
+      "failed_requests": 6,
+      "maximum_network_s": 1.2543236250057817,
+      "median_network_s": 0.9045284374733455,
+      "requests": 20,
+      "valid": 14,
+      "valid_choices": {
+        "ABSTAIN": 0,
+        "BROADCAST": 14,
+        "MERGE": 0,
+        "NATIVE": 0,
+        "SHUFFLE_HASH": 0
+      }
+    },
+    "JEV_ZERO": {
+      "error_types": {
+        "ReadTimeout": 5,
+        "TimeoutError": 1
+      },
+      "failed_requests": 6,
+      "maximum_network_s": 1.2540724590653554,
+      "median_network_s": 0.8382578329765238,
+      "requests": 20,
+      "valid": 14,
+      "valid_choices": {
+        "ABSTAIN": 0,
+        "BROADCAST": 14,
+        "MERGE": 0,
+        "NATIVE": 0,
+        "SHUFFLE_HASH": 0
+      }
+    }
+  },
+  "new_api_attempts": 69,
+  "original_cache_query_failures": [
+    {
+      "elapsed_s": 0.5269769169390202,
+      "error_type": "Py4JJavaError",
+      "policy": "CACHED_HISTORY",
+      "rep": 5,
+      "run_id": "cache7_repeat_wide_5_CACHED_HISTORY",
+      "selected": "BROADCAST",
+      "source_attempt": 133,
+      "status": "failed"
+    }
+  ],
+  "paired_model_comparisons": {
+    "JEV_HISTORY": {
+      "paired_comparisons": 20,
+      "wins": {
+        "LOCAL_HISTORY": 0,
+        "NATIVE": 0,
+        "TUNED64": 0
+      }
+    },
+    "JEV_ZERO": {
+      "paired_comparisons": 20,
+      "wins": {
+        "LOCAL_HISTORY": 0,
+        "NATIVE": 0,
+        "TUNED64": 0
+      }
+    }
+  },
+  "query_attempts": 202,
+  "reported_usage": {
+    "attempts_without_usage": 14,
+    "input_tokens": 185707,
+    "meaning": "Known reported usage only; missing usage may still incur cost. No bill inspected.",
+    "output_tokens": 3305
+  },
+  "status": "audit_succeeded_with_experimental_failures_preserved",
+  "warmup_queries": 30,
+  "worst_prospective_jev_regression": {
+    "case": "residual_transfer",
+    "extra_s": 1.3668255829252303,
+    "policy": "JEV_HISTORY",
+    "ratio": 4.492182621293883,
+    "rep": 0
+  }
+}

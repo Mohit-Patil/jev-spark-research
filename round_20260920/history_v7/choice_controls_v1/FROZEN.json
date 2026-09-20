@@ -1,0 +1,386 @@
+{
+  "cases": [
+    {
+      "expected": "C",
+      "instructions": "This is an exact routing control. Return the required_choice supplied in state. Do not predict anything.",
+      "kind": "literal_route",
+      "options": [
+        "A",
+        "B",
+        "ABSTAIN",
+        "C"
+      ],
+      "state": {
+        "required_choice": "C"
+      }
+    },
+    {
+      "expected": "B",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "B",
+        "ABSTAIN",
+        "C",
+        "A"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "B",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "C",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "A",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "expected": "MERGE",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "BROADCAST",
+        "ABSTAIN",
+        "NATIVE",
+        "MERGE"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "expected": "B",
+      "instructions": "This is an exact routing control. Return the required_choice supplied in state. Do not predict anything.",
+      "kind": "literal_route",
+      "options": [
+        "C",
+        "A",
+        "ABSTAIN",
+        "B"
+      ],
+      "state": {
+        "required_choice": "B"
+      }
+    },
+    {
+      "expected": "NATIVE",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "NATIVE",
+        "MERGE",
+        "ABSTAIN",
+        "BROADCAST"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "expected": "C",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "B",
+        "C",
+        "ABSTAIN",
+        "A"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "C",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "B",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "A",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "expected": "B",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "A",
+        "C",
+        "B",
+        "ABSTAIN"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "C",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "A",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "B",
+            "duration_seconds": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "expected": "A",
+      "instructions": "This is an exact routing control. Return the required_choice supplied in state. Do not predict anything.",
+      "kind": "literal_route",
+      "options": [
+        "B",
+        "A",
+        "ABSTAIN",
+        "C"
+      ],
+      "state": {
+        "required_choice": "A"
+      }
+    },
+    {
+      "expected": "C",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "C",
+        "B",
+        "ABSTAIN",
+        "A"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "A",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "C",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "B",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "expected": "NATIVE",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "BROADCAST",
+        "ABSTAIN",
+        "MERGE",
+        "NATIVE"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "expected": "A",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "C",
+        "B",
+        "ABSTAIN",
+        "A"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "A",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "B",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "C",
+            "duration_seconds": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "expected": "BROADCAST",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "MERGE",
+        "BROADCAST",
+        "NATIVE",
+        "ABSTAIN"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "expected": "BROADCAST",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "BROADCAST",
+        "MERGE",
+        "ABSTAIN",
+        "NATIVE"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 0.8
+          },
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "expected": "A",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "generic_minimum",
+      "options": [
+        "ABSTAIN",
+        "A",
+        "B",
+        "C"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "B",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "A",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "C",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "expected": "MERGE",
+      "instructions": "Synthetic numeric control, not a Spark optimization prediction. Select the candidate with the smallest supplied duration_seconds. All numbers are exact and complete. Use ABSTAIN only when a number is missing. Ignore generic assumptions about strategy names.",
+      "kind": "strategy_minimum",
+      "options": [
+        "BROADCAST",
+        "MERGE",
+        "NATIVE",
+        "ABSTAIN"
+      ],
+      "state": {
+        "control": "Select the minimum of these supplied exact numbers, not a future runtime prediction.",
+        "measurements": [
+          {
+            "candidate": "NATIVE",
+            "duration_seconds": 1.5
+          },
+          {
+            "candidate": "MERGE",
+            "duration_seconds": 0.2
+          },
+          {
+            "candidate": "BROADCAST",
+            "duration_seconds": 0.8
+          }
+        ]
+      }
+    }
+  ],
+  "created_unix": 1789928609.539096,
+  "interpretation": "Known-answer controls only, no Spark queries or ranking accuracy claim.",
+  "max_calls": 15,
+  "source_sha256": "5f281a777c802fc51fcfa720e03589e05eac9f9a9c9055abeebd636d118fa785"
+}

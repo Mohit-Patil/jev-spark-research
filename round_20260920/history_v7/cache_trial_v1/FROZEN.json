@@ -1,0 +1,40 @@
+{
+  "base_protocol_sha256": "61e7f1ca30e8df1efef87edcc9a4a6e94ea82b5c0ebd48bf92bba4ee4d549751",
+  "cache_limit": 8,
+  "cache_population": "Only valid responses; no cached failures. First misses are inside measured workflows.",
+  "cases": {
+    "repeat_selective": {
+      "family": "LEFT_LOOKUP",
+      "keep": 20,
+      "m": 360000,
+      "n": 4800000,
+      "seed": 983,
+      "width": 448
+    },
+    "repeat_wide": {
+      "family": "LEFT_LOOKUP",
+      "keep": 1000,
+      "m": 350000,
+      "n": 200000,
+      "seed": 991,
+      "width": 448
+    }
+  },
+  "deadline_s": 1.25,
+  "frozen_unix": 1789928700.192978,
+  "history_sha256": "8ab1f0a5f4e9a02c1edcf4c501ff92bb093d99fce1c57eb98a74f08326bbb2b8",
+  "input_identity_cost": "Full file hashing is charged as dataset-registration/setup work and reported separately; not repeated for immutable test snapshots.",
+  "key": "immutable dataset content hash plus canonical payload (including model, prompt, plans, config, footer features and history)",
+  "max_new_api_attempts": 24,
+  "policies": [
+    "NATIVE",
+    "TUNED64",
+    "LOCAL_HISTORY",
+    "JEV_HISTORY",
+    "CACHED_HISTORY"
+  ],
+  "reps": 6,
+  "scope": "Repeated queries on two newly generated immutable LEFT_LOOKUP datasets. Exploratory follow-up, not an independent family test.",
+  "source_sha256": "44ef4cd807183bcb69dfc2b33ccf2f8d50d6359645150707da6e4b86521131e0",
+  "ttl_s": 60
+}

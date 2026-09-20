@@ -1,0 +1,28 @@
+{
+  "budget_after": 136,
+  "budget_before": 136,
+  "causal_limit": "A fresh process may not reproduce the prior failure. Do not infer its cause merely from a generic Py4JJavaError.",
+  "correct_queries": 5,
+  "failed_queries": [
+    {
+      "arm": "BROADCAST",
+      "elapsed_s": 0.49456545908469707,
+      "error_type": "Py4JJavaError",
+      "heap_max": 2147483648,
+      "heap_used_after": 1307710072,
+      "heap_used_before": 1325322256,
+      "java_causes": [
+        {
+          "class": "org.apache.spark.SparkException",
+          "message": "Not enough memory to build and broadcast the table to all worker nodes. As a workaround, you can either disable broadcast by setting spark.sql.autoBroadcastJoinThreshold to -1 or increase the spark driver memory by setting spark.driver.memory to a higher value."
+        }
+      ],
+      "rep": 2,
+      "status": "failed"
+    }
+  ],
+  "new_api_calls": 0,
+  "original_cache_failure": "Py4JJavaError",
+  "queries_attempted": 6,
+  "status": "diagnostic_completed"
+}

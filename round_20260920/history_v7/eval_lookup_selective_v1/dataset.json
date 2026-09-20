@@ -1,0 +1,23 @@
+{
+  "dimension_estimate": "Statistics(sizeInBytes=119.2 MiB)",
+  "fact_estimate": "Statistics(sizeInBytes=12.6 MiB)",
+  "files": [
+    {
+      "bytes": 62503035,
+      "path": "data/dim/part-00000-c392a584-cf4f-4fb2-a478-67fdd58a17c6-c000.snappy.parquet"
+    },
+    {
+      "bytes": 62511815,
+      "path": "data/dim/part-00001-c392a584-cf4f-4fb2-a478-67fdd58a17c6-c000.snappy.parquet"
+    },
+    {
+      "bytes": 6592350,
+      "path": "data/fact/part-00000-cd276178-75d8-4e6a-a834-04e1cba1c024-c000.snappy.parquet"
+    },
+    {
+      "bytes": 6592345,
+      "path": "data/fact/part-00001-cd276178-75d8-4e6a-a834-04e1cba1c024-c000.snappy.parquet"
+    }
+  ],
+  "parquet_bytes": 138199545
+}

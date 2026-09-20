@@ -1,0 +1,13 @@
+{
+  "budget_used": 136,
+  "new_api_calls": 0,
+  "previous_root_documents_preserved": true,
+  "report": "round_20260920/history_v7/RESULTS.md",
+  "report_bytes": 16428,
+  "report_sha256": "6ad559992c3eaa3d560d073ed5bb5e309237b0a44b8921a3dc57e7f38d6ccbc0",
+  "root_documents_updated": [
+    "CHECKPOINT.md",
+    "RESEARCH_LOG.md"
+  ],
+  "status": "succeeded"
+}
