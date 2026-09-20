@@ -1,0 +1,27 @@
+{
+  "status": "succeeded",
+  "steps": [
+    {
+      "script": "test_authorized_budget.py",
+      "returncode": 0
+    },
+    {
+      "script": "audit_completed_results_v2.py",
+      "returncode": 0
+    },
+    {
+      "script": "checkpoint_scoped.py",
+      "returncode": 0
+    }
+  ],
+  "budget": {
+    "limit": 10000,
+    "attempts_used": 49,
+    "remaining": 9951,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true
+  },
+  "live_requests": 0,
+  "elapsed_s": 36.40765249996912
+}

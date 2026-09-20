@@ -1,0 +1,55 @@
+{
+  "frozen_unix": 1789925588.999255,
+  "cases": [
+    {
+      "name": "v6_small_uniform",
+      "n": 300000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 227,
+      "join": "LEFT"
+    },
+    {
+      "name": "v6_large_uniform",
+      "n": 24000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 419,
+      "join": "LEFT"
+    },
+    {
+      "name": "v6_large_skew",
+      "n": 24000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 163,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "OFF",
+    "APPLY",
+    "TUNED_AQE",
+    "JEV_VERBOSE",
+    "JEV_COMPACT"
+  ],
+  "reps": 3,
+  "max_live_attempts": 18,
+  "budget": {
+    "limit": 10000,
+    "attempts_used": 49,
+    "remaining": 9951,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true
+  },
+  "code_sha256": {
+    "runtime_representation_v6.py": "9a88bbb6c5166e897cf4e05b3e1fd77b2a9baf864800ef7617c82210379bc37c",
+    "representation_inputs.py": "ed7a3c320944626adcec65e24931e76e5dc78713bf05afe29d6aae69ab3e55dd",
+    "authorized_budget.py": "c875084310d5dad9e476a895b0a584295a340538da8c4c3174e2fbc9b699966e"
+  },
+  "no_tuning_on_this_batch": true
+}

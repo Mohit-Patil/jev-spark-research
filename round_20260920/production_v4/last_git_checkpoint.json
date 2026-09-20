@@ -1,7 +1,7 @@
 {
-  "commit": "7a6873008af7e08e25b38b981d8c44a4fa5e833a",
+  "commit": "fa2a956c0b31c81b6e7d61e403ef1852c31415a8",
   "commit_created": true,
-  "files_scanned": 57,
+  "files_scanned": 68,
   "scope": "round_20260920/production_v4 only",
   "secret_scan_passed": true,
   "env_ignored": true,
