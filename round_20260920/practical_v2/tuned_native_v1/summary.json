@@ -1,0 +1,99 @@
+{
+  "status": "succeeded",
+  "cases": [
+    {
+      "case": "tuned_left_selective",
+      "arms": {
+        "DEFAULT_10MIB": {
+          "n": 3,
+          "median_s": 0.9812308340333402,
+          "faster_than_default_pairs": 0,
+          "worst_ratio_to_default": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        },
+        "TUNED_64MIB": {
+          "n": 3,
+          "median_s": 0.21329379209782928,
+          "faster_than_default_pairs": 3,
+          "worst_ratio_to_default": 0.2173737154397066,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        }
+      }
+    },
+    {
+      "case": "tuned_inner_half",
+      "arms": {
+        "DEFAULT_10MIB": {
+          "n": 3,
+          "median_s": 0.7007656670175493,
+          "faster_than_default_pairs": 0,
+          "worst_ratio_to_default": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ]
+        },
+        "TUNED_64MIB": {
+          "n": 3,
+          "median_s": 0.3638922499958426,
+          "faster_than_default_pairs": 3,
+          "worst_ratio_to_default": 0.5270427047668077,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        }
+      }
+    },
+    {
+      "case": "tuned_left_skew",
+      "arms": {
+        "DEFAULT_10MIB": {
+          "n": 3,
+          "median_s": 1.7879021669505164,
+          "faster_than_default_pairs": 0,
+          "worst_ratio_to_default": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ]
+        },
+        "TUNED_64MIB": {
+          "n": 3,
+          "median_s": 0.29126945801544935,
+          "faster_than_default_pairs": 3,
+          "worst_ratio_to_default": 0.16329008570981454,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        }
+      }
+    }
+  ],
+  "runs": 30,
+  "measured_runs": 18,
+  "all_correct": true,
+  "api_attempts_before": 45,
+  "api_attempts_after": 45,
+  "new_jev_attempts": 0,
+  "scope": "Bounded static tuning control, not production validation or universally safe threshold"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "succeeded",
+  "report": "round_20260920/practical_v2/RESULTS_2026-09-20.md",
+  "report_bytes": 20037,
+  "report_sha256": "838e0ba19ffdc94f14fec90ed3b97cfd7d5bce2a438478d2583ebd660b3195dd",
+  "audit_sha256": "b3d5021c3ad9f956ab88af9991c78eed5d902d5a5f4cfbd56b1048136d9785eb",
+  "new_query_totals": {
+    "all": 218,
+    "measured": 135,
+    "warmups": 80,
+    "runtime_diagnostics": 3
+  },
+  "request_accounting": {
+    "cumulative_used": 45,
+    "limit": 50,
+    "remaining": 5,
+    "new_requests_this_continuation": 26,
+    "new_request_numbers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "all_new_succeeded": true,
+    "new_input_tokens": 77747,
+    "new_output_tokens": 1444
+  }
+}

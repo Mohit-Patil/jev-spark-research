@@ -1,8 +1,7 @@
 {
-  "tests": 10,
+  "tests": 6,
+  "successful": true,
   "failures": 0,
   "errors": 0,
-  "successful": true,
-  "api_attempts": 45,
   "new_jev_attempts": 0
 }

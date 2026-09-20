@@ -1,0 +1,69 @@
+{
+  "status": "succeeded",
+  "queries": 3,
+  "all_correct": true,
+  "pairs": 10,
+  "coverage": [
+    {
+      "case": "left_uniform_10",
+      "pairs": 4,
+      "changed_pairs": 1,
+      "pairs_with_broadcast_anywhere_in_current_or_proposed_text": 4,
+      "unavailable_broadcast_in_every_pair": false,
+      "scope": "absence across full plan text proves unavailable in these snapshots; presence alone does not prove it is remaining unexecuted work"
+    },
+    {
+      "case": "inner_uniform_50",
+      "pairs": 3,
+      "changed_pairs": 0,
+      "pairs_with_broadcast_anywhere_in_current_or_proposed_text": 0,
+      "unavailable_broadcast_in_every_pair": true,
+      "scope": "absence across full plan text proves unavailable in these snapshots; presence alone does not prove it is remaining unexecuted work"
+    },
+    {
+      "case": "left_skew80_50",
+      "pairs": 3,
+      "changed_pairs": 0,
+      "pairs_with_broadcast_anywhere_in_current_or_proposed_text": 0,
+      "unavailable_broadcast_in_every_pair": true,
+      "scope": "absence across full plan text proves unavailable in these snapshots; presence alone does not prove it is remaining unexecuted work"
+    }
+  ],
+  "handler_errors": [],
+  "callback_errors": [],
+  "costs_unchanged": true,
+  "interventions": 0,
+  "all_replies_before_query_end": true,
+  "attempts_before": 44,
+  "attempts_after": 45,
+  "actual_new_api_attempts": 1,
+  "live_decisions": [
+    {
+      "case": "left_uniform_10",
+      "native_for_audit_only": "PROPOSED",
+      "attempt": 45,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.55,
+      "latency_s": 1.6844927089987323
+    }
+  ],
+  "query_diagnostics": [
+    {
+      "case": "left_uniform_10",
+      "to_result_with_shadow_s": 3.277320291963406,
+      "observer_self_s_including_callback": 1.719411833
+    },
+    {
+      "case": "inner_uniform_50",
+      "to_result_with_shadow_s": 1.229405750054866,
+      "observer_self_s_including_callback": 0.004165208
+    },
+    {
+      "case": "left_skew80_50",
+      "to_result_with_shadow_s": 2.354204250033945,
+      "observer_self_s_including_callback": 0.003265459
+    }
+  ],
+  "not_established": "No changed-state counterfactual timing or Jev-directed speedup. No complete executed-stage history or atomic in-flight task snapshot."
+}

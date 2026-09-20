@@ -1,0 +1,16 @@
+{"tests": 10, "failures": 0, "errors": 0, "successful": true, "api_attempts": 45, "new_jev_attempts": 0}
+test_dimension_count_uneven_period (__main__.Checks.test_dimension_count_uneven_period) ... ok
+test_initial_collisions_retained (__main__.Checks.test_initial_collisions_retained) ... ok
+test_inner_agrees_with_original_oracle (__main__.Checks.test_inner_agrees_with_original_oracle) ... ok
+test_inner_empty (__main__.Checks.test_inner_empty) ... ok
+test_inner_hand_calculated (__main__.Checks.test_inner_hand_calculated) ... ok
+test_left_preserves_unmatched (__main__.Checks.test_left_preserves_unmatched) ... ok
+test_left_skew_hot_key_really_retained (__main__.Checks.test_left_skew_hot_key_really_retained) ... ok
+test_no_invalid_arm (__main__.Checks.test_no_invalid_arm) ... ok
+test_no_optimizer_disabling_sql (__main__.Checks.test_no_optimizer_disabling_sql) ... ok
+test_skew_matches_original_oracle (__main__.Checks.test_skew_matches_original_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+OK

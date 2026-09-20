@@ -1,0 +1,18 @@
+{"tests": 12, "failures": 0, "errors": 0, "successful": true, "real_api_attempts": 45, "new_jev_attempts": 0}
+test_abstain_follows_native_proposed (__main__.Checks.test_abstain_follows_native_proposed) ... ok
+test_auth_failure_charged_once (__main__.Checks.test_auth_failure_charged_once) ... ok
+test_bad_payload_before_reservation (__main__.Checks.test_bad_payload_before_reservation) ... ok
+test_good_advice (__main__.Checks.test_good_advice) ... ok
+test_late_advice_follows_native_not_current (__main__.Checks.test_late_advice_follows_native_not_current) ... ok
+test_late_response_rejected (__main__.Checks.test_late_response_rejected) ... ok
+test_model_mismatch_fallback (__main__.Checks.test_model_mismatch_fallback) ... ok
+test_oversized_reply (__main__.Checks.test_oversized_reply) ... ok
+test_oversized_request (__main__.Checks.test_oversized_request) ... ok
+test_timeout_does_not_leak (__main__.Checks.test_timeout_does_not_leak) ... ok
+test_trace_info_never_serialized (__main__.Checks.test_trace_info_never_serialized) ... ok
+test_valid (__main__.Checks.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.032s
+
+OK

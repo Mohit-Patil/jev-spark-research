@@ -1,0 +1,52 @@
+{
+  "kind": "scaled_actual_AQE_shadow_and_candidate_coverage_not_speedup_trial",
+  "cases": [
+    {
+      "name": "left_uniform_10",
+      "n": 12000000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 313,
+      "join": "LEFT"
+    },
+    {
+      "name": "inner_uniform_50",
+      "n": 12000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 313,
+      "join": "INNER"
+    },
+    {
+      "name": "left_skew80_50",
+      "n": 12000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 313,
+      "join": "LEFT"
+    }
+  ],
+  "maximum_new_api_attempts": 3,
+  "budget_before": 44,
+  "master": "local[2]",
+  "requested_heap": "2g",
+  "shuffle_partitions": 32,
+  "gate": "first structurally changed current/proposed pair in each query; identical pairs make no request",
+  "model": "jev-1.13.0",
+  "view": "STATS only",
+  "interventions": 0,
+  "cold_first_call_included": true,
+  "caveat": "blocking observation diagnostics, no overhead comparison; no counterfactual branch labels; visible stages are not a complete execution history",
+  "source_sha256": {
+    "round_20260920/practical_v2/scaled_aqe_shadow.py": "0df748a7ecd47242151057513f1ad7c220104c445bccd0323a1b0ffda431e4d4",
+    "round_20260920/aqe_observer/NativeBoundaryObserverV2.scala": "d482cf6005dde7bb76c8ad8ae5382fe13fed6f64d2a823d844ad13033a92973c",
+    "round_20260920/aqe_observer/runtime_features.py": "f943a6eee4cc5374091f4c94c4f6d6b3dfe8e0ce0476d2d6b10a2a30005740a8",
+    "round_20260920/practical_v2/bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999",
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06",
+    "round_20260920/safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049"
+  }
+}

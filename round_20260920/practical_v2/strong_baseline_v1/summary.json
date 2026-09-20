@@ -1,0 +1,163 @@
+{
+  "status": "succeeded",
+  "cases": [
+    {
+      "case": "confirm_left_selective",
+      "policies": {
+        "NATIVE": {
+          "n": 2,
+          "median_workflow_s": 1.3093388545094058,
+          "selected": [
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 0,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 1.0
+        },
+        "BOUNDED_BROADCAST": {
+          "n": 2,
+          "median_workflow_s": 0.24716110451845452,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 2,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 0.19750435293142407
+        },
+        "JEV_UNGATED": {
+          "n": 2,
+          "median_workflow_s": 1.2398302290239371,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.68,
+            0.62
+          ],
+          "faster_than_native_pairs": 2,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 0.9795146630792272
+        }
+      }
+    },
+    {
+      "case": "confirm_inner_half",
+      "policies": {
+        "NATIVE": {
+          "n": 2,
+          "median_workflow_s": 0.906075791514013,
+          "selected": [
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 0,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 1.0
+        },
+        "BOUNDED_BROADCAST": {
+          "n": 2,
+          "median_workflow_s": 0.4089665210340172,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 2,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 0.47846932755523863
+        },
+        "JEV_UNGATED": {
+          "n": 2,
+          "median_workflow_s": 0.9916853330214508,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.55,
+            0.58
+          ],
+          "faster_than_native_pairs": 1,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 1.281486115381817
+        }
+      }
+    },
+    {
+      "case": "confirm_left_skew",
+      "policies": {
+        "NATIVE": {
+          "n": 2,
+          "median_workflow_s": 2.067240375035908,
+          "selected": [
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 0,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 1.0
+        },
+        "BOUNDED_BROADCAST": {
+          "n": 2,
+          "median_workflow_s": 0.3244212499121204,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [],
+          "confidences": [],
+          "faster_than_native_pairs": 2,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 0.1605712500281496
+        },
+        "JEV_UNGATED": {
+          "n": 2,
+          "median_workflow_s": 0.8880368334939703,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.54,
+            0.42
+          ],
+          "faster_than_native_pairs": 2,
+          "faster_than_bounded_broadcast_pairs": 0,
+          "worst_ratio_to_native": 0.4555094513571422
+        }
+      }
+    }
+  ],
+  "measured_workflows": 18,
+  "spark_warmups": 12,
+  "all_results_correct": true,
+  "actual_new_api_attempts": 6,
+  "attempts_before": 38,
+  "attempts_after": 44,
+  "timing": "Direct whole-policy wall timings, no summed component estimates",
+  "scope": "Only 2 randomized repetitions per arm per snapshot. New generator snapshots, not new query families. Not production memory validation. Ungated Jev is exploratory, not a deployed confidence policy."
+}

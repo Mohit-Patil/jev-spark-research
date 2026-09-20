@@ -1,0 +1,4 @@
+{
+  "jvm_max_heap_bytes": 2147483648,
+  "shuffle_partitions": "32"
+}

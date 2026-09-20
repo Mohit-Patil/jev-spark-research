@@ -1,0 +1,50 @@
+{
+  "frozen_unix": 1789924038.262615,
+  "cases": [
+    {
+      "name": "tuned_left_selective",
+      "n": 9000000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 3197,
+      "join": "LEFT"
+    },
+    {
+      "name": "tuned_inner_half",
+      "n": 9000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 3313,
+      "join": "INNER"
+    },
+    {
+      "name": "tuned_left_skew",
+      "n": 9000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 3421,
+      "join": "LEFT"
+    }
+  ],
+  "arms": {
+    "DEFAULT_10MIB": 10485760,
+    "TUNED_64MIB": 67108864
+  },
+  "warmup_rounds": 2,
+  "measured_rounds": 3,
+  "order_seed": 6389,
+  "hypothesis": "The observed benefits may be obtained by a single static native Spark configuration rather than per-query prediction or synthetic row-count features.",
+  "basis": "The larger development dimensions have two numeric columns and at most two million unfiltered rows. This control tests a fixed threshold, not an optimized threshold sweep.",
+  "native_query": "No join hint; no runtime intervention; no extra generator row-count facts supplied to Spark.",
+  "timing": "SQL construction, initial-plan capture and collect for both arms. Config switching and final plan logging excluded. Do not compare absolute medians across unrelated batches.",
+  "environment": "local[2], requested 2 GiB driver, 32 shuffle partitions, AQE enabled. Only broadcast threshold differs between arms.",
+  "limitations": "Three measured repetitions per arm per case; independent generator snapshots of the same families; no cluster broadcast distribution costs or production memory pressure tested.",
+  "sources_sha256": {
+    "round_20260920/practical_v2/tuned_native_control.py": "c64a60ee6bdeaf40828581e65d1226c081164b8df8d285a8811831d5fcd09b35",
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  }
+}

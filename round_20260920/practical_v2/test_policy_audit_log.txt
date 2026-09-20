@@ -1,0 +1,12 @@
+{"tests": 6, "successful": true, "failures": 0, "errors": 0, "new_jev_attempts": 0}
+test_abstain_uses_native (__main__.Checks.test_abstain_uses_native) ... ok
+test_decision_persisted_before_action (__main__.Checks.test_decision_persisted_before_action) ... ok
+test_error_uses_native_without_message (__main__.Checks.test_error_uses_native_without_message) ... ok
+test_native_no_api_and_one_query (__main__.Checks.test_native_no_api_and_one_query) ... ok
+test_outcomes_not_in_payload (__main__.Checks.test_outcomes_not_in_payload) ... ok
+test_rule_no_api (__main__.Checks.test_rule_no_api) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK

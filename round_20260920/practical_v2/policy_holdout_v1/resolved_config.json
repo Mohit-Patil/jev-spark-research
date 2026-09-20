@@ -1,0 +1,6 @@
+{
+  "spark": "4.0.1",
+  "jvm_max_heap_bytes": 2147483648,
+  "shuffle_partitions": "32",
+  "api_attempts_before": 29
+}

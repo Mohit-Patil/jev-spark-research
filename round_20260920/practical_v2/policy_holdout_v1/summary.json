@@ -1,0 +1,197 @@
+{
+  "status": "succeeded",
+  "cases": [
+    {
+      "case": "held_left_selective",
+      "policies": {
+        "NATIVE": {
+          "n": 3,
+          "median_workflow_s": 1.070529208984226,
+          "min_workflow_s": 1.0698262500809506,
+          "max_workflow_s": 1.0823992500081658,
+          "paired_median_saving_s": 0.0,
+          "faster_than_native_pairs": 0,
+          "worst_ratio_to_same_round_native": 1.0,
+          "selected": [
+            "NATIVE",
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "RULE": {
+          "n": 3,
+          "median_workflow_s": 0.23198725003749132,
+          "min_workflow_s": 0.2128553750226274,
+          "max_workflow_s": 0.24467004206962883,
+          "paired_median_saving_s": 0.8504119999706745,
+          "faster_than_native_pairs": 3,
+          "worst_ratio_to_same_round_native": 0.22855055239621583,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "JEV_UNGATED": {
+          "n": 3,
+          "median_workflow_s": 0.887639332911931,
+          "min_workflow_s": 0.8279534579487517,
+          "max_workflow_s": 1.2532623331062496,
+          "paired_median_saving_s": 0.18218691716901958,
+          "faster_than_native_pairs": 2,
+          "worst_ratio_to_same_round_native": 1.170694197401125,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.66,
+            0.73,
+            0.63
+          ]
+        }
+      }
+    },
+    {
+      "case": "held_inner_half",
+      "policies": {
+        "NATIVE": {
+          "n": 3,
+          "median_workflow_s": 0.7842822080710903,
+          "min_workflow_s": 0.77855491603259,
+          "max_workflow_s": 0.789011999964714,
+          "paired_median_saving_s": 0.0,
+          "faster_than_native_pairs": 0,
+          "worst_ratio_to_same_round_native": 1.0,
+          "selected": [
+            "NATIVE",
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "RULE": {
+          "n": 3,
+          "median_workflow_s": 0.7934598340652883,
+          "min_workflow_s": 0.7837437499547377,
+          "max_workflow_s": 0.8166034580208361,
+          "paired_median_saving_s": -0.009177625994198024,
+          "faster_than_native_pairs": 1,
+          "worst_ratio_to_same_round_native": 1.0488707234450927,
+          "selected": [
+            "NATIVE",
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "JEV_UNGATED": {
+          "n": 3,
+          "median_workflow_s": 0.8518780410522595,
+          "min_workflow_s": 0.8457242500735447,
+          "max_workflow_s": 0.8788488330319524,
+          "paired_median_saving_s": -0.06286604108754545,
+          "faster_than_native_pairs": 0,
+          "worst_ratio_to_same_round_native": 1.128820607171099,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.58,
+            0.49,
+            0.52
+          ]
+        }
+      }
+    },
+    {
+      "case": "held_left_skew",
+      "policies": {
+        "NATIVE": {
+          "n": 3,
+          "median_workflow_s": 1.9427024170290679,
+          "min_workflow_s": 1.9176978750620037,
+          "max_workflow_s": 1.9458949998952448,
+          "paired_median_saving_s": 0.0,
+          "faster_than_native_pairs": 0,
+          "worst_ratio_to_same_round_native": 1.0,
+          "selected": [
+            "NATIVE",
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "RULE": {
+          "n": 3,
+          "median_workflow_s": 1.928552084020339,
+          "min_workflow_s": 1.921204000012949,
+          "max_workflow_s": 1.9474276249529794,
+          "paired_median_saving_s": -0.001532625057734549,
+          "faster_than_native_pairs": 1,
+          "worst_ratio_to_same_round_native": 1.001828298918479,
+          "selected": [
+            "NATIVE",
+            "NATIVE",
+            "NATIVE"
+          ],
+          "model_choices": [],
+          "confidences": []
+        },
+        "JEV_UNGATED": {
+          "n": 3,
+          "median_workflow_s": 0.8784900000318885,
+          "min_workflow_s": 0.7396761670242995,
+          "max_workflow_s": 0.9221353749744594,
+          "paired_median_saving_s": 1.0392078750301152,
+          "faster_than_native_pairs": 3,
+          "worst_ratio_to_same_round_native": 0.47466630343964916,
+          "selected": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "model_choices": [
+            "BROADCAST",
+            "BROADCAST",
+            "BROADCAST"
+          ],
+          "confidences": [
+            0.51,
+            0.4,
+            0.4
+          ]
+        }
+      }
+    }
+  ],
+  "measured_workflows": 27,
+  "spark_warmups": 24,
+  "all_results_correct": true,
+  "actual_new_api_attempts": 9,
+  "attempts_before": 29,
+  "attempts_after": 38,
+  "scope": "direct end-to-end pre-execution policy timings on independent synthetic snapshots; no runtime AQE overrides; no confidence calibration",
+  "cold_first_request_included": true,
+  "elapsed_batch_s": 64.17182329192292
+}

@@ -1,0 +1,54 @@
+{
+  "frozen_unix": 1789923627.9165351,
+  "cases": [
+    {
+      "name": "confirm_left_selective",
+      "n": 11000000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 2189,
+      "join": "LEFT"
+    },
+    {
+      "name": "confirm_inner_half",
+      "n": 11000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 2267,
+      "join": "INNER"
+    },
+    {
+      "name": "confirm_left_skew",
+      "n": 11000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 2399,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "NATIVE",
+    "BOUNDED_BROADCAST",
+    "JEV_UNGATED"
+  ],
+  "measured_rounds": 2,
+  "candidate_warmups_per_case": 1,
+  "order_seed": 6221,
+  "maximum_new_api_attempts": 6,
+  "cold_first_request_included": true,
+  "selection_basis": "All three larger DEVELOPMENT screens favored BROADCAST. Challenge Jev against that cheap action inside the tested synthetic dimension-size domain; no policy_holdout outcomes are read by this program.",
+  "limits": "Only 2 randomized repetitions per arm per snapshot. New generator snapshots, not new query families. Not production memory validation. Ungated Jev is exploratory, not a deployed confidence policy.",
+  "model_prompt_unchanged": true,
+  "baseline_rule": "BROADCAST if synthetic m <= 2 million and filtered dimension rows <= 1 million; else native. Applies only to the tested numeric schema and 2 GiB local driver.",
+  "sources_sha256": {
+    "round_20260920/practical_v2/strong_baseline_confirm.py": "00f95bf64d83cff3b83d77f0a78904d9bab7ada438e258459bb39337f418e2d9",
+    "round_20260920/practical_v2/policy_holdout.py": "ce3e4780a4da74d38ef9bcb243d5e9160e8d6e385cccaec15ec25cb9e145bed0",
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/practical_v2/bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999",
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06",
+    "round_20260920/safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049"
+  }
+}

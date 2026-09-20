@@ -1,11 +1,11 @@
 {
-  "commit": "ae8e9fd6dbe8e7986f1da5f81a3232badc4da73d",
+  "commit": "7a6873008af7e08e25b38b981d8c44a4fa5e833a",
   "commit_created": true,
-  "files_scanned": 35,
+  "files_scanned": 57,
   "scope": "round_20260920/production_v4 only",
   "secret_scan_passed": true,
   "env_ignored": true,
-  "budget_used": 45,
+  "budget_used": 49,
   "new_jev_calls": 0,
   "push_succeeded": true
 }

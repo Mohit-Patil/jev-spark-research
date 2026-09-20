@@ -1,0 +1,59 @@
+{
+  "kind": "frozen_end_to_end_pre_execution_policy_evaluation",
+  "frozen_unix": 1789923238.321354,
+  "cases": [
+    {
+      "name": "held_left_selective",
+      "n": 10000000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 1019,
+      "join": "LEFT"
+    },
+    {
+      "name": "held_inner_half",
+      "n": 10000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 1063,
+      "join": "INNER"
+    },
+    {
+      "name": "held_left_skew",
+      "n": 10000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 1073,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "NATIVE",
+    "RULE",
+    "JEV_UNGATED"
+  ],
+  "measured_rounds": 3,
+  "spark_candidate_warmups_per_case": 2,
+  "model_warmups": 0,
+  "maximum_new_api_attempts": 9,
+  "order_seed": 6151,
+  "requested_heap": "2g",
+  "master": "local[2]",
+  "shuffle_partitions": 32,
+  "aqe_enabled": true,
+  "input_source": "uncached synthetic Range data, shared warmed JVM; independent new generator snapshots, NOT new unseen query families or cluster workloads",
+  "policy_frozen": "RULE broadcasts iff known synthetic filtered dimension rows * 24 <= 10 MiB; otherwise NATIVE. JEV_UNGATED accepts a validated supplied candidate, with no calibrated confidence threshold. Any abstention, invalid output, late rejection or error falls back to NATIVE.",
+  "safety_scope": "research only; closed legal query variants; synthetic filtered dimension <= one million rows. Serialized-size rule is NOT a hash-table memory safety proof.",
+  "metadata_caveat": "exact dimension row counts come from the synthetic generator, not an available general-purpose production catalog estimate. The rule and Jev receive the same source of extra size evidence.",
+  "timing": "wall time before features and SQL construction through collect return; Jev includes ALL candidate planning, request, durable decision logging and execution. Native/RULE plan logging happens AFTER the timed interval. Pool setup is one-time; the first API handshake is included in its actual query.",
+  "sources_sha256": {
+    "round_20260920/practical_v2/policy_holdout.py": "ce3e4780a4da74d38ef9bcb243d5e9160e8d6e385cccaec15ec25cb9e145bed0",
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/practical_v2/bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999",
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06",
+    "round_20260920/safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049"
+  }
+}

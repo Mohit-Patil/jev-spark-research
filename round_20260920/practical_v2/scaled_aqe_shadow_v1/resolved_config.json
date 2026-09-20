@@ -1,0 +1,5 @@
+{
+  "jvm_max_heap_bytes": 2147483648,
+  "auto_broadcast_threshold": "10485760b",
+  "shuffle_partitions": "32"
+}

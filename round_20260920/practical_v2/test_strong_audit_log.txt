@@ -1,0 +1,12 @@
+{"tests": 6, "successful": true, "failures": 0, "errors": 0, "new_jev_attempts": 0}
+test_direct_workflow (__main__.Checks.test_direct_workflow) ... ok
+test_outside_domain_native (__main__.Checks.test_outside_domain_native) ... ok
+test_skew_retained (__main__.Checks.test_skew_retained) ... ok
+test_snapshots_distinct_from_previous (__main__.Checks.test_snapshots_distinct_from_previous) ... ok
+test_tested_domain (__main__.Checks.test_tested_domain) ... ok
+test_too_many_filtered_rows_native (__main__.Checks.test_too_many_filtered_rows_native) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK
