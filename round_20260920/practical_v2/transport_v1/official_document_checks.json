@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://docs.typesafe.ai/api",
+    "status": 200,
+    "bytes": 538061,
+    "sha256": "63074b265e1f55acfa435d8798b2a7b7d75de0964ee9e83f450b90f93f1a8200",
+    "endpoint_present": true,
+    "pinned_model_present": true
+  },
+  {
+    "url": "https://docs.typesafe.ai/models",
+    "status": 200,
+    "bytes": 350241,
+    "sha256": "bf94d789e4d7af58166b6a973741d01421ce9b2c0f22b156ec6a976332672f91",
+    "endpoint_present": false,
+    "pinned_model_present": true
+  }
+]

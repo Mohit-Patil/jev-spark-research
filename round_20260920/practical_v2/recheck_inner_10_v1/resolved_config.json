@@ -1,0 +1,7 @@
+{
+  "spark.sql.adaptive.enabled": "true",
+  "spark.sql.autoBroadcastJoinThreshold": "10485760b",
+  "spark.sql.shuffle.partitions": "32",
+  "spark.sql.adaptive.skewJoin.enabled": "true",
+  "jvm_max_memory_bytes": 2147483648
+}

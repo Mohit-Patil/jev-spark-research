@@ -1,0 +1,46 @@
+{
+  "status": "succeeded",
+  "actual_new_attempts": 10,
+  "attempts_before": 19,
+  "attempts_after": 29,
+  "official_doc_checks": [
+    {
+      "url": "https://docs.typesafe.ai/api",
+      "status": 200,
+      "bytes": 538061,
+      "sha256": "63074b265e1f55acfa435d8798b2a7b7d75de0964ee9e83f450b90f93f1a8200",
+      "endpoint_present": true,
+      "pinned_model_present": true
+    },
+    {
+      "url": "https://docs.typesafe.ai/models",
+      "status": 200,
+      "bytes": 350241,
+      "sha256": "bf94d789e4d7af58166b6a973741d01421ce9b2c0f22b156ec6a976332672f91",
+      "endpoint_present": false,
+      "pinned_model_present": true
+    }
+  ],
+  "arms": {
+    "FRESH": {
+      "n": 4,
+      "median_roundtrip_s": 1.510791603999678,
+      "min_roundtrip_s": 0.9390345420688391,
+      "max_roundtrip_s": 2.5340767089510337,
+      "median_sample_wall_s": 1.5248714999761432,
+      "tcp_connects": 4,
+      "tls_handshakes": 4
+    },
+    "POOLED": {
+      "n": 4,
+      "median_roundtrip_s": 0.49606375000439584,
+      "min_roundtrip_s": 0.3885874579427764,
+      "max_roundtrip_s": 0.6427712499862537,
+      "median_sample_wall_s": 0.498823020956479,
+      "tcp_connects": 0,
+      "tls_handshakes": 0
+    }
+  },
+  "scope": "transport latency only, repeated existing state, NOT optimization accuracy or AQE execution",
+  "paired_median_wall_saving_s": 1.129438832984306
+}

@@ -1,0 +1,87 @@
+{
+  "case": {
+    "name": "left_uniform_10",
+    "n": 12000000,
+    "m": 2000000,
+    "keep": 100,
+    "skew": false,
+    "seed": 313,
+    "join": "LEFT"
+  },
+  "runs": 28,
+  "measured_runs": 20,
+  "all_correct": true,
+  "candidate_statistics": {
+    "NATIVE": {
+      "n": 5,
+      "median_s": 1.2750087089370936,
+      "min_s": 1.2526582499267533,
+      "max_s": 1.385315207997337,
+      "paired_median_saving_s": 0.0,
+      "faster_than_native_pairs": 0,
+      "worst_ratio_to_same_round_native": 1.0,
+      "initial_joins": [
+        "SortMergeJoin"
+      ],
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "BROADCAST": {
+      "n": 5,
+      "median_s": 0.24119654193054885,
+      "min_s": 0.2371835419908166,
+      "max_s": 0.24247570801526308,
+      "paired_median_saving_s": 1.0325330009218305,
+      "faster_than_native_pairs": 5,
+      "worst_ratio_to_same_round_native": 0.1924470180145426,
+      "initial_joins": [
+        "BroadcastHashJoin"
+      ],
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "MERGE": {
+      "n": 5,
+      "median_s": 2.174855082994327,
+      "min_s": 2.1285911250161007,
+      "max_s": 2.2930639169644564,
+      "paired_median_saving_s": -0.8911737920716405,
+      "faster_than_native_pairs": 0,
+      "worst_ratio_to_same_round_native": 1.7889774630436215,
+      "initial_joins": [
+        "SortMergeJoin"
+      ],
+      "final_joins": [
+        "SortMergeJoin"
+      ]
+    },
+    "SHUFFLE_HASH": {
+      "n": 5,
+      "median_s": 1.3361760000698268,
+      "min_s": 1.3281960840104148,
+      "max_s": 1.5005895419744775,
+      "paired_median_saving_s": -0.08286200009752065,
+      "faster_than_native_pairs": 0,
+      "worst_ratio_to_same_round_native": 1.0832116281635176,
+      "initial_joins": [
+        "ShuffledHashJoin"
+      ],
+      "final_joins": [
+        "ShuffledHashJoin"
+      ]
+    }
+  },
+  "initial_collisions_not_removed": [
+    [
+      "NATIVE",
+      "MERGE"
+    ]
+  ],
+  "transparent_rule": "BROADCAST",
+  "api_attempts_before": 19,
+  "api_attempts_after": 19,
+  "elapsed_batch_s": 42.76410995807964,
+  "scope": "development candidate headroom, NOT policy end-to-end or AQE counterfactual"
+}

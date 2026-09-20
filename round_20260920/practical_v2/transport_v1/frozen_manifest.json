@@ -1,0 +1,190 @@
+{
+  "kind": "fixed_payload_transport_latency_only",
+  "api_attempts_before": 19,
+  "maximum_new_attempts": 10,
+  "seed": 6071,
+  "schedule": [
+    {
+      "phase": "warmup",
+      "block": 0,
+      "mode": "POOLED"
+    },
+    {
+      "phase": "warmup",
+      "block": 0,
+      "mode": "FRESH"
+    },
+    {
+      "phase": "measured",
+      "block": 0,
+      "mode": "POOLED"
+    },
+    {
+      "phase": "measured",
+      "block": 0,
+      "mode": "FRESH"
+    },
+    {
+      "phase": "measured",
+      "block": 1,
+      "mode": "FRESH"
+    },
+    {
+      "phase": "measured",
+      "block": 1,
+      "mode": "POOLED"
+    },
+    {
+      "phase": "measured",
+      "block": 2,
+      "mode": "POOLED"
+    },
+    {
+      "phase": "measured",
+      "block": 2,
+      "mode": "FRESH"
+    },
+    {
+      "phase": "measured",
+      "block": 3,
+      "mode": "FRESH"
+    },
+    {
+      "phase": "measured",
+      "block": 3,
+      "mode": "POOLED"
+    }
+  ],
+  "payload_sha256": "edb195c67e2ebe8fa12655457cbdcb9298c44872d3fffd74e3a9c5a05e2e8f50",
+  "payload": {
+    "model": "jev-1.13.0",
+    "questions": {
+      "plan": {
+        "criteria": {
+          "ABSTAIN": "Insufficient evidence to improve on native Spark; defer to the native decision.",
+          "CURRENT": "Continue Spark current remaining physical plan, retaining work already completed.",
+          "PROPOSED": "Use Spark proposed remaining physical plan; account for any extra exchanges or materialization it needs."
+        },
+        "instructions": "Choose the supplied remaining plan expected to finish sooner on this CPU-only Spark local[2] machine, or ABSTAIN. This is shadow advice at a real AQE boundary. No intervention is applied. Use only this snapshot; do not treat whole-query hinted timings as counterfactual runtime outcomes. Completed work is sunk cost, not an avoidable future saving. Spark-reported size statistics, shuffle partition byte reports and hash-table memory are different measurements. Unknown means unknown, not zero. Advisor overhead is measured separately. Do not assume PROPOSED is faster merely because Spark proposed it.",
+        "type": "choice"
+      }
+    },
+    "state": {
+      "candidates": {
+        "CURRENT": "HashAggregate(keys=[bucket#34L], functions=[count(1), sum((v#33L * w#37L)), sum(k#32L)], output=[bucket#34L, cnt#38L, total#39L, key_sum#40L])\n+- Exchange hashpartitioning(bucket#34L, 8), ENSURE_REQUIREMENTS, [plan_id=322]\n   +- HashAggregate(keys=[bucket#34L], functions=[partial_count(1), partial_sum((v#33L * w#37L)), partial_sum(k#32L)], output=[bucket#34L, count#47L, sum#48L, sum#49L])\n      +- Project [k#32L, v#33L, bucket#34L, w#37L]\n         +- SortMergeJoin [k#32L], [k#36L], Inner\n            :- Sort [k#32L ASC NULLS FIRST], false, 0\n            :  +- ShuffleQueryStage 0\n            :     +- Exchange hashpartitioning(k#32L, 8), ENSURE_REQUIREMENTS, [plan_id=306]\n            :        +- *(1) Project [(((id#31L * 97) + 601) % 2000000) AS k#32L, (((id#31L * 13) + 601) % 997) AS v#33L, (id#31L % 7) AS bucket#34L]\n            :           +- *(1) Filter ((((((((id#31L * 97) + 601) % 2000000) * 17) + 601) % 1000) < 100) AND isnotnull((((id#31L * 97) + 601) % 2000000)))\n            :              +- *(1) Range (0, 1200000, step=1, splits=2)\n            +- Sort [k#36L ASC NULLS FIRST], false, 0\n               +- ShuffleQueryStage 1\n                  +- Exchange hashpartitioning(k#36L, 8), ENSURE_REQUIREMENTS, [plan_id=313]\n                     +- *(2) Project [id#35L AS k#36L, (((id#35L * 7) + 601) % 101) AS w#37L]\n                        +- *(2) Filter ((((id#35L * 17) + 601) % 1000) < 100)\n                           +- *(2) Range (0, 2000000, step=1, splits=2)\n",
+        "PROPOSED": "HashAggregate(keys=[bucket#34L], functions=[count(1), sum((v#33L * w#37L)), sum(k#32L)], output=[bucket#34L, cnt#38L, total#39L, key_sum#40L])\n+- Exchange hashpartitioning(bucket#34L, 8), ENSURE_REQUIREMENTS, [plan_id=343]\n   +- HashAggregate(keys=[bucket#34L], functions=[partial_count(1), partial_sum((v#33L * w#37L)), partial_sum(k#32L)], output=[bucket#34L, count#47L, sum#48L, sum#49L])\n      +- Project [k#32L, v#33L, bucket#34L, w#37L]\n         +- BroadcastHashJoin [k#32L], [k#36L], Inner, BuildRight, false\n            :- ShuffleQueryStage 0\n            :  +- Exchange hashpartitioning(k#32L, 8), ENSURE_REQUIREMENTS, [plan_id=306]\n            :     +- *(1) Project [(((id#31L * 97) + 601) % 2000000) AS k#32L, (((id#31L * 13) + 601) % 997) AS v#33L, (id#31L % 7) AS bucket#34L]\n            :        +- *(1) Filter ((((((((id#31L * 97) + 601) % 2000000) * 17) + 601) % 1000) < 100) AND isnotnull((((id#31L * 97) + 601) % 2000000)))\n            :           +- *(1) Range (0, 1200000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=338]\n               +- ShuffleQueryStage 1\n                  +- Exchange hashpartitioning(k#36L, 8), ENSURE_REQUIREMENTS, [plan_id=313]\n                     +- *(2) Project [id#35L AS k#36L, (((id#35L * 7) + 601) % 101) AS w#37L]\n                        +- *(2) Filter ((((id#35L * 17) + 601) % 1000) < 100)\n                           +- *(2) Range (0, 2000000, step=1, splits=2)\n"
+      },
+      "caveat": "physical plans themselves can encode runtime adaptations; PLANS is not devoid of all runtime information",
+      "completed_stage_ids": [
+        1
+      ],
+      "cpu_only": true,
+      "engine": "Apache Spark 4.0.1",
+      "master": "local[2]",
+      "measurement_semantics": "Spark runtime statistics and reported map-output partition bytes, captured at this boundary; not final query statistics, not proof of in-memory hash-table size. Visible stage leaves are not a complete executed-work history.",
+      "mode": "shadow advice inside a current-versus-proposed AQE cost comparison",
+      "resources": {
+        "jvm_heap_committed_bytes": 148897792,
+        "jvm_heap_free_bytes": 48589408,
+        "jvm_heap_max_bytes": 1073741824
+      },
+      "runtime_stage_observations": {
+        "current": [
+          {
+            "is_runtime": null,
+            "materialized": false,
+            "node": "ShuffleQueryStage",
+            "nonempty_partitions": null,
+            "partition_bytes_max": null,
+            "partition_bytes_p50": null,
+            "partition_bytes_p95": null,
+            "partition_bytes_total": null,
+            "partition_count": null,
+            "row_count": null,
+            "shuffle_serialized_partition_bytes": null,
+            "size_in_bytes": null,
+            "stage_id": 0
+          },
+          {
+            "is_runtime": true,
+            "materialized": true,
+            "node": "ShuffleQueryStage",
+            "nonempty_partitions": 8,
+            "partition_bytes_max": 246790,
+            "partition_bytes_p50": 235572,
+            "partition_bytes_p95": 246790,
+            "partition_bytes_total": 1873358,
+            "partition_count": 8,
+            "row_count": 200000,
+            "shuffle_serialized_partition_bytes": [
+              246790,
+              246790,
+              224354,
+              224354,
+              235572,
+              235572,
+              235572,
+              224354
+            ],
+            "size_in_bytes": 4800000,
+            "stage_id": 1
+          }
+        ],
+        "proposed": [
+          {
+            "is_runtime": null,
+            "materialized": false,
+            "node": "ShuffleQueryStage",
+            "nonempty_partitions": null,
+            "partition_bytes_max": null,
+            "partition_bytes_p50": null,
+            "partition_bytes_p95": null,
+            "partition_bytes_total": null,
+            "partition_count": null,
+            "row_count": null,
+            "shuffle_serialized_partition_bytes": null,
+            "size_in_bytes": null,
+            "stage_id": 0
+          },
+          {
+            "is_runtime": true,
+            "materialized": true,
+            "node": "ShuffleQueryStage",
+            "nonempty_partitions": 8,
+            "partition_bytes_max": 246790,
+            "partition_bytes_p50": 235572,
+            "partition_bytes_p95": 246790,
+            "partition_bytes_total": 1873358,
+            "partition_count": 8,
+            "row_count": 200000,
+            "shuffle_serialized_partition_bytes": [
+              246790,
+              246790,
+              224354,
+              224354,
+              235572,
+              235572,
+              235572,
+              224354
+            ],
+            "size_in_bytes": 4800000,
+            "stage_id": 1
+          }
+        ]
+      },
+      "unmeasured": {
+        "alternative_remaining_runtimes": null,
+        "extra_materialization_latency": null,
+        "hash_table_peak_memory_bytes": null
+      }
+    }
+  },
+  "model": "jev-1.13.0",
+  "shared_budget_limit": 50,
+  "requests_are_not_optimization_evidence": true,
+  "caveats": "four measured requests per arm; no isolated server inference timing; server-side cache behavior unknown; existing-state replay only",
+  "source_sha256": {
+    "transport_probe.py": "758fc7da4aab2687581f586548e6f68de7f54d7db86ca256d9d9c8b44567d6e8",
+    "bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999"
+  }
+}

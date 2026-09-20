@@ -11,6 +11,6 @@ test_truncation_rejected (__main__.Checks.test_truncation_rejected) ... ok
 test_unknown_not_zero (__main__.Checks.test_unknown_not_zero) ... ok
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.015s
+Ran 10 tests in 0.012s
 
 OK

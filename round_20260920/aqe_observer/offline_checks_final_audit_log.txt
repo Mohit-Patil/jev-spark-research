@@ -16,6 +16,6 @@ test_secret_parser_no_expansion (__main__.Checks.test_secret_parser_no_expansion
 test_size_rejected_before_reservation (__main__.Checks.test_size_rejected_before_reservation) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.011s
+Ran 15 tests in 0.010s
 
 OK

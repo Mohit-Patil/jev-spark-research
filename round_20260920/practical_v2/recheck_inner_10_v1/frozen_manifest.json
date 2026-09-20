@@ -1,0 +1,43 @@
+{
+  "kind": "scaled_development_not_holdout",
+  "case": {
+    "name": "recheck_inner_10",
+    "n": 1200000,
+    "m": 2000000,
+    "keep": 100,
+    "skew": false,
+    "seed": 313,
+    "join": "INNER"
+  },
+  "warmups": 2,
+  "reps": 3,
+  "seed": 6021,
+  "candidate_ids": [
+    "NATIVE",
+    "BROADCAST",
+    "MERGE",
+    "SHUFFLE_HASH"
+  ],
+  "initial_plan_deduplication": false,
+  "new_model_requests": 0,
+  "cache": "uncached generated Range data; one fresh Spark process per batch, warmed shared JVM within batch; no OS/JIT reset",
+  "timing": "SQL construction, initial-plan capture and collect. Candidate enumeration and final-plan logging excluded.",
+  "memory": "local[2], 2 GiB requested driver heap, 32 shuffle partitions; same settings for every arm",
+  "timeouts": "90 seconds per Spark job group; stop launching queries after 400 seconds; bridge timeout 540 seconds",
+  "features": {
+    "source": "synthetic generator metadata, not AQE runtime statistics",
+    "fact_rows": 1200000,
+    "filtered_dimension_rows": 200000,
+    "dimension_unsafe_row_bytes_estimate": 4800000,
+    "in_memory_hash_table_bytes": null,
+    "join": "INNER",
+    "hot_key_input_fraction": 0,
+    "hot_key_survives_dimension_filter": false,
+    "broadcast_threshold_bytes": 10485760
+  },
+  "transparent_rule": "BROADCAST",
+  "sources_sha256": {
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  }
+}
