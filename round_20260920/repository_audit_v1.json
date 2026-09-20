@@ -1,0 +1,167 @@
+{
+  "audit_unix": 1789920082.3620448,
+  "origin": "audit of existing saved runs, not new benchmark executions",
+  "batches": [
+    {
+      "batch": "baseline_v1",
+      "status": "verified_saved_records",
+      "runs_including_warmups": 63,
+      "measured_runs": 45,
+      "all_results_equivalent": true,
+      "predictions_before_first_execution": null,
+      "cases": [
+        {
+          "case": "uniform_selective",
+          "measured_median_s": {
+            "NATIVE": 0.053977000061422586,
+            "MERGE": 0.0665607089176774,
+            "SHUFFLE_HASH": 0.058589333086274564
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        },
+        {
+          "case": "uniform_half",
+          "measured_median_s": {
+            "NATIVE": 0.044402375002391636,
+            "MERGE": 0.0696377499261871,
+            "SHUFFLE_HASH": 0.07059629098512232
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        },
+        {
+          "case": "skew80_half",
+          "measured_median_s": {
+            "NATIVE": 0.04288950003683567,
+            "MERGE": 0.0853320830501616,
+            "SHUFFLE_HASH": 0.07694037503097206
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        }
+      ],
+      "sha256": {
+        "round_20260920/baseline_v1/COMPLETED.json": "ea0c87768932a4ceffc13f1e7156b84817ae8361c4b182039dc8a71b215e72c2",
+        "round_20260920/baseline_v1/raw.jsonl": "4fefd46986741a83a11988f694b67459ea17eb8cb4decf3e8d791d37e47932ed",
+        "round_20260920/baseline_v1/summary.json": "c29814eb5a8e09fe34a3fa354cff1aed0f8297dbd765630e43c8ec0919ba6db5",
+        "round_20260920/baseline_v1/manifest.json": "2d0e3b06606adf51bd14ab315a47b1b070adb4ddff940c6c7d8cfb92a3ce00d9"
+      }
+    },
+    {
+      "batch": "live_validation",
+      "status": "verified_saved_records",
+      "runs_including_warmups": 63,
+      "measured_runs": 45,
+      "all_results_equivalent": true,
+      "predictions_before_first_execution": true,
+      "cases": [
+        {
+          "case": "val_selective",
+          "measured_median_s": {
+            "NATIVE": 0.051100999931804836,
+            "MERGE": 0.0627552920486778,
+            "SHUFFLE_HASH": 0.0623549580341205
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        },
+        {
+          "case": "val_half",
+          "measured_median_s": {
+            "NATIVE": 0.046889667049981654,
+            "MERGE": 0.07060154201462865,
+            "SHUFFLE_HASH": 0.06592624995391816
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        },
+        {
+          "case": "val_skew80",
+          "measured_median_s": {
+            "NATIVE": 0.046589207951910794,
+            "MERGE": 0.09621237497776747,
+            "SHUFFLE_HASH": 0.08464437501970679
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        }
+      ],
+      "sha256": {
+        "round_20260920/live_validation/COMPLETED.json": "3ad1d9e354d6bf1fd1b4d439db489e225b8324d8f881819388995a1c940f3dfa",
+        "round_20260920/live_validation/raw.jsonl": "a48774dbd7b953c1fd475451e00cadbff55e6f0c7cde4d4036258d1e195056c9",
+        "round_20260920/live_validation/summary.json": "5600edece939b426a9f40dc97b78b30bfdba978657d94ef7273c69fd815f13d8",
+        "round_20260920/live_validation/manifest.json": "5dd6841a0c87cc20fa6fbc8871719888a6b55095c2b14588def967ed89ae886a"
+      }
+    },
+    {
+      "batch": "live_holdout",
+      "status": "verified_saved_records",
+      "runs_including_warmups": 42,
+      "measured_runs": 30,
+      "all_results_equivalent": true,
+      "predictions_before_first_execution": true,
+      "cases": [
+        {
+          "case": "holdout_uniform",
+          "measured_median_s": {
+            "NATIVE": 0.05884262500330806,
+            "MERGE": 0.08763120893854648,
+            "SHUFFLE_HASH": 0.07419054198544472
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        },
+        {
+          "case": "holdout_skew80",
+          "measured_median_s": {
+            "NATIVE": 0.04530420899391174,
+            "MERGE": 0.05611879099160433,
+            "SHUFFLE_HASH": 0.05173504201229662
+          },
+          "lowest_median_candidate": "NATIVE",
+          "native_is_lowest_median": true,
+          "final_aqe_plan_flag_all_runs": true
+        }
+      ],
+      "sha256": {
+        "round_20260920/live_holdout/COMPLETED.json": "ba6d70fd22b51a109dcf79245924fca85bdb8efb10a4be5e7d65482cc1b4ae1f",
+        "round_20260920/live_holdout/raw.jsonl": "36b287f0ea26cd28e48586c3822eba3e67400588afa3c694f7ee282bfac6ad11",
+        "round_20260920/live_holdout/summary.json": "3a623a1c228f796a231fe0863c7d28611dc0e335c27867edb8f00e1a08d49f58",
+        "round_20260920/live_holdout/manifest.json": "1a4b8e692e9cfd54a4d5f4a218d62762443190d8bde11e154bb1337f8b8f1ee0"
+      }
+    }
+  ],
+  "offline_tests": {
+    "tests_run": 15,
+    "failures": 0,
+    "errors": 0,
+    "successful": true,
+    "live_api_attempts": 0
+  },
+  "frozen_policy": "NATIVE",
+  "frozen_main_source_matches": true,
+  "freeze_scope_caveat": "Original freeze hashes live_pilot.py only, not imported baseline.py and safe_jev.py; preserve their Git versions too.",
+  "api_attempts_before_audit": 11,
+  "api_attempts_after_audit": 11,
+  "api_limit": 50,
+  "saved_call_records": 11,
+  "saved_successful_calls": 11,
+  "saved_latency_s": {
+    "min": 0.8718264999333769,
+    "median": 1.0776649580802768,
+    "max": 2.8306041249306872
+  },
+  "saved_usage": {
+    "input_tokens": 25524,
+    "output_tokens": 587
+  },
+  "new_jev_attempts_by_audit": 0
+}
