@@ -1,0 +1,55 @@
+{
+  "observed_candidate_coverage": [
+    {
+      "case": "observer_selective",
+      "pairs": 36,
+      "changed_pairs": 9,
+      "distinct_comparisons": [
+        {
+          "current_joins": [
+            "SortMergeJoin"
+          ],
+          "proposed_joins": [
+            "BroadcastHashJoin"
+          ],
+          "plans_equal": false,
+          "native_would_choose": "PROPOSED"
+        },
+        {
+          "current_joins": [
+            "BroadcastHashJoin"
+          ],
+          "proposed_joins": [
+            "BroadcastHashJoin"
+          ],
+          "plans_equal": true,
+          "native_would_choose": "CURRENT"
+        }
+      ],
+      "broadcast_available_in_either_remaining_plan": true
+    },
+    {
+      "case": "observer_skew",
+      "pairs": 27,
+      "changed_pairs": 0,
+      "distinct_comparisons": [
+        {
+          "current_joins": [
+            "SortMergeJoin"
+          ],
+          "proposed_joins": [
+            "SortMergeJoin"
+          ],
+          "plans_equal": true,
+          "native_would_choose": "CURRENT"
+        }
+      ],
+      "broadcast_available_in_either_remaining_plan": false
+    }
+  ],
+  "input_distribution_caveat": {
+    "development_skew_seed313_keep500": "k=0 survives dimension filter because 313<500",
+    "live_skew_seed733_keep500": "k=0 is filtered out because 733>=500; not a surviving-skew runtime example. Retain original data and do not relabel it as retained skew."
+  },
+  "interpretation": "Fixed current/proposed advice cannot select a broadcast plan absent from both candidates. Whole-query broadcast headroom does not establish the legality or remaining-time gain of constructing that option at this boundary."
+}

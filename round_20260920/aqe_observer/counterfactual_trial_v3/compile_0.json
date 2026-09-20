@@ -1,0 +1,16 @@
+{
+  "command": [
+    "java",
+    "-Xmx768m",
+    "-cp",
+    "/Users/mohitpatil/jev-mac-native/.venv/lib/python3.11/site-packages/pyspark/jars/*",
+    "scala.tools.nsc.Main",
+    "-usejavacp",
+    "-d",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/counterfactual_trial_v3/classes",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/NativeBoundaryObserverV3.scala"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

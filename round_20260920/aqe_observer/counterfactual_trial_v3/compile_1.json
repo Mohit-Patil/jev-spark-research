@@ -1,0 +1,14 @@
+{
+  "command": [
+    "jar",
+    "--create",
+    "--file",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/counterfactual_trial_v3/counterfactual.jar",
+    "-C",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/counterfactual_trial_v3/classes",
+    "."
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

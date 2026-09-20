@@ -1,0 +1,142 @@
+{
+  "kind": "single-boundary observed-state-matched randomized counterfactual trial",
+  "frozen_unix": 1789921521.736356,
+  "case": {
+    "name": "live_uniform_medium",
+    "n": 1200000,
+    "m": 2000000,
+    "keep": 100,
+    "skew": false,
+    "seed": 601
+  },
+  "target_signature": "6346d36add42a6bc04a73ca67edebcef3361923148a3b51fd904b48e950e4589",
+  "target_snapshot": {
+    "cost_returned_unchanged": true,
+    "current": {
+      "call_site": "org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.$anonfun$withFinalPlanUpdate$1(AdaptiveSparkPlanExec.scala:365)",
+      "captured_epoch_ms": 1789921141407,
+      "captured_nano_time": 629844659424125,
+      "plan_truncated": false,
+      "remaining_physical_plan": "HashAggregate(keys=[bucket#34L], functions=[count(1), sum((v#33L * w#37L)), sum(k#32L)], output=[bucket#34L, cnt#38L, total#39L, key_sum#40L])\n+- Exchange hashpartitioning(bucket#34L, 8), ENSURE_REQUIREMENTS, [plan_id=322]\n   +- HashAggregate(keys=[bucket#34L], functions=[partial_count(1), partial_sum((v#33L * w#37L)), partial_sum(k#32L)], output=[bucket#34L, count#47L, sum#48L, sum#49L])\n      +- Project [k#32L, v#33L, bucket#34L, w#37L]\n         +- SortMergeJoin [k#32L], [k#36L], Inner\n            :- Sort [k#32L ASC NULLS FIRST], false, 0\n            :  +- ShuffleQueryStage 0\n            :     +- Exchange hashpartitioning(k#32L, 8), ENSURE_REQUIREMENTS, [plan_id=306]\n            :        +- *(1) Project [(((id#31L * 97) + 601) % 2000000) AS k#32L, (((id#31L * 13) + 601) % 997) AS v#33L, (id#31L % 7) AS bucket#34L]\n            :           +- *(1) Filter ((((((((id#31L * 97) + 601) % 2000000) * 17) + 601) % 1000) < 100) AND isnotnull((((id#31L * 97) + 601) % 2000000)))\n            :              +- *(1) Range (0, 1200000, step=1, splits=2)\n            +- Sort [k#36L ASC NULLS FIRST], false, 0\n               +- ShuffleQueryStage 1\n                  +- Exchange hashpartitioning(k#36L, 8), ENSURE_REQUIREMENTS, [plan_id=313]\n                     +- *(2) Project [id#35L AS k#36L, (((id#35L * 7) + 601) % 101) AS w#37L]\n                        +- *(2) Filter ((((id#35L * 17) + 601) % 1000) < 100)\n                           +- *(2) Range (0, 2000000, step=1, splits=2)\n",
+      "source_line": 365,
+      "stage_scope": "visible query-stage leaves, not a full history of all completed work",
+      "stages": [
+        {
+          "is_runtime": null,
+          "materialized": false,
+          "node": "ShuffleQueryStage",
+          "row_count": null,
+          "size_in_bytes": null,
+          "stage_id": 0
+        },
+        {
+          "is_runtime": true,
+          "materialized": true,
+          "node": "ShuffleQueryStage",
+          "nonempty_partitions": 8,
+          "partition_bytes_max": 246790,
+          "partition_bytes_p50": 235572,
+          "partition_bytes_p95": 246790,
+          "partition_bytes_total": 1873358,
+          "partition_count": 8,
+          "row_count": 200000,
+          "shuffle_serialized_partition_bytes": [
+            246790,
+            246790,
+            224354,
+            224354,
+            235572,
+            235572,
+            235572,
+            224354
+          ],
+          "size_in_bytes": 4800000,
+          "stage_id": 1
+        }
+      ],
+      "stock_cost": "SimpleCost(1)",
+      "stock_cost_value": 1
+    },
+    "intervention": false,
+    "kind": "native_aqe_cost_boundary_pair_v2",
+    "native_would_choose": "PROPOSED",
+    "observer_instance": "e03666bf-0c4c-45d8-9d98-3b7fdcbad95f",
+    "plans_equal": false,
+    "proposed": {
+      "call_site": "org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.$anonfun$withFinalPlanUpdate$1(AdaptiveSparkPlanExec.scala:366)",
+      "captured_epoch_ms": 1789921141407,
+      "captured_nano_time": 629844659784875,
+      "plan_truncated": false,
+      "remaining_physical_plan": "HashAggregate(keys=[bucket#34L], functions=[count(1), sum((v#33L * w#37L)), sum(k#32L)], output=[bucket#34L, cnt#38L, total#39L, key_sum#40L])\n+- Exchange hashpartitioning(bucket#34L, 8), ENSURE_REQUIREMENTS, [plan_id=343]\n   +- HashAggregate(keys=[bucket#34L], functions=[partial_count(1), partial_sum((v#33L * w#37L)), partial_sum(k#32L)], output=[bucket#34L, count#47L, sum#48L, sum#49L])\n      +- Project [k#32L, v#33L, bucket#34L, w#37L]\n         +- BroadcastHashJoin [k#32L], [k#36L], Inner, BuildRight, false\n            :- ShuffleQueryStage 0\n            :  +- Exchange hashpartitioning(k#32L, 8), ENSURE_REQUIREMENTS, [plan_id=306]\n            :     +- *(1) Project [(((id#31L * 97) + 601) % 2000000) AS k#32L, (((id#31L * 13) + 601) % 997) AS v#33L, (id#31L % 7) AS bucket#34L]\n            :        +- *(1) Filter ((((((((id#31L * 97) + 601) % 2000000) * 17) + 601) % 1000) < 100) AND isnotnull((((id#31L * 97) + 601) % 2000000)))\n            :           +- *(1) Range (0, 1200000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=338]\n               +- ShuffleQueryStage 1\n                  +- Exchange hashpartitioning(k#36L, 8), ENSURE_REQUIREMENTS, [plan_id=313]\n                     +- *(2) Project [id#35L AS k#36L, (((id#35L * 7) + 601) % 101) AS w#37L]\n                        +- *(2) Filter ((((id#35L * 17) + 601) % 1000) < 100)\n                           +- *(2) Range (0, 2000000, step=1, splits=2)\n",
+      "source_line": 366,
+      "stage_scope": "visible query-stage leaves, not a full history of all completed work",
+      "stages": [
+        {
+          "is_runtime": null,
+          "materialized": false,
+          "node": "ShuffleQueryStage",
+          "row_count": null,
+          "size_in_bytes": null,
+          "stage_id": 0
+        },
+        {
+          "is_runtime": true,
+          "materialized": true,
+          "node": "ShuffleQueryStage",
+          "nonempty_partitions": 8,
+          "partition_bytes_max": 246790,
+          "partition_bytes_p50": 235572,
+          "partition_bytes_p95": 246790,
+          "partition_bytes_total": 1873358,
+          "partition_count": 8,
+          "row_count": 200000,
+          "shuffle_serialized_partition_bytes": [
+            246790,
+            246790,
+            224354,
+            224354,
+            235572,
+            235572,
+            235572,
+            224354
+          ],
+          "size_in_bytes": 4800000,
+          "stage_id": 1
+        }
+      ],
+      "stock_cost": "SimpleCost(1)",
+      "stock_cost_value": 1
+    },
+    "release_commit": "29434ea766b0fc3c3bf6eaadb43a8f931133649e",
+    "resources": {
+      "captured_epoch_ms": 1789921141407,
+      "jvm_heap_committed_bytes": 148897792,
+      "jvm_heap_free_bytes": 48589408,
+      "jvm_heap_max_bytes": 1073741824
+    },
+    "run_id": "live_uniform_medium",
+    "spark_version": "4.0.1",
+    "thread_id": 18
+  },
+  "arms": [
+    "CURRENT",
+    "PROPOSED"
+  ],
+  "seed": 1846,
+  "calibration_runs": 1,
+  "warmup_rounds": 2,
+  "measured_rounds": 10,
+  "maximum_overrides_per_query": 1,
+  "match_rule": "normalized current/proposed remaining plans plus ALL visible stage fields, including materialization flags, row counts, size statistics and reported partition byte arrays",
+  "not_matched": "in-flight task progress not exposed here, JVM heap occupancy, GC state, OS scheduling and caches. These remain limitations even when the observed-state hash matches.",
+  "on_mismatch": "execute native unchanged, preserve the run, exclude only from state-matched branch comparison; retain in all-trial totals",
+  "timing": "remaining time from proposed-cost call entry through Python collect return plus one JVM clock RPC; whole-query timing stops at collect return before that RPC and final-plan capture",
+  "scope": "one decision only; later AQE decisions are native. CURRENT does not force a join strategy for the whole query.",
+  "cache": "uncached generated Range inputs, shared warmed JVM, no OS-cache reset",
+  "api_calls": 0,
+  "source_sha256": {
+    "counterfactual_trial_v3.py": "9e34d23da00ac50c6dc321566412a9120d96829a1df1c5b07c4e8ba20118bd11",
+    "NativeBoundaryObserverV3.scala": "d78af7d65b83f354074638c69e2880958bbe8e86319842b5bb62497497df3c79",
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  }
+}

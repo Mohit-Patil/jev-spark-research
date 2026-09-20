@@ -1,0 +1,98 @@
+{
+  "audit_unix": 1789922301.58698,
+  "workspace_exists": true,
+  "connection_kit_exists": true,
+  "head": "a46eaec160fc5171b8b9b25c36b18b6dc71d3c08",
+  "branch": "main",
+  "changed_paths": [
+    "M CHECKPOINT.md",
+    " M round_20260920/aqe_observer/offline_v2_tests.json",
+    " M round_20260920/jev_calls.jsonl",
+    "?? .bridge_jobs/",
+    "?? .native_bridge.lock",
+    "?? hello.py",
+    "?? round_20260920/aqe_observer/CANDIDATE_COVERAGE.json",
+    "?? round_20260920/aqe_observer/FINAL_AUDIT.json",
+    "?? round_20260920/aqe_observer/NativeBoundaryObserverV3.scala",
+    "?? round_20260920/aqe_observer/RESULTS_2026-09-20.md",
+    "?? round_20260920/aqe_observer/SNAPSHOT_DIGEST.json",
+    "?? round_20260920/aqe_observer/candidate_coverage_audit.py",
+    "?? round_20260920/aqe_observer/counterfactual_confirm_v3.py",
+    "?? round_20260920/aqe_observer/counterfactual_confirm_v3/",
+    "?? round_20260920/aqe_observer/counterfactual_trial_v3.py",
+    "?? round_20260920/aqe_observer/counterfactual_trial_v3/",
+    "?? round_20260920/aqe_observer/final_audit.py",
+    "?? round_20260920/aqe_observer/live_shadow_v2/",
+    "?? round_20260920/aqe_observer/observer_build_v2/classes/",
+    "?? round_20260920/aqe_observer/observer_build_v2/observer.jar",
+    "?? round_20260920/aqe_observer/offline_checks_final_audit_log.txt",
+    "?? round_20260920/aqe_observer/offline_v2_tests_final_audit_log.txt",
+    "?? round_20260920/aqe_observer/prepare_confirmation_v3.py",
+    "?? round_20260920/aqe_observer/prepare_counterfactual_v3.py",
+    "?? round_20260920/aqe_observer/snapshot_digest.py",
+    "?? round_20260920/aqe_observer_v1/classes/",
+    "?? round_20260920/aqe_observer_v1/native-boundary-observer.jar",
+    "?? round_20260920/practical_v2/"
+  ],
+  "api_attempts_used": 19,
+  "api_limit": 50,
+  "saved_calls": 19,
+  "last_call_metadata": [
+    {
+      "attempt": 12,
+      "purpose": "expanded_dev_plans",
+      "status": "succeeded",
+      "latency_s": 1.0463581250514835
+    },
+    {
+      "attempt": 13,
+      "purpose": "expanded_dev_stats",
+      "status": "succeeded",
+      "latency_s": 1.7611370410304517
+    },
+    {
+      "attempt": 14,
+      "purpose": "aqe2_live_uniform_small_plans",
+      "status": "succeeded",
+      "latency_s": 1.1316880420781672
+    },
+    {
+      "attempt": 15,
+      "purpose": "aqe2_live_uniform_small_stats",
+      "status": "succeeded",
+      "latency_s": 0.9733551249373704
+    },
+    {
+      "attempt": 16,
+      "purpose": "aqe2_live_uniform_medium_plans",
+      "status": "succeeded",
+      "latency_s": 1.0409618749981746
+    },
+    {
+      "attempt": 17,
+      "purpose": "aqe2_live_uniform_medium_stats",
+      "status": "succeeded",
+      "latency_s": 0.9789683750132099
+    },
+    {
+      "attempt": 18,
+      "purpose": "aqe2_live_skew_plans",
+      "status": "succeeded",
+      "latency_s": 1.7404615839477628
+    },
+    {
+      "attempt": 19,
+      "purpose": "aqe2_live_skew_stats",
+      "status": "succeeded",
+      "latency_s": 1.0216335419099778
+    }
+  ],
+  "source_sha256": {
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06",
+    "safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049",
+    "NativeBoundaryObserver.scala": "736c9f1f0189fc8c65cb2d5920c001c8ac8a64679dfef5d18491c874461db6dc",
+    "live_pilot.py": "e9cf115e89f96e8fd140a8f27f892a9625b1cec0ebbc8dfea419780c5c3fe78e"
+  },
+  "new_jev_attempts": 0,
+  "preservation": "Original scripts, completed runs, request ledger and frozen policy are not modified."
+}

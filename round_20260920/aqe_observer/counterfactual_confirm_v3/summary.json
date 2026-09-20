@@ -1,0 +1,44 @@
+{
+  "status": "succeeded",
+  "target_signature": "6346d36add42a6bc04a73ca67edebcef3361923148a3b51fd904b48e950e4589",
+  "runs": 65,
+  "measured_runs": 60,
+  "all_correct": true,
+  "interventions": 17,
+  "new_jev_calls": 0,
+  "budget_used": 19,
+  "arms": {
+    "CURRENT": {
+      "attempted": 30,
+      "matched": 15,
+      "unmatched_native_fallback": 15,
+      "all_trials_whole_query_median_s": 0.11697852052748203,
+      "matched_remaining_median_s": 0.090515333,
+      "matched_remaining_min_s": 0.079890958,
+      "matched_remaining_max_s": 0.105790959,
+      "matched_whole_query_median_s": 0.1170544580090791,
+      "final_join_operators": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "PROPOSED": {
+      "attempted": 30,
+      "matched": 22,
+      "unmatched_native_fallback": 8,
+      "all_trials_whole_query_median_s": 0.12334954150719568,
+      "matched_remaining_median_s": 0.097418542,
+      "matched_remaining_min_s": 0.084493875,
+      "matched_remaining_max_s": 0.1400805,
+      "matched_whole_query_median_s": 0.1267847705166787,
+      "final_join_operators": [
+        "BroadcastHashJoin"
+      ]
+    }
+  },
+  "scope": "single decision, observed-state matched exploratory trial; no Jev-directed intervention and no Jev end-to-end speedup",
+  "matched_randomized_rounds": 11,
+  "paired_remaining_median_saving_current_s": 0.0022550839999999905,
+  "paired_current_faster_count": 9,
+  "median_clock_rpc_s": 0.00016858289018273354,
+  "limitations": "in-flight task progress not exposed here, JVM heap occupancy, GC state, OS scheduling and caches. These remain limitations even when the observed-state hash matches."
+}

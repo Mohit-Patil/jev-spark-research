@@ -1,0 +1,21 @@
+{"tests_run": 15, "failures": 0, "errors": 0, "successful": true, "live_api_attempts": 0}
+test_cap_across_concurrent_instances (__main__.Checks.test_cap_across_concurrent_instances) ... ok
+test_corruption_fail_closed (__main__.Checks.test_corruption_fail_closed) ... ok
+test_duplicate_key (__main__.Checks.test_duplicate_key) ... ok
+test_expected_skew_tiny (__main__.Checks.test_expected_skew_tiny) ... ok
+test_expected_uniform_tiny (__main__.Checks.test_expected_uniform_tiny) ... ok
+test_invalid_choice_rejected (__main__.Checks.test_invalid_choice_rejected) ... ok
+test_missing_key (__main__.Checks.test_missing_key) ... ok
+test_model_pinned (__main__.Checks.test_model_pinned) ... ok
+test_nonfinite_rejected (__main__.Checks.test_nonfinite_rejected) ... ok
+test_persistent_budget (__main__.Checks.test_persistent_budget) ... ok
+test_plan_ids_ignored_not_operators (__main__.Checks.test_plan_ids_ignored_not_operators) ... ok
+test_reservation_survives_no_request (__main__.Checks.test_reservation_survives_no_request) ... ok
+test_response_valid (__main__.Checks.test_response_valid) ... ok
+test_secret_parser_no_expansion (__main__.Checks.test_secret_parser_no_expansion) ... ok
+test_size_rejected_before_reservation (__main__.Checks.test_size_rejected_before_reservation) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.011s
+
+OK

@@ -1,0 +1,44 @@
+{
+  "kind": "real_AQE_boundary_live_shadow_NOT_intervention_or_speedup_evaluation",
+  "cases": [
+    {
+      "name": "live_uniform_small",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 10,
+      "skew": false,
+      "seed": 503
+    },
+    {
+      "name": "live_uniform_medium",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 601
+    },
+    {
+      "name": "live_skew",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 733
+    }
+  ],
+  "max_new_attempts": 6,
+  "budget_before": 13,
+  "selection": "first structurally changed native current/proposed pair per query; both feature views use the same captured state",
+  "client": "existing bounded adapter, fresh HTTP client each call; no retries",
+  "model": "jev-1.13.0",
+  "observer_callback_timeout_s": 20,
+  "late_reply_policy": "native Spark continues on timeout; late advice is reported, never applied",
+  "source_sha256": {
+    "live_shadow_v2.py": "92f88b42b639fc13d14dc84266ca7e11e11f6c7d019437c087d625f4a179eb07",
+    "runtime_features.py": "f943a6eee4cc5374091f4c94c4f6d6b3dfe8e0ce0476d2d6b10a2a30005740a8",
+    "observer_check_v2.py": "0a7bb8896d7737e133304f07fe29d038aa66ea703dcb8ecc9f5fa69fb190dd7b",
+    "NativeBoundaryObserverV2.scala": "d482cf6005dde7bb76c8ad8ae5382fe13fed6f64d2a823d844ad13033a92973c",
+    "safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049",
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  }
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "case": "live_uniform_small",
+    "native_would_choose": "PROPOSED",
+    "current": {
+      "operators": [
+        "SortMergeJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": false,
+          "row_count": null,
+          "size_in_bytes": null,
+          "partition_count": null,
+          "partition_bytes_total": null,
+          "partition_bytes_max": null,
+          "partition_bytes_p50": null
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 20000,
+          "size_in_bytes": 480000,
+          "partition_count": 8,
+          "partition_bytes_total": 205444,
+          "partition_bytes_max": 27560,
+          "partition_bytes_p50": 25054
+        }
+      ]
+    },
+    "proposed": {
+      "operators": [
+        "BroadcastHashJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": false,
+          "row_count": null,
+          "size_in_bytes": null,
+          "partition_count": null,
+          "partition_bytes_total": null,
+          "partition_bytes_max": null,
+          "partition_bytes_p50": null
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 20000,
+          "size_in_bytes": 480000,
+          "partition_count": 8,
+          "partition_bytes_total": 205444,
+          "partition_bytes_max": 27560,
+          "partition_bytes_p50": 25054
+        }
+      ]
+    }
+  },
+  {
+    "case": "live_uniform_medium",
+    "native_would_choose": "PROPOSED",
+    "current": {
+      "operators": [
+        "SortMergeJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": false,
+          "row_count": null,
+          "size_in_bytes": null,
+          "partition_count": null,
+          "partition_bytes_total": null,
+          "partition_bytes_max": null,
+          "partition_bytes_p50": null
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 200000,
+          "size_in_bytes": 4800000,
+          "partition_count": 8,
+          "partition_bytes_total": 1873358,
+          "partition_bytes_max": 246790,
+          "partition_bytes_p50": 235572
+        }
+      ]
+    },
+    "proposed": {
+      "operators": [
+        "BroadcastHashJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": false,
+          "row_count": null,
+          "size_in_bytes": null,
+          "partition_count": null,
+          "partition_bytes_total": null,
+          "partition_bytes_max": null,
+          "partition_bytes_p50": null
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 200000,
+          "size_in_bytes": 4800000,
+          "partition_count": 8,
+          "partition_bytes_total": 1873358,
+          "partition_bytes_max": 246790,
+          "partition_bytes_p50": 235572
+        }
+      ]
+    }
+  },
+  {
+    "case": "live_skew",
+    "native_would_choose": "PROPOSED",
+    "current": {
+      "operators": [
+        "SortMergeJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 120000,
+          "size_in_bytes": 3840000,
+          "partition_count": 8,
+          "partition_bytes_total": 1794832,
+          "partition_bytes_max": 224354,
+          "partition_bytes_p50": 224354
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 1000000,
+          "size_in_bytes": 24000000,
+          "partition_count": 8,
+          "partition_bytes_total": 9072000,
+          "partition_bytes_max": 1134000,
+          "partition_bytes_p50": 1134000
+        }
+      ]
+    },
+    "proposed": {
+      "operators": [
+        "BroadcastHashJoin"
+      ],
+      "stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 120000,
+          "size_in_bytes": 3840000,
+          "partition_count": 8,
+          "partition_bytes_total": 1794832,
+          "partition_bytes_max": 224354,
+          "partition_bytes_p50": 224354
+        },
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "row_count": 1000000,
+          "size_in_bytes": 24000000,
+          "partition_count": 8,
+          "partition_bytes_total": 9072000,
+          "partition_bytes_max": 1134000,
+          "partition_bytes_p50": 1134000
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,123 @@
+{
+  "status": "succeeded",
+  "query_runs": 3,
+  "all_results_correct": true,
+  "boundary_pairs": 12,
+  "interventions": 0,
+  "new_api_attempts": 6,
+  "budget_used": 19,
+  "budget_remaining": 31,
+  "handler_errors": [],
+  "all_replies_before_query_finished": true,
+  "shadow_callback_errors": [],
+  "model_calls": [
+    {
+      "case": "live_uniform_small",
+      "view": "PLANS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 14,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.46,
+      "latency_s": 1.1316880420781672,
+      "usage": {
+        "input_tokens": 1954,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    },
+    {
+      "case": "live_uniform_small",
+      "view": "STATS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 15,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.57,
+      "latency_s": 0.9733551249373704,
+      "usage": {
+        "input_tokens": 2643,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    },
+    {
+      "case": "live_uniform_medium",
+      "view": "PLANS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 16,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.46,
+      "latency_s": 1.0409618749981746,
+      "usage": {
+        "input_tokens": 2034,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    },
+    {
+      "case": "live_uniform_medium",
+      "view": "STATS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 17,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.62,
+      "latency_s": 0.9789683750132099,
+      "usage": {
+        "input_tokens": 2751,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    },
+    {
+      "case": "live_skew",
+      "view": "PLANS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 18,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.42,
+      "latency_s": 1.7404615839477628,
+      "usage": {
+        "input_tokens": 2169,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    },
+    {
+      "case": "live_skew",
+      "view": "STATS",
+      "native_would_choose": "PROPOSED",
+      "attempt": 19,
+      "status": "succeeded",
+      "choice": "ABSTAIN",
+      "confidence": 0.51,
+      "latency_s": 1.0216335419099778,
+      "usage": {
+        "input_tokens": 3088,
+        "output_tokens": 44
+      },
+      "reply_before_query_finished": true
+    }
+  ],
+  "query_times_with_shadow_overhead": [
+    {
+      "case": "live_uniform_small",
+      "to_result_s": 3.0716899590333924,
+      "observer_self_s_including_callback": 2.147292544
+    },
+    {
+      "case": "live_uniform_medium",
+      "to_result_s": 2.3243484999984503,
+      "observer_self_s_including_callback": 2.037014041
+    },
+    {
+      "case": "live_skew",
+      "to_result_s": 3.137938249972649,
+      "observer_self_s_including_callback": 2.774840085
+    }
+  ],
+  "interpretation": "agreement with native is NOT accuracy; unexecuted alternative remaining runtimes are unknown; no counterfactual performance labels exist"
+}
