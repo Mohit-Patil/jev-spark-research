@@ -1,0 +1,14 @@
+{
+  "command": [
+    "jar",
+    "--create",
+    "--file",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/advisor_build_v5/advisor.jar",
+    "-C",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/advisor_build_v5/classes",
+    "."
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

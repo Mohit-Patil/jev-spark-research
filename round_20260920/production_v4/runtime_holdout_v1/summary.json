@@ -1,0 +1,130 @@
+[
+  {
+    "case": "heldout_skew18m",
+    "arms": {
+      "OFF": {
+        "n": 5,
+        "median_s": 3.767109874985181,
+        "min_s": 3.7470010420074686,
+        "max_s": 3.866656917030923,
+        "paired_median_saving_vs_native_s": 0.0,
+        "faster_pairs": 0,
+        "worst_ratio_vs_native": 1.0,
+        "queries_with_runtime_candidates": 0,
+        "median_candidate_self_s": 0.0,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHADOW": {
+        "n": 5,
+        "median_s": 3.7520160829881206,
+        "min_s": 3.729414166067727,
+        "max_s": 3.9000260840402916,
+        "paired_median_saving_vs_native_s": -0.005015040980651975,
+        "faster_pairs": 2,
+        "worst_ratio_vs_native": 1.0352833374831238,
+        "queries_with_runtime_candidates": 5,
+        "median_candidate_self_s": 0.000469667,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "APPLY": {
+        "n": 5,
+        "median_s": 1.732108167023398,
+        "min_s": 1.6944334169384092,
+        "max_s": 1.8364967500092462,
+        "paired_median_saving_vs_native_s": 2.044083832995966,
+        "faster_pairs": 5,
+        "worst_ratio_vs_native": 0.4749572536214128,
+        "queries_with_runtime_candidates": 5,
+        "median_candidate_self_s": 0.000579167,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "TUNED_AQE": {
+        "n": 5,
+        "median_s": 1.6821061670780182,
+        "min_s": 1.6570922499522567,
+        "max_s": 1.686018000007607,
+        "paired_median_saving_vs_native_s": 2.0850037079071626,
+        "faster_pairs": 5,
+        "worst_ratio_vs_native": 0.44996464668830655,
+        "queries_with_runtime_candidates": 0,
+        "median_candidate_self_s": 0.0,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      }
+    },
+    "observed_state_matched_rounds": 5,
+    "matched_whole_query_median_saving_vs_shadow_s": 2.041863498976454,
+    "matching_caveat": "Both join inputs materialized, exact recorded plan/statistics matched; cache/GC/OS state not matched. Full-query paired comparisons are primary."
+  },
+  {
+    "case": "heldout_uniform18m",
+    "arms": {
+      "OFF": {
+        "n": 5,
+        "median_s": 2.510155624942854,
+        "min_s": 2.403399750008248,
+        "max_s": 3.021448207902722,
+        "paired_median_saving_vs_native_s": 0.0,
+        "faster_pairs": 0,
+        "worst_ratio_vs_native": 1.0,
+        "queries_with_runtime_candidates": 0,
+        "median_candidate_self_s": 0.0,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHADOW": {
+        "n": 5,
+        "median_s": 2.4113977079978213,
+        "min_s": 2.365160458954051,
+        "max_s": 2.4781912920298055,
+        "paired_median_saving_vs_native_s": 0.1449951659888029,
+        "faster_pairs": 5,
+        "worst_ratio_vs_native": 0.9847445440388606,
+        "queries_with_runtime_candidates": 5,
+        "median_candidate_self_s": 0.000319627,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "APPLY": {
+        "n": 5,
+        "median_s": 2.2216895410092548,
+        "min_s": 2.111202541971579,
+        "max_s": 3.267420999938622,
+        "paired_median_saving_vs_native_s": 0.2884660839335993,
+        "faster_pairs": 4,
+        "worst_ratio_vs_native": 1.0814089056342413,
+        "queries_with_runtime_candidates": 5,
+        "median_candidate_self_s": 0.000365418,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "TUNED_AQE": {
+        "n": 5,
+        "median_s": 2.062660458032042,
+        "min_s": 2.0109539580298588,
+        "max_s": 2.4503084160387516,
+        "paired_median_saving_vs_native_s": 0.46559512487147003,
+        "faster_pairs": 5,
+        "worst_ratio_vs_native": 0.8857006792529722,
+        "queries_with_runtime_candidates": 0,
+        "median_candidate_self_s": 0.0,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      }
+    },
+    "observed_state_matched_rounds": 5,
+    "matched_whole_query_median_saving_vs_shadow_s": 0.14347091794479638,
+    "matching_caveat": "Both join inputs materialized, exact recorded plan/statistics matched; cache/GC/OS state not matched. Full-query paired comparisons are primary."
+  }
+]

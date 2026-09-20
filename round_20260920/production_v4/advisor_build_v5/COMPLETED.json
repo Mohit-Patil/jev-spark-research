@@ -1,0 +1,7 @@
+{
+  "status": "succeeded",
+  "source_sha256": "8a0f82e0fcd1cbd71b82fb70b80c27beb118f4d4aae1916f7639e62f78272109",
+  "jar_sha256": "8490a1435852755a8fae10d82735cca7c3cd2666fce1dc909b1ea44352395898",
+  "new_api_calls": 0,
+  "scope": "compiled only; runtime tests required"
+}

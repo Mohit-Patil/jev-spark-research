@@ -1,0 +1,162 @@
+{
+  "status": "succeeded",
+  "runs": 22,
+  "fault_tests_passed": 6,
+  "live_measured_runs": 16,
+  "all_correct": true,
+  "new_jev_attempts": 4,
+  "budget_used": 49,
+  "remaining": 1,
+  "model_choices": [
+    {
+      "run_id": "jev5_jev_skew18m_0_JEV",
+      "choice": "ABSTAIN",
+      "status": "succeeded",
+      "confidence": 0.24,
+      "latency_s": 1.3290982500184327,
+      "reply_before_query_completed": true
+    },
+    {
+      "run_id": "jev5_jev_skew18m_1_JEV",
+      "choice": "ABSTAIN",
+      "status": "succeeded",
+      "confidence": 0.23,
+      "latency_s": 0.34839524992275983,
+      "reply_before_query_completed": true
+    },
+    {
+      "run_id": "jev5_jev_uniform18m_0_JEV",
+      "choice": "ABSTAIN",
+      "status": "succeeded",
+      "confidence": 0.3,
+      "latency_s": 0.7220493339700624,
+      "reply_before_query_completed": true
+    },
+    {
+      "run_id": "jev5_jev_uniform18m_1_JEV",
+      "choice": "BROADCAST",
+      "status": "succeeded",
+      "confidence": 0.21,
+      "latency_s": 0.33577679202426225,
+      "reply_before_query_completed": true
+    }
+  ],
+  "service_errors": [],
+  "summaries": [
+    {
+      "case": "jev_skew18m",
+      "arms": {
+        "OFF": {
+          "n": 2,
+          "median_s": 3.8189781455439515,
+          "times_s": [
+            3.8709808751009405,
+            3.7669754159869626
+          ],
+          "paired_savings_vs_native_s": [
+            0.0,
+            0.0
+          ],
+          "applied_candidates": 0
+        },
+        "APPLY": {
+          "n": 2,
+          "median_s": 1.7153878539684229,
+          "times_s": [
+            1.718202874995768,
+            1.7125728329410776
+          ],
+          "paired_savings_vs_native_s": [
+            2.1527780001051724,
+            2.054402583045885
+          ],
+          "applied_candidates": 2
+        },
+        "TUNED_AQE": {
+          "n": 2,
+          "median_s": 2.0609236249583773,
+          "times_s": [
+            1.8088690829463303,
+            2.3129781669704244
+          ],
+          "paired_savings_vs_native_s": [
+            2.06211179215461,
+            1.4539972490165383
+          ],
+          "applied_candidates": 0
+        },
+        "JEV": {
+          "n": 2,
+          "median_s": 4.76030077051837,
+          "times_s": [
+            5.2433370830258355,
+            4.2772644580109045
+          ],
+          "paired_savings_vs_native_s": [
+            -1.372356207924895,
+            -0.5102890420239419
+          ],
+          "applied_candidates": 0
+        }
+      }
+    },
+    {
+      "case": "jev_uniform18m",
+      "arms": {
+        "OFF": {
+          "n": 2,
+          "median_s": 2.907807437062729,
+          "times_s": [
+            3.244808666058816,
+            2.5708062080666423
+          ],
+          "paired_savings_vs_native_s": [
+            0.0,
+            0.0
+          ],
+          "applied_candidates": 0
+        },
+        "APPLY": {
+          "n": 2,
+          "median_s": 2.2979798955493607,
+          "times_s": [
+            2.4792839160654694,
+            2.116675875033252
+          ],
+          "paired_savings_vs_native_s": [
+            0.7655247499933466,
+            0.45413033303339034
+          ],
+          "applied_candidates": 2
+        },
+        "TUNED_AQE": {
+          "n": 2,
+          "median_s": 2.3000011245603673,
+          "times_s": [
+            2.1011867080815136,
+            2.498815541039221
+          ],
+          "paired_savings_vs_native_s": [
+            1.1436219579773024,
+            0.0719906670274213
+          ],
+          "applied_candidates": 0
+        },
+        "JEV": {
+          "n": 2,
+          "median_s": 2.900818624999374,
+          "times_s": [
+            3.338884499971755,
+            2.4627527500269935
+          ],
+          "paired_savings_vs_native_s": [
+            -0.09407583391293883,
+            0.10805345803964883
+          ],
+          "applied_candidates": 1
+        }
+      }
+    }
+  ],
+  "elapsed_s": 64.46875200001523
+}

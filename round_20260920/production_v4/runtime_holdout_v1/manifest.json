@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "name": "heldout_skew18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 81283,
+      "join": "LEFT"
+    },
+    {
+      "name": "heldout_uniform18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 37121,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "OFF",
+    "SHADOW",
+    "APPLY",
+    "TUNED_AQE"
+  ],
+  "warmups": 2,
+  "reps": 5,
+  "seed": 90267,
+  "scope": "frozen independent snapshots; same query families, no model choice; aligned native AQE baseline added",
+  "runtime_gate": "both shuffle inputs materialized; INNER/LEFT, one Long key; right rows<=1250000, runtime bytes<=32 MiB; no skew-split joins",
+  "memory_admission_caveat": "these are conservative experimental bounds, not a general hash-table memory-safety proof",
+  "hashes": {
+    "production_v4/runtime_holdout.py": "a354001b8d7a2a631d05aa84dc444539c0da3cde839d7d45ffad451db4ba96f6",
+    "production_v4/RuntimeCandidateExtension.scala": "5d93c4096c5d8c6506912cd8c35db2f10fbecdcd59ca3e67ea71d8d4322e631e",
+    "practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  },
+  "jar_sha256": "54c7cde8fc8ac1e4ab9f622a731f605d4394d689c1a833c7c74bf0d676ba08c6",
+  "model_calls": 0,
+  "timing": "whole SQL construction, initial-plan capture, all stage execution including extra broadcast and synchronous candidate generation. Final-plan/event extraction excluded.",
+  "cache": "uncached generated inputs, no materialized DataFrames shared between runs; warmed shared JVM and uncontrolled OS/JIT caches",
+  "holdout": "independent 18-million-row snapshots; same LEFT family, not an unseen-template holdout; no retuning"
+}

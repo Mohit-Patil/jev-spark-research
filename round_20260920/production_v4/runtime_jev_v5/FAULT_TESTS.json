@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "test": "NATIVE",
+      "passed": true,
+      "advice": "NATIVE",
+      "actual_application": false
+    },
+    {
+      "test": "BROADCAST",
+      "passed": true,
+      "advice": "BROADCAST",
+      "actual_application": true
+    },
+    {
+      "test": "INVALID",
+      "passed": true,
+      "advice": "ABSTAIN",
+      "actual_application": false
+    },
+    {
+      "test": "SLOW",
+      "passed": true,
+      "advice": "ABSTAIN",
+      "actual_application": false
+    },
+    {
+      "test": "oversize_build_no_callback",
+      "passed": true
+    },
+    {
+      "test": "nonloopback_destination_rejected_without_request",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "new_jev_calls": 0
+}

@@ -1,0 +1,43 @@
+{
+  "frozen_unix": 1789924429.2861109,
+  "cases": [
+    {
+      "name": "jev_skew18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 193,
+      "join": "LEFT"
+    },
+    {
+      "name": "jev_uniform18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 412,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "OFF",
+    "APPLY",
+    "TUNED_AQE",
+    "JEV"
+  ],
+  "reps": 2,
+  "seed": 91173,
+  "planned_max_requests": 4,
+  "source_hashes": {
+    "runtime_advisor_v5.py": "fd11ff0691c1cd6f49289d5faaf2bb82ebf809697bbc70f36775deee9d13f203",
+    "RuntimeCandidateAdviceExtension.scala": "8a0f82e0fcd1cbd71b82fb70b80c27beb118f4d4aae1916f7639e62f78272109",
+    "bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999",
+    "scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe"
+  },
+  "policy": "Raw validated NATIVE/BROADCAST choice before 1.8-second API response gate; no calibrated-confidence claim. ABSTAIN/error/invalid/late preserves unmodified native path.",
+  "callback_timeout": "200 ms connect and 2200 ms read; not cancellation of a remote billed request. Late answers cannot modify the running plan.",
+  "cache": "same JVM warmed by different small fault fixtures; no dedicated per-case warmups; first live HTTP request pays connection setup",
+  "scope": "illustrative directly measured runtime-policy pilot, not a statistically powered accuracy study or unseen-family production test",
+  "prediction_order": "Every live choice uses only its own captured runtime inputs, before its query completes; no candidate runtime labels in request."
+}
