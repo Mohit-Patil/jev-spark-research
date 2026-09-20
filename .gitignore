@@ -1,0 +1,21 @@
+
+# Research safety: local secrets and durable request budget are never versioned.
+.env
+.env.*
+**/.env
+**/.env.*
+.jev_initial_round_attempts.jsonl
+.venv/
+**/.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+spark-temp/
+**/warehouse/
+**/spark-warehouse/
+**/metastore_db/
+**/derby.log
+**/artifacts/
+.tools/
+.git-safe-checkpoint.json

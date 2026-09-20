@@ -1,0 +1,22 @@
+{
+  "attempt": 1,
+  "purpose": "connectivity_probe",
+  "request_bytes": 270,
+  "request_sha256": "ff0b017db4bb73a290d8a7494bed81ea8417d7bd0aa8bf3b5da627cc4e33e448",
+  "secret_permissions_warning": true,
+  "http_status": 200,
+  "model": "jev-1.13.0",
+  "choice": "NATIVE",
+  "confidence": 0.97,
+  "probabilities": {
+    "NATIVE": 0.99,
+    "ABSTAIN": 0.01
+  },
+  "usage": {
+    "input_tokens": 333,
+    "output_tokens": 37
+  },
+  "status": "succeeded",
+  "latency_s": 0.9558208750095218,
+  "completed_unix": 1789919795.4820778
+}

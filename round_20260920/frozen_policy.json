@@ -1,0 +1,20 @@
+{
+  "policy": "NATIVE",
+  "selection_criterion": "minimum sum of validation OFFLINE estimated times including overhead; ties prefer native",
+  "validation_scores_s": {
+    "NATIVE": 0.14457987493369728,
+    "RULE": 0.41681354178581387,
+    "PLANS_0.0": 4.180017749662511,
+    "PLANS_0.5": 4.180017749662511,
+    "PLANS_0.8": 4.180017749662511,
+    "PLANS_0.95": 4.180017749662511,
+    "STATS_0.0": 4.240391749772243,
+    "STATS_0.5": 4.240391749772243,
+    "STATS_0.8": 4.240391749772243,
+    "STATS_0.95": 4.240391749772243
+  },
+  "frozen_unix": 1789919922.14764,
+  "source_sha256": "e9cf115e89f96e8fd140a8f27f892a9625b1cec0ebbc8dfea419780c5c3fe78e",
+  "model": "jev-1.13.0",
+  "holdout_not_yet_generated": true
+}

@@ -1,0 +1,76 @@
+{
+  "paths": [
+    {
+      "path": "/Users/mohitpatil/JevResearch",
+      "exists": true,
+      "is_directory": true,
+      "readable": true,
+      "writable": true
+    },
+    {
+      "path": "/Users/mohitpatil/jev-mac-native",
+      "exists": true,
+      "is_directory": true,
+      "readable": true,
+      "writable": true
+    },
+    {
+      "path": "/Users/mohitpatil/JevResearch/jev_spark_research_lab.zip",
+      "exists": false,
+      "is_directory": false,
+      "readable": false,
+      "writable": false
+    }
+  ],
+  "python": "3.11.16 (main, Aug 12 2026, 23:03:19) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "python_executable": "/Users/mohitpatil/jev-mac-native/.venv/bin/python",
+  "prefix": "/Users/mohitpatil/jev-mac-native/.venv",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu_count": 10,
+  "packages": {
+    "pyspark": "4.0.1",
+    "py4j": "0.10.9.9",
+    "mcp": "1.30.0",
+    "pytest": "8.4.2",
+    "numpy": null,
+    "scipy": null,
+    "pandas": null,
+    "httpx": "0.28.1",
+    "requests": "2.34.2",
+    "typesafe": null
+  },
+  "java_path": "/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home/bin/java",
+  "java_version": {
+    "returncode": 0,
+    "output": "openjdk version \"17.0.20.1\" 2026-08-18\nOpenJDK Runtime Environment Homebrew (build 17.0.20.1+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20.1+0, mixed mode, sharing)\n"
+  },
+  "ram_bytes": {
+    "returncode": 0,
+    "output": "17179869184\n"
+  },
+  "memory_pages": {
+    "returncode": 0,
+    "output": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    56606.\nPages active:                                 341640.\nPages inactive:                               336512.\nPages speculative:                              4455.\nPages throttled:                                   0.\nPages wired down:                             141768.\nPages purgeable:                               16236.\n\"Translation faults\":                      601080705.\nPages copy-on-write:                        14073534.\nPages zero filled:                         648569519.\nPages reactivated:                          18742458.\nPages purged:                                3161856.\nFile-backed pages:                            248929.\nAnonymous pages:                              433678.\nPages stored in compressor:                   303850.\nPages occupied by compressor:                 134144.\nDecompressions:                             10271691.\nCompressions:                               13263940.\nPageins:                                    18502937.\nPageouts:                                       5134.\nSwapins:                                       11935.\nSwapouts:                                      62060.\n"
+  },
+  "bridge_top_level_names": [
+    "README.md",
+    "TEST_STATUS.md",
+    "bridge",
+    "requirements.txt",
+    "run-native.sh",
+    "seed",
+    "setup-native.sh",
+    "start-link.sh",
+    "tests"
+  ],
+  "workspace_top_level_names": [
+    "RESEARCH_BRIEF.md",
+    "hello.py",
+    "round_20260920",
+    "smoke.py",
+    "spark-temp"
+  ],
+  "pyspark_package_dir": "/Users/mohitpatil/jev-mac-native/.venv/lib/python3.11/site-packages/pyspark",
+  "jev_requests_attempted_by_this_script": 0
+}

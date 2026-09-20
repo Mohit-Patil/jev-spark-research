@@ -1,0 +1,45 @@
+{
+  "kind": "pre_execution_pilot_baseline",
+  "cases": [
+    {
+      "name": "uniform_selective",
+      "n": 300000,
+      "m": 40000,
+      "keep": 10,
+      "skew": false,
+      "seed": 19
+    },
+    {
+      "name": "uniform_half",
+      "n": 300000,
+      "m": 40000,
+      "keep": 500,
+      "skew": false,
+      "seed": 19
+    },
+    {
+      "name": "skew80_half",
+      "n": 300000,
+      "m": 40000,
+      "keep": 500,
+      "skew": true,
+      "seed": 19
+    }
+  ],
+  "seed": 1842,
+  "repetitions": 5,
+  "warmup_rounds": 2,
+  "aqe_intervention": false,
+  "cache": "uncached generated Range inputs; same JVM; two per-strategy warmups; no persisted DataFrames",
+  "timing": "to_result_s includes SQL construction, initial-plan capture, and collect; final-plan capture excluded",
+  "holdout": "not generated or evaluated",
+  "jev_requests": 0,
+  "spark_version": "4.0.1",
+  "config": {
+    "spark.sql.adaptive.enabled": "true",
+    "spark.sql.shuffle.partitions": "8",
+    "spark.sql.autoBroadcastJoinThreshold": "10485760b",
+    "spark.sql.join.preferSortMergeJoin": "true",
+    "spark.sql.adaptive.skewJoin.enabled": "true"
+  }
+}

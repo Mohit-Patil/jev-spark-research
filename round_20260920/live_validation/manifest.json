@@ -1,0 +1,38 @@
+{
+  "phase": "validation",
+  "model": "jev-1.13.0",
+  "cases": [
+    {
+      "name": "val_selective",
+      "n": 350000,
+      "m": 50000,
+      "keep": 10,
+      "skew": false,
+      "seed": 73
+    },
+    {
+      "name": "val_half",
+      "n": 350000,
+      "m": 50000,
+      "keep": 500,
+      "skew": false,
+      "seed": 137
+    },
+    {
+      "name": "val_skew80",
+      "n": 350000,
+      "m": 50000,
+      "keep": 500,
+      "skew": true,
+      "seed": 211
+    }
+  ],
+  "seed": 271828,
+  "warmups": 2,
+  "reps": 5,
+  "costs": "OFFLINE ESTIMATES combining separately measured execution and selector costs; NOT end-to-end speedups",
+  "client": "fresh HTTP client/connection per request; includes network and TLS; not isolated server inference",
+  "frozen_policy": null,
+  "feature_view_caveat": "plans-only still includes Range cardinalities and filter expressions inherent in physical plans",
+  "cache": "uncached synthetic Range inputs; warmed shared JVM; no cached DataFrames"
+}

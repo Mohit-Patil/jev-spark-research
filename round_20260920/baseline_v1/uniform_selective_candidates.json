@@ -1,0 +1,77 @@
+{
+  "case": {
+    "name": "uniform_selective",
+    "n": 300000,
+    "m": 40000,
+    "keep": 10,
+    "skew": false,
+    "seed": 19
+  },
+  "candidates": {
+    "NATIVE": {
+      "initial_plan": "HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * w#6L)), sum(k#1L)], output=[bucket#3L, cnt#7L, total#8L, key_sum#9L])\n+- Exchange hashpartitioning(bucket#3L, 8), ENSURE_REQUIREMENTS, [plan_id=50]\n   +- HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * w#6L)), partial_sum(k#1L)], output=[bucket#3L, count#16L, sum#17L, sum#18L])\n      +- Project [k#1L, v#2L, bucket#3L, w#6L]\n         +- BroadcastHashJoin [k#1L], [k#5L], Inner, BuildRight, false\n            :- Project [(((id#0L * 97) + 19) % 40000) AS k#1L, (((id#0L * 13) + 19) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n            :  +- Filter ((((((((id#0L * 97) + 19) % 40000) * 17) + 19) % 1000) < 10) AND isnotnull((((id#0L * 97) + 19) % 40000)))\n            :     +- Range (0, 300000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=45]\n               +- Project [id#4L AS k#5L, (((id#4L * 7) + 19) % 101) AS w#6L]\n                  +- Filter ((((id#4L * 17) + 19) % 1000) < 10)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !BroadcastHashJoin [none#_], [none#_], Inner, BuildRight, false\n            :- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :  +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 10))\n            :     +- Range (0, 300000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 19) % 1000) < 10)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "587bdfcf426f78d27fff41ec1f95e8cc51ff81b91d569eabc9f509af8167b09d",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    },
+    "MERGE": {
+      "initial_plan": "HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * w#6L)), sum(k#1L)], output=[bucket#3L, cnt#43L, total#44L, key_sum#45L])\n+- Exchange hashpartitioning(bucket#3L, 8), ENSURE_REQUIREMENTS, [plan_id=188]\n   +- HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * w#6L)), partial_sum(k#1L)], output=[bucket#3L, count#52L, sum#53L, sum#54L])\n      +- Project [k#1L, v#2L, bucket#3L, w#6L]\n         +- SortMergeJoin [k#1L], [k#5L], Inner\n            :- Sort [k#1L ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(k#1L, 8), ENSURE_REQUIREMENTS, [plan_id=180]\n            :     +- Project [(((id#0L * 97) + 19) % 40000) AS k#1L, (((id#0L * 13) + 19) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n            :        +- Filter ((((((((id#0L * 97) + 19) % 40000) * 17) + 19) % 1000) < 10) AND isnotnull((((id#0L * 97) + 19) % 40000)))\n            :           +- Range (0, 300000, step=1, splits=2)\n            +- Sort [k#5L ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(k#5L, 8), ENSURE_REQUIREMENTS, [plan_id=181]\n                  +- Project [id#4L AS k#5L, (((id#4L * 7) + 19) % 101) AS w#6L]\n                     +- Filter ((((id#4L * 17) + 19) % 1000) < 10)\n                        +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !SortMergeJoin [none#_], [none#_], Inner\n            :- Sort [none#_ ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :     +- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :        +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 10))\n            :           +- Range (0, 300000, step=1, splits=2)\n            +- Sort [none#_ ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n                  +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                     +- Filter ((((none#_ * 17) + 19) % 1000) < 10)\n                        +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "7cf9ce418aad0e32bb151ba3651e16f1fcb353b775d2a7cd0a3fdef0de7a48a2",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    },
+    "SHUFFLE_HASH": {
+      "initial_plan": "HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * w#6L)), sum(k#1L)], output=[bucket#3L, cnt#61L, total#62L, key_sum#63L])\n+- Exchange hashpartitioning(bucket#3L, 8), ENSURE_REQUIREMENTS, [plan_id=264]\n   +- HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * w#6L)), partial_sum(k#1L)], output=[bucket#3L, count#70L, sum#71L, sum#72L])\n      +- Project [k#1L, v#2L, bucket#3L, w#6L]\n         +- ShuffledHashJoin [k#1L], [k#5L], Inner, BuildRight\n            :- Exchange hashpartitioning(k#1L, 8), ENSURE_REQUIREMENTS, [plan_id=258]\n            :  +- Project [(((id#0L * 97) + 19) % 40000) AS k#1L, (((id#0L * 13) + 19) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n            :     +- Filter ((((((((id#0L * 97) + 19) % 40000) * 17) + 19) % 1000) < 10) AND isnotnull((((id#0L * 97) + 19) % 40000)))\n            :        +- Range (0, 300000, step=1, splits=2)\n            +- Exchange hashpartitioning(k#5L, 8), ENSURE_REQUIREMENTS, [plan_id=259]\n               +- Project [id#4L AS k#5L, (((id#4L * 7) + 19) % 101) AS w#6L]\n                  +- Filter ((((id#4L * 17) + 19) % 1000) < 10)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !ShuffledHashJoin [none#_], [none#_], Inner, BuildRight\n            :- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :  +- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :     +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 10))\n            :        +- Range (0, 300000, step=1, splits=2)\n            +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 19) % 1000) < 10)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "5bf01cc1e380c4d6a8de87692d0471c447d5855f030ba01520a75045fc81d224",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    }
+  },
+  "aliases": {
+    "BROADCAST": "NATIVE"
+  },
+  "expected_result": [
+    [
+      0,
+      430,
+      10619789,
+      8475045
+    ],
+    [
+      1,
+      428,
+      10554350,
+      8578576
+    ],
+    [
+      2,
+      428,
+      10958648,
+      8483988
+    ],
+    [
+      3,
+      430,
+      10523547,
+      8573045
+    ],
+    [
+      4,
+      428,
+      10924678,
+      8665870
+    ],
+    [
+      5,
+      428,
+      10678287,
+      8491282
+    ],
+    [
+      6,
+      428,
+      10734596,
+      8636694
+    ]
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "pyspark_version": "4.0.1",
+  "compiler_jars": [
+    "scala-compiler-2.13.16.jar"
+  ],
+  "artifacts": [
+    {
+      "file": "AdaptiveSparkPlanExec.scala",
+      "url": "https://raw.githubusercontent.com/apache/spark/v4.0.1/sql/core/src/main/scala/org/apache/spark/sql/execution/adaptive/AdaptiveSparkPlanExec.scala",
+      "sha256": "49811445549c11003c793f1d2163182767b23e0cf50a7105502e05ceee975824",
+      "fetched_unix": 1789919823.8539782
+    },
+    {
+      "file": "costing.scala",
+      "url": "https://raw.githubusercontent.com/apache/spark/v4.0.1/sql/core/src/main/scala/org/apache/spark/sql/execution/adaptive/costing.scala",
+      "sha256": "2e7da2350924e68f713aa5a90ef93abfb29138d0ff94330ca964684181bbdc54",
+      "fetched_unix": 1789919824.322976
+    },
+    {
+      "file": "QueryStageExec.scala",
+      "url": "https://raw.githubusercontent.com/apache/spark/v4.0.1/sql/core/src/main/scala/org/apache/spark/sql/execution/adaptive/QueryStageExec.scala",
+      "sha256": "b8af805ce45c4436c9b5bd9172e389f93603782d8358e31e9154d39aebb3885f",
+      "fetched_unix": 1789919824.632828
+    }
+  ],
+  "source_ref": "v4.0.1",
+  "AdaptiveSparkPlanExec.scala_excerpts": [
+    {
+      "start_line": 360,
+      "text": "          // plans are semantically and physically in sync again.\n          val logicalPlan = replaceWithQueryStagesInLogicalPlan(currentLogicalPlan, stagesToReplace)\n          val afterReOptimize = reOptimize(logicalPlan)\n          if (afterReOptimize.isDefined) {\n            val (newPhysicalPlan, newLogicalPlan) = afterReOptimize.get\n            val origCost = costEvaluator.evaluateCost(currentPhysicalPlan)\n            val newCost = costEvaluator.evaluateCost(newPhysicalPlan)\n            if (newCost < origCost ||\n              (newCost == origCost && currentPhysicalPlan != newPhysicalPlan)) {\n              lazy val plans = sideBySide(\n                currentPhysicalPlan.treeString, newPhysicalPlan.treeString).mkString(\"\\n\")\n              logOnLevel(log\"Plan changed:\\n${MDC(QUERY_PLAN, plans)}\")\n              cleanUpTempTags(newPhysicalPlan)\n              currentPhysicalPlan = newPhysicalPlan\n              currentLogicalPlan = newLogicalPlan\n              stagesToReplace = Seq.empty[QueryStageExec]\n            }\n          }\n        }\n        // Now that some stages have finished, we can try creating new stages.\n        result = createQueryStages(fun, currentPhysicalPlan, firstRun = false)\n      }"
+    },
+    {
+      "start_line": 361,
+      "text": "          val logicalPlan = replaceWithQueryStagesInLogicalPlan(currentLogicalPlan, stagesToReplace)\n          val afterReOptimize = reOptimize(logicalPlan)\n          if (afterReOptimize.isDefined) {\n            val (newPhysicalPlan, newLogicalPlan) = afterReOptimize.get\n            val origCost = costEvaluator.evaluateCost(currentPhysicalPlan)\n            val newCost = costEvaluator.evaluateCost(newPhysicalPlan)\n            if (newCost < origCost ||\n              (newCost == origCost && currentPhysicalPlan != newPhysicalPlan)) {\n              lazy val plans = sideBySide(\n                currentPhysicalPlan.treeString, newPhysicalPlan.treeString).mkString(\"\\n\")\n              logOnLevel(log\"Plan changed:\\n${MDC(QUERY_PLAN, plans)}\")\n              cleanUpTempTags(newPhysicalPlan)\n              currentPhysicalPlan = newPhysicalPlan\n              currentLogicalPlan = newLogicalPlan\n              stagesToReplace = Seq.empty[QueryStageExec]\n            }\n          }\n        }\n        // Now that some stages have finished, we can try creating new stages.\n        result = createQueryStages(fun, currentPhysicalPlan, firstRun = false)\n      }\n    }"
+    }
+  ],
+  "costing.scala_excerpts": [
+    {
+      "start_line": 36,
+      "text": " * An interface to evaluate the cost of a physical plan.\n *\n * @note This class is subject to be changed and/or moved in the near future.\n */\n@Unstable\ntrait CostEvaluator {\n  def evaluateCost(plan: SparkPlan): Cost\n}\n\nobject CostEvaluator extends Logging {\n\n  /**\n   * Instantiates a [[CostEvaluator]] using the given className.\n   */\n  def instantiate(className: String, conf: SparkConf): CostEvaluator = {\n    logDebug(s\"Creating CostEvaluator $className\")\n    val evaluators = Utils.loadExtensions(classOf[CostEvaluator], Seq(className), conf)\n    require(evaluators.nonEmpty, \"A valid AQE cost evaluator must be specified by config \" +\n      s\"${SQLConf.ADAPTIVE_CUSTOM_COST_EVALUATOR_CLASS.key}, but $className resulted in zero \" +\n      \"valid evaluator.\")\n    evaluators.head\n  }"
+    }
+  ],
+  "QueryStageExec.scala_excerpts": [
+    {
+      "start_line": 74,
+      "text": "  protected def doMaterialize(): Future[Any]\n\n  /**\n   * Returns the runtime statistics after stage materialization.\n   */\n  def getRuntimeStatistics: Statistics\n\n  /**\n   * Compute the statistics of the query stage if executed, otherwise None.\n   */\n  def computeStats(): Option[Statistics] = if (isMaterialized) {\n    val runtimeStats = getRuntimeStatistics\n    val dataSize = runtimeStats.sizeInBytes.max(0)\n    val numOutputRows = runtimeStats.rowCount.map(_.max(0))\n    val attributeStats = runtimeStats.attributeStats\n    Some(Statistics(dataSize, numOutputRows, attributeStats, isRuntime = true))\n  } else {\n    None\n  }\n\n  @transient\n  @volatile"
+    },
+    {
+      "start_line": 80,
+      "text": "\n  /**\n   * Compute the statistics of the query stage if executed, otherwise None.\n   */\n  def computeStats(): Option[Statistics] = if (isMaterialized) {\n    val runtimeStats = getRuntimeStatistics\n    val dataSize = runtimeStats.sizeInBytes.max(0)\n    val numOutputRows = runtimeStats.rowCount.map(_.max(0))\n    val attributeStats = runtimeStats.attributeStats\n    Some(Statistics(dataSize, numOutputRows, attributeStats, isRuntime = true))\n  } else {\n    None\n  }\n\n  @transient\n  @volatile\n  protected var _resultOption = new AtomicReference[Option[Any]](None)\n\n  private[adaptive] def resultOption: AtomicReference[Option[Any]] = _resultOption\n  final def isMaterialized: Boolean = resultOption.get().isDefined\n\n  @transient"
+    },
+    {
+      "start_line": 94,
+      "text": "  @transient\n  @volatile\n  protected var _resultOption = new AtomicReference[Option[Any]](None)\n\n  private[adaptive] def resultOption: AtomicReference[Option[Any]] = _resultOption\n  final def isMaterialized: Boolean = resultOption.get().isDefined\n\n  @transient\n  @volatile\n  protected var _error = new AtomicReference[Option[Throwable]](None)\n\n  def error: AtomicReference[Option[Throwable]] = _error\n  final def hasFailed: Boolean = _error.get().isDefined\n\n  override def output: Seq[Attribute] = plan.output\n  override def outputPartitioning: Partitioning = plan.outputPartitioning\n  override def outputOrdering: Seq[SortOrder] = plan.outputOrdering\n  override def executeCollect(): Array[InternalRow] = plan.executeCollect()\n  override def executeTake(n: Int): Array[InternalRow] = plan.executeTake(n)\n  override def executeTail(n: Int): Array[InternalRow] = plan.executeTail(n)\n  override def executeToIterator(): Iterator[InternalRow] = plan.executeToIterator()\n"
+    },
+    {
+      "start_line": 223,
+      "text": "\n  /**\n   * Returns the Option[MapOutputStatistics]. If the shuffle map stage has no partition,\n   * this method returns None, as there is no map statistics.\n   */\n  def mapStats: Option[MapOutputStatistics] = {\n    assert(resultOption.get().isDefined, s\"$name should already be ready\")\n    val stats = resultOption.get().get.asInstanceOf[MapOutputStatistics]\n    Option(stats)\n  }\n\n  override def getRuntimeStatistics: Statistics = shuffle.runtimeStatistics\n}\n\n/**\n * A broadcast query stage whose child is a [[BroadcastExchangeLike]] or [[ReusedExchangeExec]].\n *\n * @param id the query stage id.\n * @param plan the underlying plan.\n * @param _canonicalized the canonicalized plan before applying query stage optimizer rules.\n */\ncase class BroadcastQueryStageExec("
+    },
+    {
+      "start_line": 229,
+      "text": "    assert(resultOption.get().isDefined, s\"$name should already be ready\")\n    val stats = resultOption.get().get.asInstanceOf[MapOutputStatistics]\n    Option(stats)\n  }\n\n  override def getRuntimeStatistics: Statistics = shuffle.runtimeStatistics\n}\n\n/**\n * A broadcast query stage whose child is a [[BroadcastExchangeLike]] or [[ReusedExchangeExec]].\n *\n * @param id the query stage id.\n * @param plan the underlying plan.\n * @param _canonicalized the canonicalized plan before applying query stage optimizer rules.\n */\ncase class BroadcastQueryStageExec(\n    override val id: Int,\n    override val plan: SparkPlan,\n    override val _canonicalized: SparkPlan) extends ExchangeQueryStageExec {\n\n  @transient val broadcast = plan match {\n    case b: BroadcastExchangeLike => b"
+    },
+    {
+      "start_line": 267,
+      "text": "  }\n\n  override protected def doCancel(reason: String): Unit =\n    broadcast.cancelBroadcastJob(Option(reason))\n\n  override def getRuntimeStatistics: Statistics = broadcast.runtimeStatistics\n}\n\n/**\n * A table cache query stage whose child is a [[InMemoryTableScanLike]].\n *\n * @param id the query stage id.\n * @param plan the underlying plan.\n */\ncase class TableCacheQueryStageExec(\n    override val id: Int,\n    override val plan: SparkPlan) extends QueryStageExec {\n\n  @transient val inMemoryTableScan = plan match {\n    case i: InMemoryTableScanLike => i\n    case _ =>\n      throw SparkException.internalError(s\"wrong plan for table cache stage:\\n ${plan.treeString}\")"
+    }
+  ]
+}

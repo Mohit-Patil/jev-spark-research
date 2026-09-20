@@ -1,0 +1,110 @@
+[
+  {
+    "case": "uniform_selective",
+    "unique_initial_plans": 3,
+    "aliases": {
+      "BROADCAST": "NATIVE"
+    },
+    "strategies": {
+      "NATIVE": {
+        "n": 5,
+        "median_s": 0.053977000061422586,
+        "min_s": 0.047836750047281384,
+        "max_s": 0.06150120799429715,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 5,
+        "median_s": 0.0665607089176774,
+        "min_s": 0.055382125079631805,
+        "max_s": 0.06990270793903619,
+        "final_join_operators": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 5,
+        "median_s": 0.058589333086274564,
+        "min_s": 0.052477583987638354,
+        "max_s": 0.0676850420422852,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  },
+  {
+    "case": "uniform_half",
+    "unique_initial_plans": 3,
+    "aliases": {
+      "BROADCAST": "NATIVE"
+    },
+    "strategies": {
+      "NATIVE": {
+        "n": 5,
+        "median_s": 0.044402375002391636,
+        "min_s": 0.04352491698227823,
+        "max_s": 0.06177358399145305,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 5,
+        "median_s": 0.0696377499261871,
+        "min_s": 0.06400324997957796,
+        "max_s": 0.07060933404136449,
+        "final_join_operators": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 5,
+        "median_s": 0.07059629098512232,
+        "min_s": 0.060996999964118004,
+        "max_s": 0.1264080839464441,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  },
+  {
+    "case": "skew80_half",
+    "unique_initial_plans": 3,
+    "aliases": {
+      "BROADCAST": "NATIVE"
+    },
+    "strategies": {
+      "NATIVE": {
+        "n": 5,
+        "median_s": 0.04288950003683567,
+        "min_s": 0.04043249995447695,
+        "max_s": 0.047371790977194905,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 5,
+        "median_s": 0.0853320830501616,
+        "min_s": 0.08304487494751811,
+        "max_s": 0.09578679210972041,
+        "final_join_operators": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 5,
+        "median_s": 0.07694037503097206,
+        "min_s": 0.07406612497288734,
+        "max_s": 0.08498379192315042,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  }
+]

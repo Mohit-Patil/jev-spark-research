@@ -1,0 +1,77 @@
+{
+  "case": {
+    "name": "uniform_half",
+    "n": 300000,
+    "m": 40000,
+    "keep": 500,
+    "skew": false,
+    "seed": 19
+  },
+  "candidates": {
+    "NATIVE": {
+      "initial_plan": "HashAggregate(keys=[bucket#544L], functions=[count(1), sum((v#543L * w#547L)), sum(k#542L)], output=[bucket#544L, cnt#548L, total#549L, key_sum#550L])\n+- Exchange hashpartitioning(bucket#544L, 8), ENSURE_REQUIREMENTS, [plan_id=3875]\n   +- HashAggregate(keys=[bucket#544L], functions=[partial_count(1), partial_sum((v#543L * w#547L)), partial_sum(k#542L)], output=[bucket#544L, count#557L, sum#558L, sum#559L])\n      +- Project [k#542L, v#543L, bucket#544L, w#547L]\n         +- BroadcastHashJoin [k#542L], [k#546L], Inner, BuildRight, false\n            :- Project [(((id#541L * 97) + 19) % 40000) AS k#542L, (((id#541L * 13) + 19) % 997) AS v#543L, (id#541L % 7) AS bucket#544L]\n            :  +- Filter ((((((((id#541L * 97) + 19) % 40000) * 17) + 19) % 1000) < 500) AND isnotnull((((id#541L * 97) + 19) % 40000)))\n            :     +- Range (0, 300000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=3870]\n               +- Project [id#545L AS k#546L, (((id#545L * 7) + 19) % 101) AS w#547L]\n                  +- Filter ((((id#545L * 17) + 19) % 1000) < 500)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !BroadcastHashJoin [none#_], [none#_], Inner, BuildRight, false\n            :- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :  +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 500))\n            :     +- Range (0, 300000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 19) % 1000) < 500)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "98f285eaea2b399786b94d831044e77a44cfd622c0bd0be610f681b8b15e65ad",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    },
+    "MERGE": {
+      "initial_plan": "HashAggregate(keys=[bucket#544L], functions=[count(1), sum((v#543L * w#547L)), sum(k#542L)], output=[bucket#544L, cnt#584L, total#585L, key_sum#586L])\n+- Exchange hashpartitioning(bucket#544L, 8), ENSURE_REQUIREMENTS, [plan_id=4013]\n   +- HashAggregate(keys=[bucket#544L], functions=[partial_count(1), partial_sum((v#543L * w#547L)), partial_sum(k#542L)], output=[bucket#544L, count#593L, sum#594L, sum#595L])\n      +- Project [k#542L, v#543L, bucket#544L, w#547L]\n         +- SortMergeJoin [k#542L], [k#546L], Inner\n            :- Sort [k#542L ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(k#542L, 8), ENSURE_REQUIREMENTS, [plan_id=4005]\n            :     +- Project [(((id#541L * 97) + 19) % 40000) AS k#542L, (((id#541L * 13) + 19) % 997) AS v#543L, (id#541L % 7) AS bucket#544L]\n            :        +- Filter ((((((((id#541L * 97) + 19) % 40000) * 17) + 19) % 1000) < 500) AND isnotnull((((id#541L * 97) + 19) % 40000)))\n            :           +- Range (0, 300000, step=1, splits=2)\n            +- Sort [k#546L ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(k#546L, 8), ENSURE_REQUIREMENTS, [plan_id=4006]\n                  +- Project [id#545L AS k#546L, (((id#545L * 7) + 19) % 101) AS w#547L]\n                     +- Filter ((((id#545L * 17) + 19) % 1000) < 500)\n                        +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !SortMergeJoin [none#_], [none#_], Inner\n            :- Sort [none#_ ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :     +- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :        +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 500))\n            :           +- Range (0, 300000, step=1, splits=2)\n            +- Sort [none#_ ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n                  +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                     +- Filter ((((none#_ * 17) + 19) % 1000) < 500)\n                        +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "c2a98df647686eec1a5a9a940d0a76590c5273bb7cd514008eaf9f37fd4c1a8e",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    },
+    "SHUFFLE_HASH": {
+      "initial_plan": "HashAggregate(keys=[bucket#544L], functions=[count(1), sum((v#543L * w#547L)), sum(k#542L)], output=[bucket#544L, cnt#602L, total#603L, key_sum#604L])\n+- Exchange hashpartitioning(bucket#544L, 8), ENSURE_REQUIREMENTS, [plan_id=4089]\n   +- HashAggregate(keys=[bucket#544L], functions=[partial_count(1), partial_sum((v#543L * w#547L)), partial_sum(k#542L)], output=[bucket#544L, count#611L, sum#612L, sum#613L])\n      +- Project [k#542L, v#543L, bucket#544L, w#547L]\n         +- ShuffledHashJoin [k#542L], [k#546L], Inner, BuildRight\n            :- Exchange hashpartitioning(k#542L, 8), ENSURE_REQUIREMENTS, [plan_id=4083]\n            :  +- Project [(((id#541L * 97) + 19) % 40000) AS k#542L, (((id#541L * 13) + 19) % 997) AS v#543L, (id#541L % 7) AS bucket#544L]\n            :     +- Filter ((((((((id#541L * 97) + 19) % 40000) * 17) + 19) % 1000) < 500) AND isnotnull((((id#541L * 97) + 19) % 40000)))\n            :        +- Range (0, 300000, step=1, splits=2)\n            +- Exchange hashpartitioning(k#546L, 8), ENSURE_REQUIREMENTS, [plan_id=4084]\n               +- Project [id#545L AS k#546L, (((id#545L * 7) + 19) % 101) AS w#547L]\n                  +- Filter ((((id#545L * 17) + 19) % 1000) < 500)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !ShuffledHashJoin [none#_], [none#_], Inner, BuildRight\n            :- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :  +- Project [(((none#_ * 97) + 19) % 40000) AS #_, (((none#_ * 13) + 19) % 997) AS #_, (none#_ % 7) AS #_]\n            :     +- Filter (isnotnull((((none#_ * 97) + 19) % 40000)) AND (((((((none#_ * 97) + 19) % 40000) * 17) + 19) % 1000) < 500))\n            :        +- Range (0, 300000, step=1, splits=2)\n            +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 19) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 19) % 1000) < 500)\n                     +- Range (0, 40000, step=1, splits=2)\n",
+      "fingerprint": "8d83f4feb1b5c5a9f9a02c5700f8e4076a2ddced95e3a87cbc0550a1b98b6767",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=1788.1 GiB)"
+    }
+  },
+  "aliases": {
+    "BROADCAST": "NATIVE"
+  },
+  "expected_result": [
+    [
+      0,
+      21429,
+      534082653,
+      427846596
+    ],
+    [
+      1,
+      21427,
+      533182643,
+      428167217
+    ],
+    [
+      2,
+      21428,
+      533231963,
+      428035673
+    ],
+    [
+      3,
+      21431,
+      532895224,
+      428047756
+    ],
+    [
+      4,
+      21428,
+      533871744,
+      428332529
+    ],
+    [
+      5,
+      21428,
+      533753436,
+      427785719
+    ],
+    [
+      6,
+      21429,
+      534135688,
+      428399510
+    ]
+  ]
+}
