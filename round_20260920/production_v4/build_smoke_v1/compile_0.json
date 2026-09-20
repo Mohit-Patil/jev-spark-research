@@ -1,0 +1,16 @@
+{
+  "command": [
+    "java",
+    "-Xmx768m",
+    "-cp",
+    "/Users/mohitpatil/jev-mac-native/.venv/lib/python3.11/site-packages/pyspark/jars/*",
+    "scala.tools.nsc.Main",
+    "-usejavacp",
+    "-d",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/build_smoke_v1/classes",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/RuntimeCandidateExtension.scala"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/Users/mohitpatil/JevResearch/round_20260920/production_v4/RuntimeCandidateExtension.scala:65: error: type mismatch;\n found   : j.joinType.type (with underlying type org.apache.spark.sql.catalyst.plans.JoinType)\n required: Product with org.apache.spark.sql.catalyst.plans.JoinType with java.io.Serializable\n          Set(Inner,LeftOuter).contains(j.joinType) && j.leftKeys.size==1 &&\n                                          ^\n1 error\n"
+}

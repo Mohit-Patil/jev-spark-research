@@ -1,0 +1,70 @@
+{
+  "case": "runtime_candidate_smoke",
+  "strategy": "NATIVE",
+  "run_id": "smoke_SHADOW",
+  "started_unix": 1789923426.829653,
+  "initial_plan": "HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * coalesce(w#6L, 0))), sum(k#1L), count(k#5L)], output=[bucket#3L, cnt#38L, total#39L, key_sum#40L, matches#41L])\n+- Exchange hashpartitioning(bucket#3L, 32), ENSURE_REQUIREMENTS, [plan_id=223]\n   +- HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * coalesce(w#6L, 0))), partial_sum(k#1L), partial_count(k#5L)], output=[bucket#3L, count#50L, sum#51L, sum#52L, count#53L])\n      +- SortMergeJoin [k#1L], [k#5L], LeftOuter\n         :- Sort [k#1L ASC NULLS FIRST], false, 0\n         :  +- Exchange hashpartitioning(k#1L, 32), ENSURE_REQUIREMENTS, [plan_id=216]\n         :     +- Project [CASE WHEN ((id#0L % 10) < 8) THEN 0 ELSE (((id#0L * 97) + 313) % 2000000) END AS k#1L, (((id#0L * 13) + 313) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n         :        +- Range (0, 1200000, step=1, splits=2)\n         +- Sort [k#5L ASC NULLS FIRST], false, 0\n            +- Exchange hashpartitioning(k#5L, 32), ENSURE_REQUIREMENTS, [plan_id=217]\n               +- Project [id#4L AS k#5L, (((id#4L * 7) + 313) % 101) AS w#6L]\n                  +- Filter ((((id#4L * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+  "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * coalesce(none#_, 0))), sum(none#_), count(none#_)], output=[none#_, #_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 32), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * coalesce(none#_, 0))), partial_sum(none#_), partial_count(none#_)], output=[none#_, none#_, none#_, none#_, none#_])\n      +- !SortMergeJoin [none#_], [none#_], LeftOuter\n         :- Sort [none#_ ASC NULLS FIRST], false, 0\n         :  +- Exchange hashpartitioning(none#_, 32), ENSURE_REQUIREMENTS, [plan_id=_]\n         :     +- Project [CASE WHEN ((none#_ % 10) < 8) THEN 0 ELSE (((none#_ * 97) + 313) % 2000000) END AS #_, (((none#_ * 13) + 313) % 997) AS #_, (none#_ % 7) AS #_]\n         :        +- Range (0, 1200000, step=1, splits=2)\n         +- Sort [none#_ ASC NULLS FIRST], false, 0\n            +- Exchange hashpartitioning(none#_, 32), ENSURE_REQUIREMENTS, [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 313) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+  "fingerprint": "6f5e1742eb4032afe2230340297752a279e9b619759385b77c40da0e17b857cc",
+  "logical_statistics_estimate": "Statistics(sizeInBytes=419.1 TiB)",
+  "build_s": 0.006587291951291263,
+  "plan_capture_s": 0.016686166054569185,
+  "collect_s": 0.4046661249594763,
+  "to_result_s": 0.42793958296533674,
+  "result": [
+    [
+      0,
+      171429,
+      1110787253,
+      34190200325,
+      154287
+    ],
+    [
+      1,
+      171429,
+      1109632011,
+      34193685485,
+      154287
+    ],
+    [
+      2,
+      171429,
+      1109640901,
+      34191571615,
+      154288
+    ],
+    [
+      3,
+      171429,
+      1109807746,
+      34189457745,
+      154286
+    ],
+    [
+      4,
+      171428,
+      1109795586,
+      34192942905,
+      154284
+    ],
+    [
+      5,
+      171428,
+      1110215518,
+      34190427946,
+      154284
+    ],
+    [
+      6,
+      171428,
+      1109111986,
+      34192313979,
+      154284
+    ]
+  ],
+  "correct": true,
+  "status": "succeeded",
+  "finished_unix": 1789923427.257782,
+  "final_plan": "AdaptiveSparkPlan isFinalPlan=true\n+- == Final Plan ==\n   ResultQueryStage 3\n   +- *(6) HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * coalesce(w#6L, 0))), sum(k#1L), count(k#5L)], output=[bucket#3L, cnt#38L, total#39L, key_sum#40L, matches#41L])\n      +- AQEShuffleRead coalesced\n         +- ShuffleQueryStage 2\n            +- Exchange hashpartitioning(bucket#3L, 32), ENSURE_REQUIREMENTS, [plan_id=336]\n               +- *(5) HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * coalesce(w#6L, 0))), partial_sum(k#1L), partial_count(k#5L)], output=[bucket#3L, count#50L, sum#51L, sum#52L, count#53L])\n                  +- *(5) SortMergeJoin [k#1L], [k#5L], LeftOuter\n                     :- *(3) Sort [k#1L ASC NULLS FIRST], false, 0\n                     :  +- AQEShuffleRead coalesced\n                     :     +- ShuffleQueryStage 0\n                     :        +- Exchange hashpartitioning(k#1L, 32), ENSURE_REQUIREMENTS, [plan_id=250]\n                     :           +- *(1) Project [CASE WHEN ((id#0L % 10) < 8) THEN 0 ELSE (((id#0L * 97) + 313) % 2000000) END AS k#1L, (((id#0L * 13) + 313) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n                     :              +- *(1) Range (0, 1200000, step=1, splits=2)\n                     +- *(4) Sort [k#5L ASC NULLS FIRST], false, 0\n                        +- AQEShuffleRead coalesced\n                           +- ShuffleQueryStage 1\n                              +- Exchange hashpartitioning(k#5L, 32), ENSURE_REQUIREMENTS, [plan_id=257]\n                                 +- *(2) Project [id#4L AS k#5L, (((id#4L * 7) + 313) % 101) AS w#6L]\n                                    +- *(2) Filter ((((id#4L * 17) + 313) % 1000) < 500)\n                                       +- *(2) Range (0, 2000000, step=1, splits=2)\n+- == Initial Plan ==\n   HashAggregate(keys=[bucket#3L], functions=[count(1), sum((v#2L * coalesce(w#6L, 0))), sum(k#1L), count(k#5L)], output=[bucket#3L, cnt#38L, total#39L, key_sum#40L, matches#41L])\n   +- Exchange hashpartitioning(bucket#3L, 32), ENSURE_REQUIREMENTS, [plan_id=223]\n      +- HashAggregate(keys=[bucket#3L], functions=[partial_count(1), partial_sum((v#2L * coalesce(w#6L, 0))), partial_sum(k#1L), partial_count(k#5L)], output=[bucket#3L, count#50L, sum#51L, sum#52L, count#53L])\n         +- SortMergeJoin [k#1L], [k#5L], LeftOuter\n            :- Sort [k#1L ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(k#1L, 32), ENSURE_REQUIREMENTS, [plan_id=216]\n            :     +- Project [CASE WHEN ((id#0L % 10) < 8) THEN 0 ELSE (((id#0L * 97) + 313) % 2000000) END AS k#1L, (((id#0L * 13) + 313) % 997) AS v#2L, (id#0L % 7) AS bucket#3L]\n            :        +- Range (0, 1200000, step=1, splits=2)\n            +- Sort [k#5L ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(k#5L, 32), ENSURE_REQUIREMENTS, [plan_id=217]\n                  +- Project [id#4L AS k#5L, (((id#4L * 7) + 313) % 101) AS w#6L]\n                     +- Filter ((((id#4L * 17) + 313) % 1000) < 500)\n                        +- Range (0, 2000000, step=1, splits=2)\n",
+  "mode": "SHADOW"
+}

@@ -1,0 +1,44 @@
+{
+  "status": "succeeded",
+  "correct": true,
+  "runs": 3,
+  "new_jev_calls": 0,
+  "budget_before": 38,
+  "budget_after": 38,
+  "case": {
+    "name": "runtime_candidate_smoke",
+    "n": 1200000,
+    "m": 2000000,
+    "keep": 500,
+    "skew": true,
+    "seed": 313,
+    "join": "LEFT"
+  },
+  "errors": "",
+  "events": 2,
+  "applied_events": 1,
+  "source_sha256": "5d93c4096c5d8c6506912cd8c35db2f10fbecdcd59ca3e67ea71d8d4322e631e",
+  "jar_sha256": "54c7cde8fc8ac1e4ab9f622a731f605d4394d689c1a833c7c74bf0d676ba08c6",
+  "jvm_max_memory_bytes": 2147483648,
+  "runs_summary": [
+    {
+      "mode": "OFF",
+      "seconds": 1.2826371249975637,
+      "initial_broadcast": false,
+      "final_broadcast": false
+    },
+    {
+      "mode": "SHADOW",
+      "seconds": 0.42793958296533674,
+      "initial_broadcast": false,
+      "final_broadcast": false
+    },
+    {
+      "mode": "APPLY",
+      "seconds": 0.57987687503919,
+      "initial_broadcast": false,
+      "final_broadcast": true
+    }
+  ],
+  "caveat": "functional smoke, different warm states; timings are NOT an A/B benchmark"
+}

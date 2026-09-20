@@ -1,0 +1,33 @@
+{
+  "frozen_unix": 1789923841.1243021,
+  "source_sha256": "a354001b8d7a2a631d05aa84dc444539c0da3cde839d7d45ffad451db4ba96f6",
+  "extension_sha256": "5d93c4096c5d8c6506912cd8c35db2f10fbecdcd59ca3e67ea71d8d4322e631e",
+  "holdout_generated": false,
+  "config": "TUNED_AQE changes adaptive broadcast threshold only, to the rule-aligned 32 MiB; other arms use defaults",
+  "cases": [
+    {
+      "name": "heldout_skew18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 81283
+    },
+    {
+      "name": "heldout_uniform18m",
+      "n": 18000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 37121
+    }
+  ],
+  "arms": [
+    "OFF",
+    "SHADOW",
+    "APPLY",
+    "TUNED_AQE"
+  ],
+  "repetitions": 5,
+  "new_model_calls": 0
+}

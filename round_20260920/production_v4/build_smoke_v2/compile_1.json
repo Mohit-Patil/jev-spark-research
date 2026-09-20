@@ -1,0 +1,14 @@
+{
+  "command": [
+    "jar",
+    "--create",
+    "--file",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/build_smoke_v2/candidate.jar",
+    "-C",
+    "/Users/mohitpatil/JevResearch/round_20260920/production_v4/build_smoke_v2/classes",
+    "."
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

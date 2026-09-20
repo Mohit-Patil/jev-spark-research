@@ -1,0 +1,11 @@
+{
+  "status": "succeeded",
+  "runs": 56,
+  "measured_runs": 40,
+  "all_correct": true,
+  "new_jev_calls": 0,
+  "budget_before": 38,
+  "budget_after": 38,
+  "applied_runtime_candidates": 14,
+  "elapsed_s": 94.51386612502392
+}
