@@ -1,0 +1,40 @@
+{
+  "kind": "resume_metadata_only",
+  "challenge_previously_matched": true,
+  "paths": {
+    "/Users/mohitpatil/JevResearch": {
+      "exists": true,
+      "directory": true
+    },
+    "/Users/mohitpatil/jev-mac-native": {
+      "exists": true,
+      "directory": true
+    }
+  },
+  "git_head": "5281bb4e557201fda2c91a9918b4967434a893a9",
+  "git_branch": "main",
+  "git_root_matches_workspace": true,
+  "api_attempts_used": 49,
+  "api_limit": 50,
+  "new_api_attempts": 0,
+  "python": "3.11.16",
+  "architecture": "arm64",
+  "disk_free_bytes": 56644468736,
+  "load_average": [
+    1.8125,
+    1.853515625,
+    2.01025390625
+  ],
+  "source_hashes": {
+    "round_20260920/aqe_observer/NativeBoundaryObserverV3.scala": "d78af7d65b83f354074638c69e2880958bbe8e86319842b5bb62497497df3c79",
+    "round_20260920/practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "round_20260920/safe_jev.py": "a6c875bd2de981276ee187061e039f86669c7a05619e1ef3aeb3bda4e8cf0049",
+    "round_20260920/repo_checkpoint.py": "e147669c1573e459b76cadb11717a414081ad61827e0b00007aad0e2e1476271"
+  },
+  "versions": {
+    "pyspark": "4.0.1",
+    "httpx": "0.28.1",
+    "pytest": "8.4.2"
+  },
+  "credentials_read": false
+}

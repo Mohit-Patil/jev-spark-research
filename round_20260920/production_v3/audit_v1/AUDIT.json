@@ -1,0 +1,896 @@
+{
+  "kind": "audit_of_this_iteration_only",
+  "created_unix": 1789926925.361459,
+  "new_spark_queries": 0,
+  "new_api_requests": 0,
+  "batches": [
+    {
+      "batch": "parquet_smoke_v1",
+      "case": {
+        "n": 10000,
+        "m": 2000,
+        "width": 512,
+        "keep": 500,
+        "seed": 347
+      },
+      "case_name": "smoke",
+      "queries": 5,
+      "all_correct": true,
+      "diagnostic_only": true,
+      "config": {
+        "spark.sql.shuffle.partitions": "32",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.skewJoin.enabled": "true",
+        "jvm_max_heap_bytes": 2147483648
+      },
+      "arms": {
+        "NATIVE": {
+          "n": 1,
+          "median_s": 0.1809226250043139,
+          "min_s": 0.1809226250043139,
+          "max_s": 0.1809226250043139,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": 0.0,
+          "worst_ratio_to_native": 1.0,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            1064576
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "TUNED64": {
+          "n": 1,
+          "median_s": 0.10842941701412201,
+          "min_s": 0.10842941701412201,
+          "max_s": 0.10842941701412201,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": 0.07249320799019188,
+          "worst_ratio_to_native": 0.599313750900622,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            1064576
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "BROADCAST": {
+          "n": 1,
+          "median_s": 0.10941883304622024,
+          "min_s": 0.10941883304622024,
+          "max_s": 0.10941883304622024,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": 0.07150379195809364,
+          "worst_ratio_to_native": 0.6047824756224451,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            1064576
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "MERGE": {
+          "n": 1,
+          "median_s": 0.49631995894014835,
+          "min_s": 0.49631995894014835,
+          "max_s": 0.49631995894014835,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": -0.31539733393583447,
+          "worst_ratio_to_native": 2.743271931458623,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "SHUFFLE_HASH": {
+          "n": 1,
+          "median_s": 0.17229812499135733,
+          "min_s": 0.17229812499135733,
+          "max_s": 0.17229812499135733,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": 0.00862450001295656,
+          "worst_ratio_to_native": 0.952330450584879,
+          "initial_joins": [
+            "ShuffledHashJoin"
+          ],
+          "final_joins": [
+            "ShuffledHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        }
+      },
+      "raw_sha256": "049fbb52972b54d2e2095bec50c7bb7c2cb914144f1ff3b35581f2a4ae6c88c8",
+      "manifest_sha256": "196caaca2efd71fb5e830e8be7b740761055c9c1fcdc0b96735c3215536d39f7",
+      "data": {
+        "parquet_bytes": 1085528,
+        "files": [
+          {
+            "path": "data/dim/part-00000-06ccb245-7cad-4789-ac5a-2a1bdeb509ae-c000.snappy.parquet",
+            "bytes": 517345
+          },
+          {
+            "path": "data/dim/part-00001-06ccb245-7cad-4789-ac5a-2a1bdeb509ae-c000.snappy.parquet",
+            "bytes": 518725
+          },
+          {
+            "path": "data/fact/part-00000-f69dbf47-0f3c-415e-a3ed-49def1898d90-c000.snappy.parquet",
+            "bytes": 24687
+          },
+          {
+            "path": "data/fact/part-00001-f69dbf47-0f3c-415e-a3ed-49def1898d90-c000.snappy.parquet",
+            "bytes": 24771
+          }
+        ],
+        "fact_estimate": "Statistics(sizeInBytes=48.3 KiB)",
+        "dimension_estimate": "Statistics(sizeInBytes=1011.8 KiB)",
+        "setup_s": 1.6182857500389218
+      }
+    },
+    {
+      "batch": "parquet_narrow_v1",
+      "case": {
+        "n": 2000000,
+        "m": 100000,
+        "width": 64,
+        "keep": 1000,
+        "seed": 347
+      },
+      "case_name": "narrow",
+      "queries": 20,
+      "all_correct": true,
+      "diagnostic_only": false,
+      "config": {
+        "spark.sql.shuffle.partitions": "32",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.skewJoin.enabled": "true",
+        "jvm_max_heap_bytes": 2147483648
+      },
+      "arms": {
+        "NATIVE": {
+          "n": 3,
+          "median_s": 0.44862662500236183,
+          "min_s": 0.42546725005377084,
+          "max_s": 0.45299749996047467,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": 0.0,
+          "worst_ratio_to_native": 1.0,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            17577216
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "TUNED64": {
+          "n": 3,
+          "median_s": 0.4340503750136122,
+          "min_s": 0.42933383397758007,
+          "max_s": 0.43496395798865706,
+          "faster_than_native_pairs": 2,
+          "median_paired_saving_s": 0.014576249988749623,
+          "worst_ratio_to_native": 1.0090878532327001,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            17577216
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "BROADCAST": {
+          "n": 3,
+          "median_s": 0.435614624992013,
+          "min_s": 0.42882000003010035,
+          "max_s": 0.45589112490415573,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": -0.0028936249436810613,
+          "worst_ratio_to_native": 1.0238499554007028,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            17577216
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "MERGE": {
+          "n": 3,
+          "median_s": 0.724473041947931,
+          "min_s": 0.7206977909663692,
+          "max_s": 0.7496078750118613,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": -0.29661037505138665,
+          "worst_ratio_to_native": 1.702770405610236,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "SHUFFLE_HASH": {
+          "n": 3,
+          "median_s": 0.6647824579849839,
+          "min_s": 0.6473892499925569,
+          "max_s": 0.6660850830376148,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": -0.21308758307714015,
+          "worst_ratio_to_native": 1.5624762138589239,
+          "initial_joins": [
+            "ShuffledHashJoin"
+          ],
+          "final_joins": [
+            "ShuffledHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        }
+      },
+      "raw_sha256": "28c0128c780e49dfa6e04e7e3e0d85c25f4be0363f5d083d541c1944ed5e539a",
+      "manifest_sha256": "d9322ff75607fe5a84eb98356a0339ebc06f9714366cc473cc6a99d9c21a2688",
+      "data": {
+        "parquet_bytes": 16399605,
+        "files": [
+          {
+            "path": "data/dim/part-00001-fd8ba979-09ff-4312-b622-bec65d8ec525-c000.snappy.parquet",
+            "bytes": 3497010
+          },
+          {
+            "path": "data/dim/part-00000-fd8ba979-09ff-4312-b622-bec65d8ec525-c000.snappy.parquet",
+            "bytes": 3488935
+          },
+          {
+            "path": "data/fact/part-00001-03b7521f-6149-4aa0-beee-48f1294c21c3-c000.snappy.parquet",
+            "bytes": 4706837
+          },
+          {
+            "path": "data/fact/part-00000-03b7521f-6149-4aa0-beee-48f1294c21c3-c000.snappy.parquet",
+            "bytes": 4706823
+          }
+        ],
+        "fact_estimate": "Statistics(sizeInBytes=9.0 MiB)",
+        "dimension_estimate": "Statistics(sizeInBytes=6.7 MiB)",
+        "setup_s": 1.8265659169992432
+      }
+    },
+    {
+      "batch": "parquet_wide_small_v1",
+      "case": {
+        "n": 100000,
+        "m": 400000,
+        "width": 512,
+        "keep": 1000,
+        "seed": 347
+      },
+      "case_name": "wide_small_probe",
+      "queries": 20,
+      "all_correct": true,
+      "diagnostic_only": false,
+      "config": {
+        "spark.sql.shuffle.partitions": "32",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.skewJoin.enabled": "true",
+        "jvm_max_heap_bytes": 2147483648
+      },
+      "arms": {
+        "NATIVE": {
+          "n": 3,
+          "median_s": 0.6993387080729008,
+          "min_s": 0.6868177920114249,
+          "max_s": 0.8446575000416487,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": 0.0,
+          "worst_ratio_to_native": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "TUNED64": {
+          "n": 3,
+          "median_s": 0.6871999169234186,
+          "min_s": 0.6838181660277769,
+          "max_s": 0.780903207953088,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.012138791149482131,
+          "worst_ratio_to_native": 0.9956325738521373,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "BROADCAST": {
+          "n": 3,
+          "median_s": 1.0851746250409633,
+          "min_s": 1.024826959008351,
+          "max_s": 1.1542466660030186,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": -0.33800916699692607,
+          "worst_ratio_to_native": 1.5517153741300447,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            271635456
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "MERGE": {
+          "n": 3,
+          "median_s": 0.665565959061496,
+          "min_s": 0.6626516659744084,
+          "max_s": 0.7285774169722572,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.036687042098492384,
+          "worst_ratio_to_native": 0.9690575386993244,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "SHUFFLE_HASH": {
+          "n": 3,
+          "median_s": 0.8001197079429403,
+          "min_s": 0.7308234999654815,
+          "max_s": 0.8303238339722157,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": -0.03148479189258069,
+          "worst_ratio_to_native": 1.1649664834681956,
+          "initial_joins": [
+            "ShuffledHashJoin"
+          ],
+          "final_joins": [
+            "ShuffledHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        }
+      },
+      "raw_sha256": "03affb87ac3c1ed1e26ca2b05ac53918083352b60dfeee5bc68e816c2a70b319",
+      "manifest_sha256": "da8d81f221315530f06a39bf091ebc64b9397a8b31b7a8f9534774559713e5bb",
+      "data": {
+        "parquet_bytes": 207746794,
+        "files": [
+          {
+            "path": "data/dim/part-00001-f0a5e0b7-1b1c-432d-b390-30cef08001ee-c000.snappy.parquet",
+            "bytes": 103632338
+          },
+          {
+            "path": "data/dim/part-00000-f0a5e0b7-1b1c-432d-b390-30cef08001ee-c000.snappy.parquet",
+            "bytes": 103629739
+          },
+          {
+            "path": "data/fact/part-00001-d7a64671-bcb4-4438-8434-af00c0674c4d-c000.snappy.parquet",
+            "bytes": 242354
+          },
+          {
+            "path": "data/fact/part-00000-d7a64671-bcb4-4438-8434-af00c0674c4d-c000.snappy.parquet",
+            "bytes": 242363
+          }
+        ],
+        "fact_estimate": "Statistics(sizeInBytes=473.4 KiB)",
+        "dimension_estimate": "Statistics(sizeInBytes=197.7 MiB)",
+        "setup_s": 2.375588500057347
+      }
+    },
+    {
+      "batch": "parquet_wide_large_v1",
+      "case": {
+        "n": 2000000,
+        "m": 400000,
+        "width": 512,
+        "keep": 1000,
+        "seed": 347
+      },
+      "case_name": "wide_large_probe",
+      "queries": 20,
+      "all_correct": true,
+      "diagnostic_only": false,
+      "config": {
+        "spark.sql.shuffle.partitions": "32",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.skewJoin.enabled": "true",
+        "jvm_max_heap_bytes": 2147483648
+      },
+      "arms": {
+        "NATIVE": {
+          "n": 3,
+          "median_s": 3.408747375011444,
+          "min_s": 3.3724330839468166,
+          "max_s": 3.5088596250861883,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": 0.0,
+          "worst_ratio_to_native": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "TUNED64": {
+          "n": 3,
+          "median_s": 3.2981138749746606,
+          "min_s": 3.2318594160024077,
+          "max_s": 3.3493494159774855,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.14057366794440895,
+          "worst_ratio_to_native": 0.9675442360886565,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "BROADCAST": {
+          "n": 3,
+          "median_s": 3.404038375010714,
+          "min_s": 3.3158055420499295,
+          "max_s": 3.41942008305341,
+          "faster_than_native_pairs": 2,
+          "median_paired_saving_s": 0.056627541896887124,
+          "worst_ratio_to_native": 1.003130976534138,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            271635456
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "MERGE": {
+          "n": 3,
+          "median_s": 3.2468079579994082,
+          "min_s": 3.179378499975428,
+          "max_s": 3.2946534579386935,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.2293688750360161,
+          "worst_ratio_to_native": 0.9769366436421338,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "SHUFFLE_HASH": {
+          "n": 3,
+          "median_s": 3.4117157090222463,
+          "min_s": 3.3294682080158964,
+          "max_s": 3.636315625044517,
+          "faster_than_native_pairs": 1,
+          "median_paired_saving_s": -0.0029683340108022094,
+          "worst_ratio_to_native": 1.036324052135656,
+          "initial_joins": [
+            "ShuffledHashJoin"
+          ],
+          "final_joins": [
+            "ShuffledHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        }
+      },
+      "raw_sha256": "fd16b296128d6a45e03af3d898edb9eda7c50c1da21ab0aa59370d9d600137d9",
+      "manifest_sha256": "525e8c36832fd2d94bb741825567b9f7f6ed29a5ccdea8e9efad0cab9bb62f9f",
+      "data": {
+        "parquet_bytes": 216678580,
+        "files": [
+          {
+            "path": "data/dim/part-00000-b2013cca-785f-446d-a161-874c1115c3f3-c000.snappy.parquet",
+            "bytes": 103629739
+          },
+          {
+            "path": "data/dim/part-00001-b2013cca-785f-446d-a161-874c1115c3f3-c000.snappy.parquet",
+            "bytes": 103632338
+          },
+          {
+            "path": "data/fact/part-00000-3cb8ca89-162e-4152-bec9-9c410ae45373-c000.snappy.parquet",
+            "bytes": 4708218
+          },
+          {
+            "path": "data/fact/part-00001-3cb8ca89-162e-4152-bec9-9c410ae45373-c000.snappy.parquet",
+            "bytes": 4708285
+          }
+        ],
+        "fact_estimate": "Statistics(sizeInBytes=9.0 MiB)",
+        "dimension_estimate": "Statistics(sizeInBytes=197.7 MiB)",
+        "setup_s": 2.6374167080502957
+      }
+    },
+    {
+      "batch": "parquet_wide_selective_v1",
+      "case": {
+        "n": 2000000,
+        "m": 400000,
+        "width": 512,
+        "keep": 10,
+        "seed": 347
+      },
+      "case_name": "wide_selective",
+      "queries": 20,
+      "all_correct": true,
+      "diagnostic_only": false,
+      "config": {
+        "spark.sql.shuffle.partitions": "32",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.skewJoin.enabled": "true",
+        "jvm_max_heap_bytes": 2147483648
+      },
+      "arms": {
+        "NATIVE": {
+          "n": 3,
+          "median_s": 0.3815687909955159,
+          "min_s": 0.37567224993836135,
+          "max_s": 0.38628804101608694,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": 0.0,
+          "worst_ratio_to_native": 1.0,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            4325376
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "TUNED64": {
+          "n": 3,
+          "median_s": 0.36826541693881154,
+          "min_s": 0.36576866696123034,
+          "max_s": 0.3789802920073271,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.007406832999549806,
+          "worst_ratio_to_native": 0.9932161669159697,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            4325376
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "BROADCAST": {
+          "n": 3,
+          "median_s": 0.19519237498752773,
+          "min_s": 0.19414504198357463,
+          "max_s": 0.23128783400170505,
+          "faster_than_native_pairs": 3,
+          "median_paired_saving_s": 0.18047987495083362,
+          "worst_ratio_to_native": 0.606149767642876,
+          "initial_joins": [
+            "BroadcastHashJoin"
+          ],
+          "final_joins": [
+            "BroadcastHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": [
+            4325376
+          ],
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "MERGE": {
+          "n": 3,
+          "median_s": 0.41296291700564325,
+          "min_s": 0.4068032909417525,
+          "max_s": 0.4562068749219179,
+          "faster_than_native_pairs": 0,
+          "median_paired_saving_s": -0.031131041003391147,
+          "worst_ratio_to_native": 1.195608460879808,
+          "initial_joins": [
+            "SortMergeJoin"
+          ],
+          "final_joins": [
+            "SortMergeJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        },
+        "SHUFFLE_HASH": {
+          "n": 3,
+          "median_s": 0.35646250005811453,
+          "min_s": 0.35450083296746016,
+          "max_s": 0.39309116709046066,
+          "faster_than_native_pairs": 2,
+          "median_paired_saving_s": 0.02117141697090119,
+          "worst_ratio_to_native": 1.030197375589557,
+          "initial_joins": [
+            "ShuffledHashJoin"
+          ],
+          "final_joins": [
+            "ShuffledHashJoin"
+          ],
+          "broadcast_exchange_reported_data_size_bytes": null,
+          "captured_operator_spill_size_values": [
+            0
+          ]
+        }
+      },
+      "raw_sha256": "2b3c3a6dd007ba33de3bcc69481950a68e1e32a3d19399a7f99dce62cd2ddb78",
+      "manifest_sha256": "fe558ed47d5126c61e0c4e6d79fe916235e947f0d4a312401ce2c1fcb1c8482c",
+      "data": {
+        "parquet_bytes": 216678580,
+        "files": [
+          {
+            "path": "data/dim/part-00001-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+            "bytes": 103632338
+          },
+          {
+            "path": "data/dim/part-00000-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+            "bytes": 103629739
+          },
+          {
+            "path": "data/fact/part-00000-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+            "bytes": 4708218
+          },
+          {
+            "path": "data/fact/part-00001-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+            "bytes": 4708285
+          }
+        ],
+        "fact_estimate": "Statistics(sizeInBytes=9.0 MiB)",
+        "dimension_estimate": "Statistics(sizeInBytes=197.7 MiB)",
+        "setup_s": 2.5112578329863027
+      }
+    }
+  ],
+  "pending_batches": [],
+  "queries_verified": 88,
+  "formal_measured_queries": 60,
+  "warmup_queries": 20,
+  "diagnostic_queries": 8,
+  "worst_paired_alternative_regression": {
+    "case": "narrow",
+    "arm": "MERGE",
+    "rep": 2,
+    "ratio": 1.702770405610236,
+    "extra_s": 0.2990057918941602
+  },
+  "source_hashes": {
+    "round_20260920/production_v3/checkpoint_scoped.py": "e900a7f21d9139e2a3ec9d635aec05b7d033ed312635997cbb0f793a53431420",
+    "round_20260920/production_v3/runtime_safety_checks_v2.py": "ea67a5556e64e64cc146b4483aab02e50abb926cda3140811c56a77492927e83",
+    "round_20260920/production_v3/parquet_corpus.py": "1f44702bd87a95b4223c60769412c9ee6117525cdeb4f56dd12fb27e069ae8dd",
+    "round_20260920/production_v3/audit_iteration_v2.py": "aca615387a96eaccaaec9b5cb07ded7365caa3c514c3823acb5d4911c0a763ad",
+    "round_20260920/production_v3/build_guarded_observer.py": "5bcaa7f9f260e71f2f1319000c8ec8d2850d3ae5f551024bac05d33a2fcf3eac",
+    "round_20260920/production_v3/audit_iteration.py": "45d8f25f6f7478a68f1e1a9235190257245ac7faa0d7114270dd0bd8599e5d32",
+    "round_20260920/production_v3/runtime_safety_checks.py": "6a1218e03b8c80bdc7d13d6bc5917b9d6827af82792914ee505c9c5bb6f2ed6e",
+    "round_20260920/production_v3/prepare_final_audit.py": "ec5ffe4a6d08f47033fbdbb3d0d69a3c4317b20b984e27bfef7e674a4f5dd58b",
+    "round_20260920/production_v3/authorize_budget.py": "61edf53ccb64265e1ff2a9e349ec91a186a6fec7535ae3c7238556258b111d74",
+    "round_20260920/production_v3/repair_runtime_safety.py": "a7b8ccecf3bf898e0d0a65a1ce44adcc7f920df079546f18a9922dbcf6a1c8ac",
+    "round_20260920/production_v3/preflight.py": "53966f97fd49d64d99372ad93028178e4abcd80fa424ef08059e879f25c3a846"
+  },
+  "failures": [
+    {
+      "job_id": "1e2283b5cfc6483fb4477b1e49578537",
+      "script": "runtime_safety_checks.py",
+      "status": "failed",
+      "returncode": 1,
+      "error": "AttributeError: Py4J returned int, so obj.pairs().set(1000) failed",
+      "completed_correct_queries_before_failure": 1,
+      "raw_sha256": "5888bb84def0871ea62b87e0102b04ea79b880d0f116acc949279b07538d5b33",
+      "repair": "JVM-only observer test-counter setter in runtime_fault_helper; retry preserved separately in runtime_safety_v2"
+    }
+  ],
+  "compiled_guard_tests": {
+    "status": "succeeded",
+    "original_source_unchanged": true,
+    "original_sha256": "d78af7d65b83f354074638c69e2880958bbe8e86319842b5bb62497497df3c79",
+    "guarded_source_sha256": "1edd45591f586d70b5ca67a8435896eae1c2017a6c231141a099216c46a56cbf",
+    "jvm_tests": {
+      "checks_passed": 16,
+      "status": "succeeded",
+      "spark_queries": 0,
+      "api_requests": 0
+    },
+    "budget_before": 49,
+    "budget_after": 49,
+    "scope": "native-compiled guard and fault tests; not yet an end-to-end Spark intervention or full runtime-state validation"
+  },
+  "runtime_safety": {
+    "status": "succeeded",
+    "loopback_checks_passed": 16,
+    "trickle_deadline_observations": [
+      {
+        "native": "CURRENT",
+        "effective": "CURRENT",
+        "status": "fallback",
+        "error_type": "TimeoutError",
+        "wall_s": 0.1533771250396967,
+        "mode": "trickle"
+      },
+      {
+        "native": "PROPOSED",
+        "effective": "PROPOSED",
+        "status": "fallback",
+        "error_type": "TimeoutError",
+        "wall_s": 0.15364112507086247,
+        "mode": "trickle"
+      }
+    ],
+    "fallback_tracks_native_current_or_proposed": true,
+    "spark": {
+      "queries": 2,
+      "all_correct": true,
+      "normal_metrics": {
+        "calls": 8,
+        "pairs": 4,
+        "errors": 0,
+        "unmatched": 0,
+        "dropped": 0,
+        "observer_nanos": 19347210
+      },
+      "fault_metrics": {
+        "calls": 16,
+        "pairs": 1000,
+        "errors": 0,
+        "unmatched": 0,
+        "dropped": 4,
+        "observer_nanos": 27271710
+      },
+      "trace_counter_artificially_saturated": true,
+      "new_jev_attempts": 0,
+      "runtime_interventions": 0,
+      "caveat": "Pass-through Spark checks plus audit-saturation fault. Counterfactual benefit and complete prefix coverage are not tested."
+    },
+    "remote_api_requests": 0,
+    "budget_before": 67,
+    "budget_after": 67,
+    "source_sha256": "ea67a5556e64e64cc146b4483aab02e50abb926cda3140811c56a77492927e83",
+    "deadline_scope": "Async HTTP deadline under local fault injection; not a hard-real-time OS guarantee or deployed Jev client integration."
+  },
+  "loopback_fault_runs": [
+    {
+      "directory": "runtime_safety_v1",
+      "checked": 16,
+      "trickle_wall_s": [
+        0.15336741600185633,
+        0.1533243339508772
+      ],
+      "sha256": "dcb693f2c833b998e4163e10371d24bfea0cf00c8c52aac8c6331128bdfcb130"
+    },
+    {
+      "directory": "runtime_safety_v2",
+      "checked": 16,
+      "trickle_wall_s": [
+        0.1533771250396967,
+        0.15364112507086247
+      ],
+      "sha256": "394eb04651f9b5af1073668be23466f173d858a1e65375b9e87e4e687f9544ba"
+    }
+  ],
+  "request_budget": {
+    "authorized_total": 10000,
+    "recorded_authorization_utc": "2026-09-20T17:21:23Z",
+    "attempts_at_authorization": 49,
+    "attempts_now": 67,
+    "prior_history_prefix_verified": true,
+    "legacy_adapter_limit": 50,
+    "new_adapter_present": false,
+    "enforcement_update_status": "Attempted new accounting module write was blocked by tool safety; no bypass or legacy-source modification attempted.",
+    "new_jev_attempts_by_this_iteration": 0
+  },
+  "preserved_prior_sources": {
+    "round_20260920/aqe_observer/NativeBoundaryObserverV3.scala": true,
+    "round_20260920/practical_v2/scale_benchmark.py": true,
+    "round_20260920/safe_jev.py": true,
+    "round_20260920/repo_checkpoint.py": true
+  },
+  "api_before_audit": 67,
+  "api_after_audit": 67,
+  "status": "succeeded",
+  "measurement_limitations": [
+    "Three repetitions per arm in development screens; no independent family holdout scored.",
+    "Warmed local Parquet/JVM/OS-cache setting, not distributed or cold-storage validation.",
+    "BroadcastExchange dataSize is not whole-process peak memory.",
+    "No Jev choices or Jev-directed runtime interventions in this iteration.",
+    "The new guard addresses V3 truncation/audit persistence only, not complete executed-prefix equivalence or every older extension."
+  ]
+}

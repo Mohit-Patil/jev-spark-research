@@ -1,0 +1,24 @@
+{
+  "parquet_bytes": 216678580,
+  "files": [
+    {
+      "path": "data/dim/part-00001-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+      "bytes": 103632338
+    },
+    {
+      "path": "data/dim/part-00000-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+      "bytes": 103629739
+    },
+    {
+      "path": "data/fact/part-00000-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+      "bytes": 4708218
+    },
+    {
+      "path": "data/fact/part-00001-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+      "bytes": 4708285
+    }
+  ],
+  "fact_estimate": "Statistics(sizeInBytes=9.0 MiB)",
+  "dimension_estimate": "Statistics(sizeInBytes=197.7 MiB)",
+  "setup_s": 2.5112578329863027
+}

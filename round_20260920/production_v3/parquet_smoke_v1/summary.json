@@ -1,0 +1,91 @@
+{
+  "status": "succeeded",
+  "case": "smoke",
+  "queries": 5,
+  "measured": 5,
+  "all_correct": true,
+  "arms": {
+    "NATIVE": {
+      "median_s": 0.1809226250043139,
+      "min_s": 0.1809226250043139,
+      "max_s": 0.1809226250043139,
+      "faster_than_native_pairs": 0,
+      "median_paired_saving_s": 0.0,
+      "worst_ratio_to_native": 1.0,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "TUNED64": {
+      "median_s": 0.10842941701412201,
+      "min_s": 0.10842941701412201,
+      "max_s": 0.10842941701412201,
+      "faster_than_native_pairs": 1,
+      "median_paired_saving_s": 0.07249320799019188,
+      "worst_ratio_to_native": 0.599313750900622,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "BROADCAST": {
+      "median_s": 0.10941883304622024,
+      "min_s": 0.10941883304622024,
+      "max_s": 0.10941883304622024,
+      "faster_than_native_pairs": 1,
+      "median_paired_saving_s": 0.07150379195809364,
+      "worst_ratio_to_native": 0.6047824756224451,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "MERGE": {
+      "median_s": 0.49631995894014835,
+      "min_s": 0.49631995894014835,
+      "max_s": 0.49631995894014835,
+      "faster_than_native_pairs": 0,
+      "median_paired_saving_s": -0.31539733393583447,
+      "worst_ratio_to_native": 2.743271931458623,
+      "final_joins": [
+        "SortMergeJoin"
+      ]
+    },
+    "SHUFFLE_HASH": {
+      "median_s": 0.17229812499135733,
+      "min_s": 0.17229812499135733,
+      "max_s": 0.17229812499135733,
+      "faster_than_native_pairs": 1,
+      "median_paired_saving_s": 0.00862450001295656,
+      "worst_ratio_to_native": 0.952330450584879,
+      "final_joins": [
+        "ShuffledHashJoin"
+      ]
+    }
+  },
+  "data": {
+    "parquet_bytes": 1085528,
+    "files": [
+      {
+        "path": "data/dim/part-00000-06ccb245-7cad-4789-ac5a-2a1bdeb509ae-c000.snappy.parquet",
+        "bytes": 517345
+      },
+      {
+        "path": "data/dim/part-00001-06ccb245-7cad-4789-ac5a-2a1bdeb509ae-c000.snappy.parquet",
+        "bytes": 518725
+      },
+      {
+        "path": "data/fact/part-00000-f69dbf47-0f3c-415e-a3ed-49def1898d90-c000.snappy.parquet",
+        "bytes": 24687
+      },
+      {
+        "path": "data/fact/part-00001-f69dbf47-0f3c-415e-a3ed-49def1898d90-c000.snappy.parquet",
+        "bytes": 24771
+      }
+    ],
+    "fact_estimate": "Statistics(sizeInBytes=48.3 KiB)",
+    "dimension_estimate": "Statistics(sizeInBytes=1011.8 KiB)",
+    "setup_s": 1.6182857500389218
+  },
+  "api_before": 49,
+  "api_after": 49,
+  "new_api_attempts_by_this_script": 0
+}

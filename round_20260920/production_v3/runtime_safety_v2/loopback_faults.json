@@ -1,0 +1,126 @@
+[
+  {
+    "native": "CURRENT",
+    "effective": "PROPOSED",
+    "status": "accepted",
+    "wall_s": 0.009451167075894773,
+    "mode": "success"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "abstained",
+    "wall_s": 0.0015160000184550881,
+    "mode": "abstain"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.0015321250539273024,
+    "mode": "invalid"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.0013301250291988254,
+    "mode": "stale"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.0012442499864846468,
+    "mode": "http500"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.0012654579477384686,
+    "mode": "oversized"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "ReadTimeout",
+    "wall_s": 0.07337587489746511,
+    "mode": "stall"
+  },
+  {
+    "native": "CURRENT",
+    "effective": "CURRENT",
+    "status": "fallback",
+    "error_type": "TimeoutError",
+    "wall_s": 0.1533771250396967,
+    "mode": "trickle"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "accepted",
+    "wall_s": 0.006686042062938213,
+    "mode": "success"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "abstained",
+    "wall_s": 0.004991124966181815,
+    "mode": "abstain"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.004521458060480654,
+    "mode": "invalid"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.004434000002220273,
+    "mode": "stale"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.004608500050380826,
+    "mode": "http500"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "ValueError",
+    "wall_s": 0.0046608749544247985,
+    "mode": "oversized"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "ReadTimeout",
+    "wall_s": 0.07720733305905014,
+    "mode": "stall"
+  },
+  {
+    "native": "PROPOSED",
+    "effective": "PROPOSED",
+    "status": "fallback",
+    "error_type": "TimeoutError",
+    "wall_s": 0.15364112507086247,
+    "mode": "trickle"
+  }
+]

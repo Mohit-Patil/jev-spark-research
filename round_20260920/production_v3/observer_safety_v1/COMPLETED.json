@@ -1,0 +1,15 @@
+{
+  "status": "succeeded",
+  "original_source_unchanged": true,
+  "original_sha256": "d78af7d65b83f354074638c69e2880958bbe8e86319842b5bb62497497df3c79",
+  "guarded_source_sha256": "1edd45591f586d70b5ca67a8435896eae1c2017a6c231141a099216c46a56cbf",
+  "jvm_tests": {
+    "checks_passed": 16,
+    "status": "succeeded",
+    "spark_queries": 0,
+    "api_requests": 0
+  },
+  "budget_before": 49,
+  "budget_after": 49,
+  "scope": "native-compiled guard and fault tests; not yet an end-to-end Spark intervention or full runtime-state validation"
+}

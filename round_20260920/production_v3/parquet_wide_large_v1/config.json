@@ -1,0 +1,6 @@
+{
+  "spark.sql.shuffle.partitions": "32",
+  "spark.sql.adaptive.enabled": "true",
+  "spark.sql.adaptive.skewJoin.enabled": "true",
+  "jvm_max_heap_bytes": 2147483648
+}

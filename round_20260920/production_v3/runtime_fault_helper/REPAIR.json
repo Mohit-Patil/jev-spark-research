@@ -1,0 +1,8 @@
+{
+  "kind": "repair_test_harness_only",
+  "original_sha256": "6a1218e03b8c80bdc7d13d6bc5917b9d6827af82792914ee505c9c5bb6f2ed6e",
+  "revised_sha256": "ea67a5556e64e64cc146b4483aab02e50abb926cda3140811c56a77492927e83",
+  "preserved_failed_directory": "runtime_safety_v1",
+  "new_output_directory": "runtime_safety_v2",
+  "bug": "Py4J converted AtomicLong to int; set observer test counter wholly inside JVM instead."
+}

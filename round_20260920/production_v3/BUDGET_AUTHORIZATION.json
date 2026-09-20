@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "kind": "user_authorized_cumulative_budget_increase",
+  "authorized_at_user_message_utc": "2026-09-20T17:21:23Z",
+  "authorized_max_attempts": 10000,
+  "previous_authorized_max_attempts": 50,
+  "ledger_relative_path": ".jev_initial_round_attempts.jsonl",
+  "attempts_at_authorization": 49,
+  "prior_ledger_bytes": 10877,
+  "prior_ledger_sha256": "ead271a851de1e4bfa88cf62d4911d3ca01492007a6d099b382da36aab1510b9",
+  "registered_unix": 1789924978.770964,
+  "meaning": "10000 TOTAL including all prior, failed, cancelled and successful reservations. No reset. No additional paid APIs authorized.",
+  "legacy_header_retained": true,
+  "new_network_requests": 0
+}

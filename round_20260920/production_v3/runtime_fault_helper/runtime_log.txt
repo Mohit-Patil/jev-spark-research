@@ -1,0 +1,58 @@
+{
+  "status": "succeeded",
+  "loopback_checks_passed": 16,
+  "trickle_deadline_observations": [
+    {
+      "native": "CURRENT",
+      "effective": "CURRENT",
+      "status": "fallback",
+      "error_type": "TimeoutError",
+      "wall_s": 0.1533771250396967,
+      "mode": "trickle"
+    },
+    {
+      "native": "PROPOSED",
+      "effective": "PROPOSED",
+      "status": "fallback",
+      "error_type": "TimeoutError",
+      "wall_s": 0.15364112507086247,
+      "mode": "trickle"
+    }
+  ],
+  "fallback_tracks_native_current_or_proposed": true,
+  "spark": {
+    "queries": 2,
+    "all_correct": true,
+    "normal_metrics": {
+      "calls": 8,
+      "pairs": 4,
+      "errors": 0,
+      "unmatched": 0,
+      "dropped": 0,
+      "observer_nanos": 19347210
+    },
+    "fault_metrics": {
+      "calls": 16,
+      "pairs": 1000,
+      "errors": 0,
+      "unmatched": 0,
+      "dropped": 4,
+      "observer_nanos": 27271710
+    },
+    "trace_counter_artificially_saturated": true,
+    "new_jev_attempts": 0,
+    "runtime_interventions": 0,
+    "caveat": "Pass-through Spark checks plus audit-saturation fault. Counterfactual benefit and complete prefix coverage are not tested."
+  },
+  "remote_api_requests": 0,
+  "budget_before": 67,
+  "budget_after": 67,
+  "source_sha256": "ea67a5556e64e64cc146b4483aab02e50abb926cda3140811c56a77492927e83",
+  "deadline_scope": "Async HTTP deadline under local fault injection; not a hard-real-time OS guarantee or deployed Jev client integration."
+}
+
+WARNING: Using incubator modules: jdk.incubator.vector
+26/09/20 23:23:13 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).

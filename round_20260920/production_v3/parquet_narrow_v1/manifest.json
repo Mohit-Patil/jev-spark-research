@@ -1,0 +1,29 @@
+{
+  "kind": "zero_API_file_backed_development",
+  "case_name": "narrow",
+  "case": {
+    "n": 2000000,
+    "m": 100000,
+    "width": 64,
+    "keep": 1000,
+    "seed": 347
+  },
+  "arms": [
+    "NATIVE",
+    "TUNED64",
+    "BROADCAST",
+    "MERGE",
+    "SHUFFLE_HASH"
+  ],
+  "warmups": 1,
+  "reps": 3,
+  "random_seed": 8127,
+  "new_api_attempts": 0,
+  "actual_aqe_intervention": false,
+  "cache": "No persisted DataFrames. Parquet reread each query; OS cache and JVM warmed, not reset.",
+  "feature_source": "file-source Spark estimates; exact generator facts are correctness-only, not selection inputs",
+  "timing": "SQL build, initial-plan capture and collect; excludes one-off data generation/oracle and final plan/metrics logging",
+  "source_sha256": "1f44702bd87a95b4223c60769412c9ee6117525cdeb4f56dd12fb27e069ae8dd",
+  "batch_launch_bound_seconds": 380,
+  "per_query_cancel_seconds": 75
+}

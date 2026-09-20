@@ -1,0 +1,91 @@
+{
+  "status": "succeeded",
+  "case": "wide_selective",
+  "queries": 20,
+  "measured": 15,
+  "all_correct": true,
+  "arms": {
+    "NATIVE": {
+      "median_s": 0.3815687909955159,
+      "min_s": 0.37567224993836135,
+      "max_s": 0.38628804101608694,
+      "faster_than_native_pairs": 0,
+      "median_paired_saving_s": 0.0,
+      "worst_ratio_to_native": 1.0,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "TUNED64": {
+      "median_s": 0.36826541693881154,
+      "min_s": 0.36576866696123034,
+      "max_s": 0.3789802920073271,
+      "faster_than_native_pairs": 3,
+      "median_paired_saving_s": 0.007406832999549806,
+      "worst_ratio_to_native": 0.9932161669159697,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "BROADCAST": {
+      "median_s": 0.19519237498752773,
+      "min_s": 0.19414504198357463,
+      "max_s": 0.23128783400170505,
+      "faster_than_native_pairs": 3,
+      "median_paired_saving_s": 0.18047987495083362,
+      "worst_ratio_to_native": 0.606149767642876,
+      "final_joins": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "MERGE": {
+      "median_s": 0.41296291700564325,
+      "min_s": 0.4068032909417525,
+      "max_s": 0.4562068749219179,
+      "faster_than_native_pairs": 0,
+      "median_paired_saving_s": -0.031131041003391147,
+      "worst_ratio_to_native": 1.195608460879808,
+      "final_joins": [
+        "SortMergeJoin"
+      ]
+    },
+    "SHUFFLE_HASH": {
+      "median_s": 0.35646250005811453,
+      "min_s": 0.35450083296746016,
+      "max_s": 0.39309116709046066,
+      "faster_than_native_pairs": 2,
+      "median_paired_saving_s": 0.02117141697090119,
+      "worst_ratio_to_native": 1.030197375589557,
+      "final_joins": [
+        "ShuffledHashJoin"
+      ]
+    }
+  },
+  "data": {
+    "parquet_bytes": 216678580,
+    "files": [
+      {
+        "path": "data/dim/part-00001-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+        "bytes": 103632338
+      },
+      {
+        "path": "data/dim/part-00000-e78492b0-cef7-493a-a31b-acba435efe28-c000.snappy.parquet",
+        "bytes": 103629739
+      },
+      {
+        "path": "data/fact/part-00000-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+        "bytes": 4708218
+      },
+      {
+        "path": "data/fact/part-00001-9be17ec5-90a1-4c7a-bd01-5657021655e5-c000.snappy.parquet",
+        "bytes": 4708285
+      }
+    ],
+    "fact_estimate": "Statistics(sizeInBytes=9.0 MiB)",
+    "dimension_estimate": "Statistics(sizeInBytes=197.7 MiB)",
+    "setup_s": 2.5112578329863027
+  },
+  "api_before": 67,
+  "api_after": 67,
+  "new_api_attempts_by_this_script": 0
+}
