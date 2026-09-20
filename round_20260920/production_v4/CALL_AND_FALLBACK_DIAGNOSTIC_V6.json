@@ -1,0 +1,29 @@
+{
+  "VERBOSE": {
+    "valid_model_choices": {
+      "ABSTAIN": 7
+    },
+    "failed_or_late_attempts": [
+      {
+        "attempt": 55,
+        "http_status": 200,
+        "error_type": "TimeoutError",
+        "http_latency_s": 4.324054165976122
+      },
+      {
+        "attempt": 67,
+        "http_status": 200,
+        "error_type": "TimeoutError",
+        "http_latency_s": 2.9943767500808463
+      }
+    ],
+    "warning": "summary choice counts include ABSTAIN imposed by the error/late-response fallback, not solely actual model answers"
+  },
+  "COMPACT": {
+    "valid_model_choices": {
+      "ABSTAIN": 9
+    },
+    "failed_or_late_attempts": [],
+    "warning": "summary choice counts include ABSTAIN imposed by the error/late-response fallback, not solely actual model answers"
+  }
+}

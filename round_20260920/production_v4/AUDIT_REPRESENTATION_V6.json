@@ -1,0 +1,93 @@
+{
+  "status": "succeeded",
+  "audit_unix": 1789925959.162803,
+  "checks": 207,
+  "runs": 54,
+  "measured_runs": 45,
+  "new_live_attempts_in_batch": 18,
+  "new_live_attempts_by_audit": 0,
+  "actual_jev_applications": 0,
+  "exact_results_recomputed": true,
+  "all_frozen_source_hashes_match": true,
+  "all_model_request_hashes_match": true,
+  "budget": {
+    "limit": 10000,
+    "attempts_used": 67,
+    "remaining": 9933,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true
+  },
+  "cases": [
+    {
+      "case": "v6_small_uniform",
+      "OFF": 0.2116996250115335,
+      "APPLY": 0.3068499159999192,
+      "TUNED_AQE": 0.3046402919571847,
+      "JEV_VERBOSE": 1.2510369579540566,
+      "JEV_COMPACT": 0.6425615000771359
+    },
+    {
+      "case": "v6_large_uniform",
+      "OFF": 3.3539345000172034,
+      "APPLY": 2.7615714170970023,
+      "TUNED_AQE": 2.7673105830326676,
+      "JEV_VERBOSE": 3.927049625082873,
+      "JEV_COMPACT": 3.7507848750101402
+    },
+    {
+      "case": "v6_large_skew",
+      "OFF": 5.113855374976993,
+      "APPLY": 2.268300790921785,
+      "TUNED_AQE": 2.208591333939694,
+      "JEV_VERBOSE": 6.083641667035408,
+      "JEV_COMPACT": 5.607851082924753
+    }
+  ],
+  "views": {
+    "VERBOSE": {
+      "calls": 9,
+      "successful": 7,
+      "choices": {
+        "NATIVE": 0,
+        "BROADCAST": 0,
+        "ABSTAIN": 9
+      },
+      "applied": 0,
+      "median_http_s": 0.6101375420112163,
+      "min_http_s": 0.3604848749237135,
+      "max_http_s": 4.324054165976122,
+      "input_tokens": 13592,
+      "output_tokens": 322,
+      "median_request_bytes": 3529,
+      "median_preparation_s": 4.0624989196658134e-05
+    },
+    "COMPACT": {
+      "calls": 9,
+      "successful": 9,
+      "choices": {
+        "NATIVE": 0,
+        "BROADCAST": 0,
+        "ABSTAIN": 9
+      },
+      "applied": 0,
+      "median_http_s": 0.38704833295196295,
+      "min_http_s": 0.3272481251042336,
+      "max_http_s": 0.6455773749621585,
+      "input_tokens": 8994,
+      "output_tokens": 414,
+      "median_request_bytes": 2213,
+      "median_preparation_s": 5.620799493044615e-05
+    }
+  },
+  "worst_single_jev_regression": {
+    "case": "v6_small_uniform",
+    "arm": "JEV_VERBOSE",
+    "rep": 2,
+    "ratio": 11.415142841478962,
+    "extra_seconds": 2.204881833982654
+  },
+  "raw_sha256": "c3381093e21a4cc88e4674e1226a383c45e65f3880422269fa9dc2f5f0601652",
+  "decisions_sha256": "829c8ea41e56293cedb168906de816ca7efd80157289e462887e67fe5ccc00ef",
+  "status_scope": "V6 audited; preceding V4/V5 audit is separate"
+}

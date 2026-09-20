@@ -1,0 +1,257 @@
+[
+  {
+    "case": "v6_small_uniform",
+    "arms": {
+      "OFF": {
+        "n": 3,
+        "median_s": 0.2116996250115335,
+        "times_s": [
+          0.23283254203852266,
+          0.17994095908943564,
+          0.2116996250115335
+        ],
+        "median_paired_saving_vs_default_s": 0.0,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.0,
+        "median_paired_saving_vs_tuned_s": 0.09294066694565117,
+        "median_paired_saving_vs_fixed_s": 0.09540379093959928,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "APPLY": {
+        "n": 3,
+        "median_s": 0.3068499159999192,
+        "times_s": [
+          0.32823633297812194,
+          0.3020910000195727,
+          0.3068499159999192
+        ],
+        "median_paired_saving_vs_default_s": -0.09540379093959928,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.6788339994866044,
+        "median_paired_saving_vs_tuned_s": -0.0022096240427345037,
+        "median_paired_saving_vs_fixed_s": 0.0,
+        "applied": 3,
+        "state_matches_fixed_rule": null
+      },
+      "TUNED_AQE": {
+        "n": 3,
+        "median_s": 0.3046402919571847,
+        "times_s": [
+          0.31802808307111263,
+          0.3037633328931406,
+          0.3046402919571847
+        ],
+        "median_paired_saving_vs_default_s": -0.09294066694565117,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.6881277860821107,
+        "median_paired_saving_vs_tuned_s": 0.0,
+        "median_paired_saving_vs_fixed_s": 0.0022096240427345037,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "JEV_VERBOSE": {
+        "n": 3,
+        "median_s": 1.2510369579540566,
+        "times_s": [
+          1.2510369579540566,
+          0.5891566249774769,
+          2.4165814589941874
+        ],
+        "median_paired_saving_vs_default_s": -1.018204415915534,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 11.415142841478962,
+        "median_paired_saving_vs_tuned_s": -0.9330088748829439,
+        "median_paired_saving_vs_fixed_s": -0.9228006249759346,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      },
+      "JEV_COMPACT": {
+        "n": 3,
+        "median_s": 0.6425615000771359,
+        "times_s": [
+          0.6425615000771359,
+          0.6001022920245305,
+          0.6576103330589831
+        ],
+        "median_paired_saving_vs_default_s": -0.42016133293509483,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 3.334995517759039,
+        "median_paired_saving_vs_tuned_s": -0.32453341700602323,
+        "median_paired_saving_vs_fixed_s": -0.3143251670990139,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      }
+    }
+  },
+  {
+    "case": "v6_large_uniform",
+    "arms": {
+      "OFF": {
+        "n": 3,
+        "median_s": 3.3539345000172034,
+        "times_s": [
+          3.3539345000172034,
+          3.4994396249530837,
+          3.180608249967918
+        ],
+        "median_paired_saving_vs_default_s": 0.0,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.0,
+        "median_paired_saving_vs_tuned_s": -0.4530160410795361,
+        "median_paired_saving_vs_fixed_s": -0.435133708990179,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "APPLY": {
+        "n": 3,
+        "median_s": 2.7615714170970023,
+        "times_s": [
+          2.9839683750178665,
+          2.7615714170970023,
+          2.745474540977739
+        ],
+        "median_paired_saving_vs_default_s": 0.435133708990179,
+        "faster_than_default_pairs": 3,
+        "worst_ratio_vs_default": 0.889691905134868,
+        "median_paired_saving_vs_tuned_s": -0.012413875083439052,
+        "median_paired_saving_vs_fixed_s": 0.0,
+        "applied": 3,
+        "state_matches_fixed_rule": null
+      },
+      "TUNED_AQE": {
+        "n": 3,
+        "median_s": 2.7673105830326676,
+        "times_s": [
+          2.9009184589376673,
+          2.749157542013563,
+          2.7673105830326676
+        ],
+        "median_paired_saving_vs_default_s": 0.4530160410795361,
+        "faster_than_default_pairs": 3,
+        "worst_ratio_vs_default": 0.8700570348645046,
+        "median_paired_saving_vs_tuned_s": 0.0,
+        "median_paired_saving_vs_fixed_s": 0.012413875083439052,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "JEV_VERBOSE": {
+        "n": 3,
+        "median_s": 3.927049625082873,
+        "times_s": [
+          4.5301346249179915,
+          3.8545031250687316,
+          3.927049625082873
+        ],
+        "median_paired_saving_vs_default_s": -0.746441375114955,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.3506926342463619,
+        "median_paired_saving_vs_tuned_s": -1.1597390420502052,
+        "median_paired_saving_vs_fixed_s": -1.181575084105134,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      },
+      "JEV_COMPACT": {
+        "n": 3,
+        "median_s": 3.7507848750101402,
+        "times_s": [
+          3.7507848750101402,
+          3.634227709029801,
+          3.88502479204908
+        ],
+        "median_paired_saving_vs_default_s": -0.39685037499293685,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.2214722740809931,
+        "median_paired_saving_vs_tuned_s": -0.885070167016238,
+        "median_paired_saving_vs_fixed_s": -0.8726562919327989,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      }
+    }
+  },
+  {
+    "case": "v6_large_skew",
+    "arms": {
+      "OFF": {
+        "n": 3,
+        "median_s": 5.113855374976993,
+        "times_s": [
+          5.141151417046785,
+          5.113855374976993,
+          5.081794791971333
+        ],
+        "median_paired_saving_vs_default_s": 0.0,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.0,
+        "median_paired_saving_vs_tuned_s": -2.9052640410372987,
+        "median_paired_saving_vs_fixed_s": -2.8722997079603374,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "APPLY": {
+        "n": 3,
+        "median_s": 2.268300790921785,
+        "times_s": [
+          2.268851709086448,
+          2.237042917055078,
+          2.268300790921785
+        ],
+        "median_paired_saving_vs_default_s": 2.8722997079603374,
+        "faster_than_default_pairs": 3,
+        "worst_ratio_vs_default": 0.44635820291394807,
+        "median_paired_saving_vs_tuned_s": -0.03215820784680545,
+        "median_paired_saving_vs_fixed_s": 0.0,
+        "applied": 3,
+        "state_matches_fixed_rule": null
+      },
+      "TUNED_AQE": {
+        "n": 3,
+        "median_s": 2.208591333939694,
+        "times_s": [
+          2.183267083019018,
+          2.208591333939694,
+          2.2361425830749795
+        ],
+        "median_paired_saving_vs_default_s": 2.9052640410372987,
+        "faster_than_default_pairs": 3,
+        "worst_ratio_vs_default": 0.4400300827982732,
+        "median_paired_saving_vs_tuned_s": 0.0,
+        "median_paired_saving_vs_fixed_s": 0.03215820784680545,
+        "applied": 0,
+        "state_matches_fixed_rule": null
+      },
+      "JEV_VERBOSE": {
+        "n": 3,
+        "median_s": 6.083641667035408,
+        "times_s": [
+          6.083641667035408,
+          5.465505209052935,
+          7.34644395892974
+        ],
+        "median_paired_saving_vs_default_s": -0.942490249988623,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.4456396331737555,
+        "median_paired_saving_vs_tuned_s": -3.90037458401639,
+        "median_paired_saving_vs_fixed_s": -3.8147899579489604,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      },
+      "JEV_COMPACT": {
+        "n": 3,
+        "median_s": 5.607851082924753,
+        "times_s": [
+          5.923549540922977,
+          5.607851082924753,
+          5.534496207954362
+        ],
+        "median_paired_saving_vs_default_s": -0.4939957079477608,
+        "faster_than_default_pairs": 0,
+        "worst_ratio_vs_default": 1.1521834430477875,
+        "median_paired_saving_vs_tuned_s": -3.3992597489850596,
+        "median_paired_saving_vs_fixed_s": -3.3708081658696756,
+        "applied": 0,
+        "state_matches_fixed_rule": 3
+      }
+    }
+  }
+]

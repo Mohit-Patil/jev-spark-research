@@ -1,0 +1,70 @@
+{
+  "frozen_unix": 1789925594.008833,
+  "cases": [
+    {
+      "name": "v6_small_uniform",
+      "n": 300000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 227,
+      "join": "LEFT"
+    },
+    {
+      "name": "v6_large_uniform",
+      "n": 24000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 419,
+      "join": "LEFT"
+    },
+    {
+      "name": "v6_large_skew",
+      "n": 24000000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 163,
+      "join": "LEFT"
+    }
+  ],
+  "arms": [
+    "OFF",
+    "APPLY",
+    "TUNED_AQE",
+    "JEV_VERBOSE",
+    "JEV_COMPACT"
+  ],
+  "reps": 3,
+  "random_seed": 337191,
+  "execution_warmups_per_case": [
+    "OFF",
+    "APPLY",
+    "TUNED_AQE"
+  ],
+  "max_live_attempts": 18,
+  "request_budget_at_start": {
+    "limit": 10000,
+    "attempts_used": 49,
+    "remaining": 9951,
+    "authorized_at_utc": "2026-09-20T17:21:22Z",
+    "historical_attempts_preserved": 49,
+    "historical_ledger_prefix_unchanged": true
+  },
+  "hashes": {
+    "production_v4/runtime_representation_v6.py": "9a88bbb6c5166e897cf4e05b3e1fd77b2a9baf864800ef7617c82210379bc37c",
+    "production_v4/representation_inputs.py": "ed7a3c320944626adcec65e24931e76e5dc78713bf05afe29d6aae69ab3e55dd",
+    "production_v4/authorized_budget.py": "c875084310d5dad9e476a895b0a584295a340538da8c4c3174e2fbc9b699966e",
+    "production_v4/runtime_advisor_v5.py": "fd11ff0691c1cd6f49289d5faaf2bb82ebf809697bbc70f36775deee9d13f203",
+    "practical_v2/bounded_client.py": "7697af2e3690f4b4f1233b6b9bcd9e20a00b701828faf2f8ea77c92d069ae999",
+    "practical_v2/scale_benchmark.py": "0ae292c94133c41ca002f0bba08eb7715aa07ca4447a9478f61870ad0f7f11fe",
+    "production_v4/RuntimeCandidateAdviceExtension.scala": "8a0f82e0fcd1cbd71b82fb70b80c27beb118f4d4aae1916f7639e62f78272109"
+  },
+  "jar_sha256": "8490a1435852755a8fae10d82735cca7c3cd2666fce1dc909b1ea44352395898",
+  "policy": "NATIVE/BROADCAST/ABSTAIN; raw validated choice within 1.8s response gate; no confidence tuning; errors/late/invalid fall back to unmodified native",
+  "baseline": "TUNED_AQE uses 32MiB adaptive-only broadcast threshold, identical to fixed-rule bound; default auto broadcast stays 10MiB; all other settings identical",
+  "measurement": "Whole SQL, initial-plan capture, query stages, candidate building, callback/model wall time, and result collection are timed together. Oracle and final logging excluded equally.",
+  "feature_ablation": "Identical question and option descriptions; COMPACT replaces complete join plan text and ordered partition arrays with verified join semantics and numerical summaries. This loses information; not a pure lossless encoding comparison.",
+  "limits": "Three repetitions in each of three new snapshots from same LEFT-join family; warmed shared JVM, uncontrolled OS/GC, first model call pays connection setup, server caching unknown; do not call this a production or unseen-family benchmark."
+}
