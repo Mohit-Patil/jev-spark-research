@@ -1,0 +1,8 @@
+{
+  "limit": 10000,
+  "attempts_used": 49,
+  "remaining": 9951,
+  "authorized_at_utc": "2026-09-20T17:21:22Z",
+  "historical_attempts_preserved": 49,
+  "historical_ledger_prefix_unchanged": true
+}

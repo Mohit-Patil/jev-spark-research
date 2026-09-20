@@ -1,0 +1,9 @@
+{
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "live_api_attempts": 0,
+  "real_budget_before": 49,
+  "real_budget_after": 49
+}

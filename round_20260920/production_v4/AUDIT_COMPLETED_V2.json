@@ -1,0 +1,100 @@
+{
+  "status": "succeeded",
+  "audit_unix": 1789925226.864705,
+  "scope": "production_v4 experiments only; inherited practical_v2 excluded",
+  "invariants_checked": 448,
+  "all_checks_passed": true,
+  "batches": [
+    {
+      "batch": "runtime_dev_v1",
+      "runs": 56,
+      "measured": 40,
+      "applications": 14,
+      "all_results_recomputed_correct": true,
+      "raw_sha256": "5ece2673c6a91381fc2820ca729993d586e2670ebe033b56b92e0301effa1430",
+      "completion_sha256": "eb2e64b04626ca291c9742d16e7fbdce6957a74678baac233fee99e0e29bcda7"
+    },
+    {
+      "batch": "runtime_holdout_v1",
+      "runs": 56,
+      "measured": 40,
+      "applications": 14,
+      "all_results_recomputed_correct": true,
+      "raw_sha256": "d8ef75898e6fb9c80c2c556a8b43ca989709516dce30ff2d2f4064503d26e2de",
+      "completion_sha256": "d0dab2394955b8bfb68d0e694ad7a9d120216d41ba8d1f36857c7f4066dc9a84"
+    },
+    {
+      "batch": "runtime_jev_v5",
+      "runs": 22,
+      "measured": 16,
+      "applications": 6,
+      "real_jev_applications": 1,
+      "fake_callback_applications": 1,
+      "all_results_recomputed_correct": true,
+      "raw_sha256": "fd11f3f06b65b7a74182348a48789c9b6a64b1c372e86694e1924edfc15d6639",
+      "completion_sha256": "74ff19fb006d903bc4dbf7eaab396ce1e981f277073c1fb3ac8d7ef18043a784"
+    },
+    {
+      "batch": "build_smoke_v2",
+      "runs": 3,
+      "measured": 0,
+      "applications": 1,
+      "all_results_recomputed_correct": true,
+      "completion_sha256": "92935e2572b234bf9ea9ffa680b36d2296a3de6e6e2f26192618c859cf954d50"
+    }
+  ],
+  "new_executions_total": 137,
+  "comparative_measurements": 96,
+  "actual_extension_applications_total": 35,
+  "jev_directed_applications": 1,
+  "live_decisions": {
+    "jev5_jev_skew18m_0_JEV": {
+      "attempt": 46,
+      "choice": "ABSTAIN",
+      "confidence": 0.24,
+      "http_latency_s": 1.3290982500184327,
+      "query_s": 5.2433370830258355,
+      "applied": false
+    },
+    "jev5_jev_skew18m_1_JEV": {
+      "attempt": 47,
+      "choice": "ABSTAIN",
+      "confidence": 0.23,
+      "http_latency_s": 0.34839524992275983,
+      "query_s": 4.2772644580109045,
+      "applied": false
+    },
+    "jev5_jev_uniform18m_0_JEV": {
+      "attempt": 48,
+      "choice": "ABSTAIN",
+      "confidence": 0.3,
+      "http_latency_s": 0.7220493339700624,
+      "query_s": 3.338884499971755,
+      "applied": false
+    },
+    "jev5_jev_uniform18m_1_JEV": {
+      "attempt": 49,
+      "choice": "BROADCAST",
+      "confidence": 0.21,
+      "http_latency_s": 0.33577679202426225,
+      "query_s": 2.4627527500269935,
+      "applied": true
+    }
+  },
+  "worst_single_jev_regression": {
+    "run_id": "jev5_jev_skew18m_0_JEV",
+    "ratio": 1.3545241509076453,
+    "extra_seconds": 1.372356207924895
+  },
+  "new_api_attempts_in_this_continuation": 4,
+  "api_attempts_consumed_by_audit": 0,
+  "global_budget_used": 49,
+  "global_limit": 10000,
+  "global_remaining": 9951,
+  "limits": [
+    "same-host local[2] synthetic data only",
+    "no statistically powered Jev decision-quality result",
+    "no isolated remaining-time counterfactual from this audit",
+    "multi-process follow-on blocked before execution; no bypass attempted"
+  ]
+}
