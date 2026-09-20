@@ -1,0 +1,69 @@
+{
+  "candidates": {
+    "NATIVE": {
+      "initial_plan": "HashAggregate(keys=[bucket#1654L], functions=[count(1), sum((v#1653L * w#1657L)), sum(k#1652L)], output=[bucket#1654L, cnt#1658L, total#1659L, key_sum#1660L])\n+- Exchange hashpartitioning(bucket#1654L, 8), ENSURE_REQUIREMENTS, [plan_id=11688]\n   +- HashAggregate(keys=[bucket#1654L], functions=[partial_count(1), partial_sum((v#1653L * w#1657L)), partial_sum(k#1652L)], output=[bucket#1654L, count#1667L, sum#1668L, sum#1669L])\n      +- Project [k#1652L, v#1653L, bucket#1654L, w#1657L]\n         +- SortMergeJoin [k#1652L], [k#1656L], Inner\n            :- Sort [k#1652L ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(k#1652L, 8), ENSURE_REQUIREMENTS, [plan_id=11680]\n            :     +- Project [CASE WHEN ((id#1651L % 10) < 8) THEN 0 ELSE (((id#1651L * 97) + 313) % 2000000) END AS k#1652L, (((id#1651L * 13) + 313) % 997) AS v#1653L, (id#1651L % 7) AS bucket#1654L]\n            :        +- Filter (CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE (((((((id#1651L * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END AND CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE isnotnull((((id#1651L * 97) + 313) % 2000000)) END)\n            :           +- Range (0, 1200000, step=1, splits=2)\n            +- Sort [k#1656L ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(k#1656L, 8), ENSURE_REQUIREMENTS, [plan_id=11681]\n                  +- Project [id#1655L AS k#1656L, (((id#1655L * 7) + 313) % 101) AS w#1657L]\n                     +- Filter ((((id#1655L * 17) + 313) % 1000) < 500)\n                        +- Range (0, 2000000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !SortMergeJoin [none#_], [none#_], Inner\n            :- Sort [none#_ ASC NULLS FIRST], false, 0\n            :  +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :     +- Project [CASE WHEN ((none#_ % 10) < 8) THEN 0 ELSE (((none#_ * 97) + 313) % 2000000) END AS #_, (((none#_ * 13) + 313) % 997) AS #_, (none#_ % 7) AS #_]\n            :        +- Filter (CASE WHEN ((none#_ % 10) < 8) THEN true ELSE isnotnull((((none#_ * 97) + 313) % 2000000)) END AND CASE WHEN ((none#_ % 10) < 8) THEN true ELSE (((((((none#_ * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END)\n            :           +- Range (0, 1200000, step=1, splits=2)\n            +- Sort [none#_ ASC NULLS FIRST], false, 0\n               +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n                  +- Project [none#_ AS #_, (((none#_ * 7) + 313) % 101) AS #_]\n                     +- Filter ((((none#_ * 17) + 313) % 1000) < 500)\n                        +- Range (0, 2000000, step=1, splits=2)\n",
+      "fingerprint": "6f2140ac97b139105a318c34482898c318396e77fc6e9dbc3e3039a439277794",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=349.2 TiB)"
+    },
+    "BROADCAST": {
+      "initial_plan": "HashAggregate(keys=[bucket#1654L], functions=[count(1), sum((v#1653L * w#1657L)), sum(k#1652L)], output=[bucket#1654L, cnt#1676L, total#1677L, key_sum#1678L])\n+- Exchange hashpartitioning(bucket#1654L, 8), ENSURE_REQUIREMENTS, [plan_id=11762]\n   +- HashAggregate(keys=[bucket#1654L], functions=[partial_count(1), partial_sum((v#1653L * w#1657L)), partial_sum(k#1652L)], output=[bucket#1654L, count#1685L, sum#1686L, sum#1687L])\n      +- Project [k#1652L, v#1653L, bucket#1654L, w#1657L]\n         +- BroadcastHashJoin [k#1652L], [k#1656L], Inner, BuildRight, false\n            :- Project [CASE WHEN ((id#1651L % 10) < 8) THEN 0 ELSE (((id#1651L * 97) + 313) % 2000000) END AS k#1652L, (((id#1651L * 13) + 313) % 997) AS v#1653L, (id#1651L % 7) AS bucket#1654L]\n            :  +- Filter (CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE (((((((id#1651L * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END AND CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE isnotnull((((id#1651L * 97) + 313) % 2000000)) END)\n            :     +- Range (0, 1200000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=11757]\n               +- Project [id#1655L AS k#1656L, (((id#1655L * 7) + 313) % 101) AS w#1657L]\n                  +- Filter ((((id#1655L * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !BroadcastHashJoin [none#_], [none#_], Inner, BuildRight, false\n            :- Project [CASE WHEN ((none#_ % 10) < 8) THEN 0 ELSE (((none#_ * 97) + 313) % 2000000) END AS #_, (((none#_ * 13) + 313) % 997) AS #_, (none#_ % 7) AS #_]\n            :  +- Filter (CASE WHEN ((none#_ % 10) < 8) THEN true ELSE isnotnull((((none#_ * 97) + 313) % 2000000)) END AND CASE WHEN ((none#_ % 10) < 8) THEN true ELSE (((((((none#_ * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END)\n            :     +- Range (0, 1200000, step=1, splits=2)\n            +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, bigint, false]),false), [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 313) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+      "fingerprint": "6ef693adfc5494076165343b00ec749a14a5d489dc3154b691b7d0bb89713809",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=349.2 TiB)"
+    },
+    "SHUFFLE_HASH": {
+      "initial_plan": "HashAggregate(keys=[bucket#1654L], functions=[count(1), sum((v#1653L * w#1657L)), sum(k#1652L)], output=[bucket#1654L, cnt#1712L, total#1713L, key_sum#1714L])\n+- Exchange hashpartitioning(bucket#1654L, 8), ENSURE_REQUIREMENTS, [plan_id=11909]\n   +- HashAggregate(keys=[bucket#1654L], functions=[partial_count(1), partial_sum((v#1653L * w#1657L)), partial_sum(k#1652L)], output=[bucket#1654L, count#1721L, sum#1722L, sum#1723L])\n      +- Project [k#1652L, v#1653L, bucket#1654L, w#1657L]\n         +- ShuffledHashJoin [k#1652L], [k#1656L], Inner, BuildRight\n            :- Exchange hashpartitioning(k#1652L, 8), ENSURE_REQUIREMENTS, [plan_id=11903]\n            :  +- Project [CASE WHEN ((id#1651L % 10) < 8) THEN 0 ELSE (((id#1651L * 97) + 313) % 2000000) END AS k#1652L, (((id#1651L * 13) + 313) % 997) AS v#1653L, (id#1651L % 7) AS bucket#1654L]\n            :     +- Filter (CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE (((((((id#1651L * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END AND CASE WHEN ((id#1651L % 10) < 8) THEN true ELSE isnotnull((((id#1651L * 97) + 313) % 2000000)) END)\n            :        +- Range (0, 1200000, step=1, splits=2)\n            +- Exchange hashpartitioning(k#1656L, 8), ENSURE_REQUIREMENTS, [plan_id=11904]\n               +- Project [id#1655L AS k#1656L, (((id#1655L * 7) + 313) % 101) AS w#1657L]\n                  +- Filter ((((id#1655L * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+      "canonical_plan": "HashAggregate(keys=[none#_], functions=[count(1), sum((none#_ * none#_)), sum(none#_)], output=[none#_, #_, #_, #_])\n+- !Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n   +- HashAggregate(keys=[none#_], functions=[partial_count(1), partial_sum((none#_ * none#_)), partial_sum(none#_)], output=[none#_, none#_, none#_, none#_])\n      +- !Project [none#_, none#_, none#_, none#_]\n         +- !ShuffledHashJoin [none#_], [none#_], Inner, BuildRight\n            :- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n            :  +- Project [CASE WHEN ((none#_ % 10) < 8) THEN 0 ELSE (((none#_ * 97) + 313) % 2000000) END AS #_, (((none#_ * 13) + 313) % 997) AS #_, (none#_ % 7) AS #_]\n            :     +- Filter (CASE WHEN ((none#_ % 10) < 8) THEN true ELSE isnotnull((((none#_ * 97) + 313) % 2000000)) END AND CASE WHEN ((none#_ % 10) < 8) THEN true ELSE (((((((none#_ * 97) + 313) % 2000000) * 17) + 313) % 1000) < 500) END)\n            :        +- Range (0, 1200000, step=1, splits=2)\n            +- Exchange hashpartitioning(none#_, 8), ENSURE_REQUIREMENTS, [plan_id=_]\n               +- Project [none#_ AS #_, (((none#_ * 7) + 313) % 101) AS #_]\n                  +- Filter ((((none#_ * 17) + 313) % 1000) < 500)\n                     +- Range (0, 2000000, step=1, splits=2)\n",
+      "fingerprint": "a102ef6d65ba6357a51da3f099e8d16ef7bdcd4abb863fa3669f0fb0d0cd377f",
+      "logical_statistics_estimate": "Statistics(sizeInBytes=349.2 TiB)"
+    }
+  },
+  "aliases": {
+    "MERGE": "NATIVE"
+  },
+  "expected_result": [
+    [
+      0,
+      154287,
+      1110787253,
+      17098477161
+    ],
+    [
+      1,
+      154287,
+      1109632011,
+      17093091507
+    ],
+    [
+      2,
+      154288,
+      1109640901,
+      17096105972
+    ],
+    [
+      3,
+      154286,
+      1109807746,
+      17090735503
+    ],
+    [
+      4,
+      154284,
+      1109795586,
+      17093158571
+    ],
+    [
+      5,
+      154284,
+      1110215518,
+      17098029266
+    ],
+    [
+      6,
+      154284,
+      1109111986,
+      17102902020
+    ]
+  ]
+}

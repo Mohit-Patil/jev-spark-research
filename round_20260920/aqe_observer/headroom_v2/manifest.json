@@ -1,0 +1,56 @@
+{
+  "phase": "development screening, no heldout evaluation",
+  "cases": [
+    {
+      "name": "selective_1pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 10,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "selective_10pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "selective_50pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "skew80_50pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 313
+    }
+  ],
+  "seed": 1843,
+  "warmup_rounds": 2,
+  "measured_rounds": 5,
+  "cache": "same warmed JVM; uncached generated Range inputs; no persist; OS/JIT caches uncontrolled",
+  "timing": "SQL creation + plan capture + collect; final-plan capture excluded; no advisor or candidate-enumeration overhead included",
+  "sha256": {
+    "headroom_v2.py": "2066f088451147e8787aac70681a8def02490517e05ec4af140fe25f5d0ae27c",
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  },
+  "comparison": "whole-query legal join hints, not AQE interventions",
+  "budget_before": 13,
+  "spark_version": "4.0.1",
+  "config": {
+    "spark.sql.adaptive.enabled": "true",
+    "spark.sql.shuffle.partitions": "8",
+    "spark.sql.autoBroadcastJoinThreshold": "10485760b",
+    "spark.sql.adaptive.skewJoin.enabled": "true",
+    "spark.sql.adaptive.forceOptimizeSkewedJoin": "false"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "status": "succeeded",
+  "runs": 36,
+  "measured_runs": 28,
+  "boundary_pairs": 63,
+  "metrics": {
+    "calls": 126,
+    "pairs": 63,
+    "errors": 0,
+    "unmatched": 0,
+    "dropped": 0,
+    "observer_nanos": 52165673
+  },
+  "summaries": [
+    {
+      "case": "observer_selective",
+      "modes": {
+        "control": {
+          "median_to_result_s": 0.1271288339048624,
+          "median_instrumentation_self_s": 0.0,
+          "all_correct": true,
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        },
+        "observer": {
+          "median_to_result_s": 0.12710495805367827,
+          "median_instrumentation_self_s": 0.002372294,
+          "all_correct": true,
+          "final_joins": [
+            "BroadcastHashJoin"
+          ]
+        }
+      },
+      "median_paired_observer_minus_control_s": 0.0014864580007269979
+    },
+    {
+      "case": "observer_skew",
+      "modes": {
+        "control": {
+          "median_to_result_s": 0.24665562505833805,
+          "median_instrumentation_self_s": 0.0,
+          "all_correct": true,
+          "final_joins": [
+            "SortMergeJoin"
+          ]
+        },
+        "observer": {
+          "median_to_result_s": 0.2443797499872744,
+          "median_instrumentation_self_s": 0.001413002,
+          "all_correct": true,
+          "final_joins": [
+            "SortMergeJoin"
+          ]
+        }
+      },
+      "median_paired_observer_minus_control_s": 0.0013868329115211964
+    }
+  ],
+  "all_native_predicates_verified": true,
+  "caveat": "observer self-time measured directly; paired end-to-end differences also include normal JVM/GC/scheduling variability",
+  "new_jev_calls": 0,
+  "budget_used": 13
+}

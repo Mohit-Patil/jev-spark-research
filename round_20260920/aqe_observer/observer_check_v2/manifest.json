@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "name": "observer_selective",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "observer_skew",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 313
+    }
+  ],
+  "warmups": 2,
+  "repetitions": 7,
+  "randomization_seed": 1845,
+  "cache": "uncached Range input, warmed shared JVM",
+  "phase": "observer correctness/overhead diagnostics, not policy-performance evaluation",
+  "api_calls": 0,
+  "interventions": 0,
+  "observer_build": {
+    "status": "succeeded",
+    "spark_version": "4.0.1",
+    "source_sha256": "d482cf6005dde7bb76c8ad8ae5382fe13fed6f64d2a823d844ad13033a92973c",
+    "jar_sha256": "d7e582e502951fa2d1f8cf65cf29705e9191201a82de5b2ffd058b653093fb53"
+  }
+}

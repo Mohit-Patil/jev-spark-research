@@ -1,0 +1,126 @@
+{
+  "case": {
+    "name": "large_filtered_development",
+    "n": 1200000,
+    "m": 2000000,
+    "keep": 10,
+    "skew": false,
+    "seed": 31
+  },
+  "split": "additional_development_not_holdout",
+  "unique_initial_plans": 3,
+  "aliases": {
+    "MERGE": "NATIVE"
+  },
+  "candidate_statistics": {
+    "NATIVE": {
+      "n": 7,
+      "median_s": 0.07108816702384502,
+      "min_s": 0.05938570899888873,
+      "max_s": 0.07733645802363753,
+      "initial_operators": [
+        "SortMergeJoin"
+      ],
+      "final_operators": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "BROADCAST": {
+      "n": 7,
+      "median_s": 0.05453187506645918,
+      "min_s": 0.05301812500692904,
+      "max_s": 0.060699000023305416,
+      "initial_operators": [
+        "BroadcastHashJoin"
+      ],
+      "final_operators": [
+        "BroadcastHashJoin"
+      ]
+    },
+    "SHUFFLE_HASH": {
+      "n": 7,
+      "median_s": 0.06415987492073327,
+      "min_s": 0.057779875001870096,
+      "max_s": 0.07242529198992997,
+      "initial_operators": [
+        "ShuffledHashJoin"
+      ],
+      "final_operators": [
+        "ShuffledHashJoin"
+      ]
+    }
+  },
+  "preparation_s": 0.19317633390892297,
+  "feature_compute_s": 0.08020587498322129,
+  "model_decisions": {
+    "PLANS": {
+      "attempt": 12,
+      "purpose": "expanded_dev_plans",
+      "request_bytes": 4700,
+      "request_sha256": "0df06268c164b112596fdee100323a683e59d684a44b174d725328df2fd8fa65",
+      "secret_permissions_warning": true,
+      "http_status": 200,
+      "model": "jev-1.13.0",
+      "choice": "ABSTAIN",
+      "confidence": 0.3,
+      "probabilities": {
+        "ABSTAIN": 0.47,
+        "NATIVE": 0.21,
+        "SHUFFLE_HASH": 0.01,
+        "BROADCAST": 0.31
+      },
+      "usage": {
+        "input_tokens": 2208,
+        "output_tokens": 56
+      },
+      "status": "succeeded",
+      "latency_s": 1.0463581250514835,
+      "completed_unix": 1789920331.4528902,
+      "decision_wall_s": 1.0478714579949155
+    },
+    "STATS": {
+      "attempt": 13,
+      "purpose": "expanded_dev_stats",
+      "request_bytes": 5189,
+      "request_sha256": "886819362f41b8d41dad82ae57f8b5cef3c4a503f792dfbb7974a222f3e17309",
+      "secret_permissions_warning": true,
+      "http_status": 200,
+      "model": "jev-1.13.0",
+      "choice": "BROADCAST",
+      "confidence": 0.49,
+      "probabilities": {
+        "BROADCAST": 0.62,
+        "NATIVE": 0.12,
+        "SHUFFLE_HASH": 0.01,
+        "ABSTAIN": 0.25
+      },
+      "usage": {
+        "input_tokens": 2368,
+        "output_tokens": 56
+      },
+      "status": "succeeded",
+      "latency_s": 1.7611370410304517,
+      "completed_unix": 1789920333.2166479,
+      "decision_wall_s": 1.7635841249721125
+    }
+  },
+  "all_results_correct": true,
+  "api_attempts_cumulative": 13,
+  "policy_unchanged": "NATIVE",
+  "offline_estimates": {
+    "PLANS": {
+      "selected": "NATIVE",
+      "selected_execution_median_s": 0.07108816702384502,
+      "estimated_total_s": 1.3121359589276835,
+      "estimated_ratio_to_native": 18.457867375980527,
+      "NOT_end_to_end_measurement": true
+    },
+    "STATS": {
+      "selected": "BROADCAST",
+      "selected_execution_median_s": 0.05453187506645918,
+      "estimated_total_s": 2.091498208930716,
+      "estimated_ratio_to_native": 29.42118634496747,
+      "NOT_end_to_end_measurement": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "jar",
+    "--create",
+    "--file",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer_v1/native-boundary-observer.jar",
+    "-C",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer_v1/classes",
+    "."
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

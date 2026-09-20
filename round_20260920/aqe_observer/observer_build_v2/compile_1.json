@@ -1,0 +1,14 @@
+{
+  "command": [
+    "jar",
+    "--create",
+    "--file",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/observer_build_v2/observer.jar",
+    "-C",
+    "/Users/mohitpatil/JevResearch/round_20260920/aqe_observer/observer_build_v2/classes",
+    "."
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

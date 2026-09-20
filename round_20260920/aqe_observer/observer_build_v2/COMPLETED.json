@@ -1,0 +1,6 @@
+{
+  "status": "succeeded",
+  "spark_version": "4.0.1",
+  "source_sha256": "d482cf6005dde7bb76c8ad8ae5382fe13fed6f64d2a823d844ad13033a92973c",
+  "jar_sha256": "d7e582e502951fa2d1f8cf65cf29705e9191201a82de5b2ffd058b653093fb53"
+}

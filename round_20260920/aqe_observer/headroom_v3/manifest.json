@@ -1,0 +1,57 @@
+{
+  "kind": "corrected_development_screen",
+  "cases": [
+    {
+      "name": "selective_1pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 10,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "selective_10pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 100,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "selective_50pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": false,
+      "seed": 313
+    },
+    {
+      "name": "skew80_50pct",
+      "n": 1200000,
+      "m": 2000000,
+      "keep": 500,
+      "skew": true,
+      "seed": 313
+    }
+  ],
+  "seed": 1844,
+  "warmups": 2,
+  "repetitions": 7,
+  "candidate_policy": "retain NATIVE, BROADCAST, MERGE and SHUFFLE_HASH even when initial plans collide; hints affect future AQE replanning",
+  "cache": "uncached Range inputs, shared warmed JVM, OS/JIT caches uncontrolled",
+  "aqe_interventions": 0,
+  "api_calls": 0,
+  "timing": "SQL construction plus plan capture plus collect; excludes candidate enumeration and final-plan logging",
+  "source_sha256": {
+    "headroom_v3.py": "96718e507fe42026777b5f3835423220ef6db8411cf2c12c3b830b9557c79a78",
+    "headroom_v2.py": "2066f088451147e8787aac70681a8def02490517e05ec4af140fe25f5d0ae27c",
+    "baseline.py": "c696ea0106e6aebadbabd0acd2163fec46bdb4f332161d5087304b029f653e06"
+  },
+  "spark_version": "4.0.1",
+  "configuration": {
+    "spark.sql.adaptive.enabled": "true",
+    "spark.sql.autoBroadcastJoinThreshold": "10485760b",
+    "spark.sql.shuffle.partitions": "8",
+    "spark.sql.adaptive.skewJoin.enabled": "true"
+  }
+}

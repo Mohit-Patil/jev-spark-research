@@ -1,0 +1,230 @@
+[
+  {
+    "case": "selective_1pct",
+    "initial_plan_collisions": [
+      [
+        "NATIVE",
+        "MERGE"
+      ]
+    ],
+    "strategies": {
+      "NATIVE": {
+        "n": 7,
+        "median_s": 0.08379737508948892,
+        "min_s": 0.06035616702865809,
+        "max_s": 0.12366320798173547,
+        "wins_vs_native_same_round": 0,
+        "median_paired_saving_s": 0.0,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "BROADCAST": {
+        "n": 7,
+        "median_s": 0.06988295901101083,
+        "min_s": 0.04747649992350489,
+        "max_s": 0.08641179103869945,
+        "wins_vs_native_same_round": 6,
+        "median_paired_saving_s": 0.017101958044804633,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 7,
+        "median_s": 0.07788708398584276,
+        "min_s": 0.059029625030234456,
+        "max_s": 0.09580816701054573,
+        "wins_vs_native_same_round": 5,
+        "median_paired_saving_s": 0.005910291103646159,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 7,
+        "median_s": 0.0607716660015285,
+        "min_s": 0.05717041599564254,
+        "max_s": 0.07234020892065018,
+        "wins_vs_native_same_round": 7,
+        "median_paired_saving_s": 0.02448237407952547,
+        "final_joins": [
+          "ShuffledHashJoin"
+        ]
+      }
+    },
+    "winner": "SHUFFLE_HASH",
+    "native_over_best_median": 1.378888890217051
+  },
+  {
+    "case": "selective_10pct",
+    "initial_plan_collisions": [
+      [
+        "NATIVE",
+        "MERGE"
+      ]
+    ],
+    "strategies": {
+      "NATIVE": {
+        "n": 7,
+        "median_s": 0.15913645911496133,
+        "min_s": 0.10829320806078613,
+        "max_s": 0.3362862500362098,
+        "wins_vs_native_same_round": 0,
+        "median_paired_saving_s": 0.0,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "BROADCAST": {
+        "n": 7,
+        "median_s": 0.0978826250648126,
+        "min_s": 0.08425424993038177,
+        "max_s": 0.24325141694862396,
+        "wins_vs_native_same_round": 6,
+        "median_paired_saving_s": 0.05177608295343816,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 7,
+        "median_s": 0.11106391705106944,
+        "min_s": 0.0822861670749262,
+        "max_s": 0.2382169170305133,
+        "wins_vs_native_same_round": 7,
+        "median_paired_saving_s": 0.04769091692287475,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 7,
+        "median_s": 0.10175391600932926,
+        "min_s": 0.08289970899932086,
+        "max_s": 0.324556541047059,
+        "wins_vs_native_same_round": 7,
+        "median_paired_saving_s": 0.05006895901169628,
+        "final_joins": [
+          "ShuffledHashJoin"
+        ]
+      }
+    },
+    "winner": "BROADCAST",
+    "native_over_best_median": 1.6257886321457944
+  },
+  {
+    "case": "selective_50pct",
+    "initial_plan_collisions": [
+      [
+        "NATIVE",
+        "MERGE"
+      ]
+    ],
+    "strategies": {
+      "NATIVE": {
+        "n": 7,
+        "median_s": 0.19947554101236165,
+        "min_s": 0.19182958302553743,
+        "max_s": 0.35906729206908494,
+        "wins_vs_native_same_round": 0,
+        "median_paired_saving_s": 0.0,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "BROADCAST": {
+        "n": 7,
+        "median_s": 0.2252882500179112,
+        "min_s": 0.215310416999273,
+        "max_s": 0.34608720801770687,
+        "wins_vs_native_same_round": 2,
+        "median_paired_saving_s": -0.025417917175218463,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 7,
+        "median_s": 0.19873091694898903,
+        "min_s": 0.19099124998319894,
+        "max_s": 0.2665569999953732,
+        "wins_vs_native_same_round": 5,
+        "median_paired_saving_s": 0.007613290916197002,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 7,
+        "median_s": 0.2546256249770522,
+        "min_s": 0.221015291986987,
+        "max_s": 0.2917300829431042,
+        "wins_vs_native_same_round": 2,
+        "median_paired_saving_s": -0.029185708961449564,
+        "final_joins": [
+          "ShuffledHashJoin"
+        ]
+      }
+    },
+    "winner": "MERGE",
+    "native_over_best_median": 1.00374689592744
+  },
+  {
+    "case": "skew80_50pct",
+    "initial_plan_collisions": [
+      [
+        "NATIVE",
+        "MERGE"
+      ]
+    ],
+    "strategies": {
+      "NATIVE": {
+        "n": 7,
+        "median_s": 0.25229062500875443,
+        "min_s": 0.24058129207696766,
+        "max_s": 0.2724694999633357,
+        "wins_vs_native_same_round": 0,
+        "median_paired_saving_s": 0.0,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "BROADCAST": {
+        "n": 7,
+        "median_s": 0.2132862500147894,
+        "min_s": 0.20402654202189296,
+        "max_s": 0.22234033304266632,
+        "wins_vs_native_same_round": 7,
+        "median_paired_saving_s": 0.03992016601841897,
+        "final_joins": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "MERGE": {
+        "n": 7,
+        "median_s": 0.25522254197858274,
+        "min_s": 0.24137791595421731,
+        "max_s": 0.3170522499131039,
+        "wins_vs_native_same_round": 3,
+        "median_paired_saving_s": -0.003336958005093038,
+        "final_joins": [
+          "SortMergeJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "n": 7,
+        "median_s": 0.2473204170819372,
+        "min_s": 0.24289204203523695,
+        "max_s": 0.28325479198247194,
+        "wins_vs_native_same_round": 3,
+        "median_paired_saving_s": -0.002310749958269298,
+        "final_joins": [
+          "ShuffledHashJoin"
+        ]
+      }
+    },
+    "winner": "BROADCAST",
+    "native_over_best_median": 1.1828733684954396
+  }
+]

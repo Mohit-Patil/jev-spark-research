@@ -1,0 +1,289 @@
+{
+  "status": "succeeded",
+  "spark_version": "4.0.1",
+  "case": {
+    "name": "aqe_runtime_selective",
+    "n": 1200000,
+    "m": 2000000,
+    "keep": 10,
+    "skew": false,
+    "seed": 19
+  },
+  "release_commit": "29434ea766b0fc3c3bf6eaadb43a8f931133649e",
+  "observer_source_sha256": "736c9f1f0189fc8c65cb2d5920c001c8ac8a64679dfef5d18491c874461db6dc",
+  "pairs_captured": 4,
+  "unmatched_call_sites": 0,
+  "all_results_correct": true,
+  "interventions": 0,
+  "jev_calls": 0,
+  "timing_caveat": "one cold control then one warmed observed query; not an observer-overhead benchmark",
+  "native_broadcast_threshold": "10485760b",
+  "executions": [
+    {
+      "mode": "control",
+      "to_result_s": 0.9787628749618307,
+      "initial_join_operators": [
+        "SortMergeJoin"
+      ],
+      "final_join_operators": [
+        "BroadcastHashJoin"
+      ]
+    },
+    {
+      "mode": "observation_only",
+      "to_result_s": 0.192528959014453,
+      "initial_join_operators": [
+        "SortMergeJoin"
+      ],
+      "final_join_operators": [
+        "BroadcastHashJoin"
+      ]
+    }
+  ],
+  "pair_summaries": [
+    {
+      "native_would_choose": "PROPOSED",
+      "current_stock_cost": "SimpleCost(1)",
+      "proposed_stock_cost": "SimpleCost(1)",
+      "current_stages": [
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 480000,
+          "row_count": 20000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            26307,
+            25054,
+            26307,
+            25054,
+            26307,
+            27560,
+            25054,
+            26307
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 207950,
+          "partition_bytes_max": 27560,
+          "partition_bytes_p50": 26307,
+          "partition_bytes_p95": 27560
+        }
+      ],
+      "proposed_stages": [
+        {
+          "stage_id": 1,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 480000,
+          "row_count": 20000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            26307,
+            25054,
+            26307,
+            25054,
+            26307,
+            27560,
+            25054,
+            26307
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 207950,
+          "partition_bytes_max": 27560,
+          "partition_bytes_p50": 26307,
+          "partition_bytes_p95": 27560
+        }
+      ]
+    },
+    {
+      "native_would_choose": "CURRENT",
+      "current_stock_cost": "SimpleCost(1)",
+      "proposed_stock_cost": "SimpleCost(1)",
+      "current_stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 384000,
+          "row_count": 12000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            22776,
+            22776,
+            23915,
+            21741,
+            22776,
+            22776,
+            21741,
+            22776
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 181277,
+          "partition_bytes_max": 23915,
+          "partition_bytes_p50": 22776,
+          "partition_bytes_p95": 23915
+        }
+      ],
+      "proposed_stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 384000,
+          "row_count": 12000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            22776,
+            22776,
+            23915,
+            21741,
+            22776,
+            22776,
+            21741,
+            22776
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 181277,
+          "partition_bytes_max": 23915,
+          "partition_bytes_p50": 22776,
+          "partition_bytes_p95": 23915
+        }
+      ]
+    },
+    {
+      "native_would_choose": "CURRENT",
+      "current_stock_cost": "SimpleCost(1)",
+      "proposed_stock_cost": "SimpleCost(1)",
+      "current_stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 384000,
+          "row_count": 12000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            22776,
+            22776,
+            23915,
+            21741,
+            22776,
+            22776,
+            21741,
+            22776
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 181277,
+          "partition_bytes_max": 23915,
+          "partition_bytes_p50": 22776,
+          "partition_bytes_p95": 23915
+        },
+        {
+          "stage_id": 2,
+          "node": "BroadcastQueryStage",
+          "materialized": true,
+          "size_in_bytes": 2097152,
+          "row_count": 20000,
+          "is_runtime": true
+        }
+      ],
+      "proposed_stages": [
+        {
+          "stage_id": 0,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 384000,
+          "row_count": 12000,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            22776,
+            22776,
+            23915,
+            21741,
+            22776,
+            22776,
+            21741,
+            22776
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 8,
+          "partition_bytes_total": 181277,
+          "partition_bytes_max": 23915,
+          "partition_bytes_p50": 22776,
+          "partition_bytes_p95": 23915
+        },
+        {
+          "stage_id": 2,
+          "node": "BroadcastQueryStage",
+          "materialized": true,
+          "size_in_bytes": 2097152,
+          "row_count": 20000,
+          "is_runtime": true
+        }
+      ]
+    },
+    {
+      "native_would_choose": "CURRENT",
+      "current_stock_cost": "SimpleCost(0)",
+      "proposed_stock_cost": "SimpleCost(0)",
+      "current_stages": [
+        {
+          "stage_id": 3,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 280,
+          "row_count": 7,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            80,
+            0,
+            0,
+            80,
+            106,
+            117,
+            0,
+            0
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 4,
+          "partition_bytes_total": 383,
+          "partition_bytes_max": 117,
+          "partition_bytes_p50": 0,
+          "partition_bytes_p95": 117
+        }
+      ],
+      "proposed_stages": [
+        {
+          "stage_id": 3,
+          "node": "ShuffleQueryStage",
+          "materialized": true,
+          "size_in_bytes": 280,
+          "row_count": 7,
+          "is_runtime": true,
+          "shuffle_serialized_partition_bytes": [
+            80,
+            0,
+            0,
+            80,
+            106,
+            117,
+            0,
+            0
+          ],
+          "partition_count": 8,
+          "nonempty_partitions": 4,
+          "partition_bytes_total": 383,
+          "partition_bytes_max": 117,
+          "partition_bytes_p50": 0,
+          "partition_bytes_p95": 117
+        }
+      ]
+    }
+  ]
+}

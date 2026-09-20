@@ -1,0 +1,170 @@
+[
+  {
+    "case": "selective_1pct",
+    "candidate_median_s": {
+      "NATIVE": 0.07035787496715784,
+      "BROADCAST": 0.06032708298880607,
+      "SHUFFLE_HASH": 0.06226449995301664
+    },
+    "aliases": {
+      "MERGE": "NATIVE"
+    },
+    "winner_by_median": "BROADCAST",
+    "native_over_best_median_ratio": 1.1662734460443418,
+    "comparisons": {
+      "NATIVE": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": 0.0,
+        "min_s": 0.06411966704763472,
+        "max_s": 0.08229479193687439,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "BROADCAST": {
+        "wins_vs_native_same_round": 4,
+        "paired_median_saving_s": 0.013126332894898951,
+        "min_s": 0.051934042014181614,
+        "max_s": 0.09780850005336106,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "wins_vs_native_same_round": 4,
+        "paired_median_saving_s": 0.010467707994394004,
+        "min_s": 0.05714237503707409,
+        "max_s": 0.06784270808566362,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  },
+  {
+    "case": "selective_10pct",
+    "candidate_median_s": {
+      "NATIVE": 0.120439708000049,
+      "BROADCAST": 0.08442279091104865,
+      "SHUFFLE_HASH": 0.0867181250359863
+    },
+    "aliases": {
+      "MERGE": "NATIVE"
+    },
+    "winner_by_median": "BROADCAST",
+    "native_over_best_median_ratio": 1.4266255201980855,
+    "comparisons": {
+      "NATIVE": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": 0.0,
+        "min_s": 0.11013545806054026,
+        "max_s": 0.1270397079642862,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "BROADCAST": {
+        "wins_vs_native_same_round": 5,
+        "paired_median_saving_s": 0.03229595790617168,
+        "min_s": 0.08174304105341434,
+        "max_s": 0.08814375009387732,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "wins_vs_native_same_round": 5,
+        "paired_median_saving_s": 0.030414749984629452,
+        "min_s": 0.08446537505369633,
+        "max_s": 0.09002495801541954,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  },
+  {
+    "case": "selective_50pct",
+    "candidate_median_s": {
+      "NATIVE": 0.19710629095789045,
+      "BROADCAST": 0.21220658300444484,
+      "SHUFFLE_HASH": 0.22342458297498524
+    },
+    "aliases": {
+      "MERGE": "NATIVE"
+    },
+    "winner_by_median": "NATIVE",
+    "native_over_best_median_ratio": 1.0,
+    "comparisons": {
+      "NATIVE": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": 0.0,
+        "min_s": 0.19212154194246978,
+        "max_s": 0.20435208291746676,
+        "final_join_operators": [
+          "SortMergeJoin"
+        ]
+      },
+      "BROADCAST": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": -0.014343250077217817,
+        "min_s": 0.20685262500774115,
+        "max_s": 0.2217528340406716,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": -0.02631829201709479,
+        "min_s": 0.2166832499206066,
+        "max_s": 0.2301587089896202,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  },
+  {
+    "case": "skew80_50pct",
+    "candidate_median_s": {
+      "NATIVE": 0.25196683302056044,
+      "BROADCAST": 0.20217362500261515,
+      "SHUFFLE_HASH": 0.23388595902360976
+    },
+    "aliases": {
+      "MERGE": "NATIVE"
+    },
+    "winner_by_median": "BROADCAST",
+    "native_over_best_median_ratio": 1.2462893367881256,
+    "comparisons": {
+      "NATIVE": {
+        "wins_vs_native_same_round": 0,
+        "paired_median_saving_s": 0.0,
+        "min_s": 0.24070629104971886,
+        "max_s": 0.3408678330015391,
+        "final_join_operators": [
+          "SortMergeJoin"
+        ]
+      },
+      "BROADCAST": {
+        "wins_vs_native_same_round": 5,
+        "paired_median_saving_s": 0.052198207937180996,
+        "min_s": 0.19752349995542318,
+        "max_s": 0.20297416707035154,
+        "final_join_operators": [
+          "BroadcastHashJoin"
+        ]
+      },
+      "SHUFFLE_HASH": {
+        "wins_vs_native_same_round": 5,
+        "paired_median_saving_s": 0.015126290963962674,
+        "min_s": 0.22720483294688165,
+        "max_s": 0.24305799999274313,
+        "final_join_operators": [
+          "ShuffledHashJoin"
+        ]
+      }
+    }
+  }
+]
